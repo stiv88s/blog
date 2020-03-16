@@ -50,7 +50,7 @@
 {{--                        <div class="top-right links">--}}
                             @auth
                                 <li class="nav-item">
-                                    <a href="{{ url('/home') }}" class="nav-link">Administration</a>
+                                    <a href="{{ url('admin/home') }}" class="nav-link">Administration</a>
                                 </li>
 
                             @else

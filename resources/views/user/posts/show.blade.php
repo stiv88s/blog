@@ -13,11 +13,6 @@
                 <!-- Title -->
                 <h1 class="mt-4">Post Title</h1>
 
-                <!-- Author -->
-                <p class="lead">
-                    by
-                    <a href="#">Start Bootstrap</a>
-                </p>
 
                 <hr>
 

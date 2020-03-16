@@ -4,7 +4,6 @@
     @stack('css')
     @yield('css')
 @stop
-
 @section('classes_body',
     (config('adminlte.sidebar_mini', true) === true ?
         'sidebar-mini ' :
@@ -126,11 +125,13 @@
             </nav>
         @if(!config('adminlte.layout_topnav') && !View::getSection('layout_topnav'))
         <aside class="main-sidebar {{config('adminlte.classes_sidebar', 'sidebar-dark-primary elevation-4')}}">
+
             @if(config('adminlte.logo_img_xl'))
                 <a href="{{ $dashboard_url }}" class="brand-link logo-switch">
                     <img src="{{ asset(config('adminlte.logo_img', 'vendor/adminlte/dist/img/AdminLTELogo.png')) }}" alt="{{config('adminlte.logo_img_alt', 'AdminLTE')}}" class="{{config('adminlte.logo_img_class', 'brand-image-xl')}} logo-xs">
                     <img src="{{ asset(config('adminlte.logo_img_xl')) }}" alt="{{config('adminlte.logo_img_alt', 'AdminLTE')}}" class="{{config('adminlte.logo_img_xl_class', 'brand-image-xs')}} logo-xl">
                 </a>
+
             @else
                 <a href="{{ $dashboard_url }}" class="brand-link {{ config('adminlte.classes_brand') }}">
                     <img src="{{ asset(config('adminlte.logo_img', 'vendor/adminlte/dist/img/AdminLTELogo.png')) }}" alt="{{config('adminlte.logo_img_alt', 'AdminLTE')}}" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -141,8 +142,14 @@
             @endif
             <div class="sidebar">
                 <nav class="mt-2">
+
                     <ul class="nav nav-pills nav-sidebar flex-column {{config('adminlte.classes_sidebar_nav', '')}}" data-widget="treeview" role="menu" @if(config('adminlte.sidebar_nav_animation_speed') != 300) data-animation-speed="{{config('adminlte.sidebar_nav_animation_speed')}}" @endif @if(!config('adminlte.sidebar_nav_accordion')) data-accordion="false" @endif>
+
+                        <li class="nav-item text-white col-12 text-left">
+                            <a href="" class="nav-link"> Welcome: {{\Auth::user()->name}}</a></li>
                         @each('adminlte::partials.menu-item', $adminlte->menu(), 'item')
+
+
                     </ul>
                 </nav>
             </div>
