@@ -3,12 +3,24 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Model\Post;
+use App\ModelRepository\PostRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
+    protected $postR;
+
+    public function __construct(PostRepository $post)
+    {
+        $this->postR = $post;
+    }
+
     public function index()
     {
-        return view('welcome');
+        $posts = $this->postR->paginate(5);
+
+        return view('welcome', compact('posts'));
     }
 }

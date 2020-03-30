@@ -8,94 +8,165 @@
         <div class="row">
 
             <!-- Post Content Column -->
-            <div class="col-lg-8">
+            <div class="col-lg-8 col-md-8 col-12">
 
                 <!-- Title -->
-                <h1 class="mt-4">Post Title</h1>
+                <h1 class="mt-4">{{$post->title}}</h1>
 
 
                 <hr>
 
                 <!-- Date/Time -->
-                <p>Posted on January 1, 2019 at 12:00 PM</p>
+                <p class="post-meta">Posted by {{$post->user->name}} on {{ $post->created_at->format('F d, Y')}}</p>
 
                 <hr>
 
                 <!-- Preview Image -->
-                <img class="img-fluid rounded" src="{{asset('img/childs.jpg')}}" alt="">
+                @if($post->header_image)
+                <img class="img-fluid rounded" src="{{asset($post->header_image)}}" alt="images">
+
+                @endif
 
                 <hr>
+
+                    {!!$post->body!!}
 
                 <!-- Post Content -->
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
+             {!!$post->body!!}
+                <hr>
+                <h2 class="text-center mb-2">
+                    What do you think?
+                </h2>
+                <hr>
+                 @guest
+                        <div class="col-12">
+                            <p>Please <span> <a href="{{ route('login') }}">Login</a> </span> to leave your Vote</p>
+                        </div>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
+                 @endguest
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
+{{--                    <div class="row" id="app">--}}
+                <div id="app">
 
-                <blockquote class="blockquote">
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <footer class="blockquote-footer">Someone famous in
-                        <cite title="Source Title">Source Title</cite>
-                    </footer>
-                </blockquote>
+                <post-comment-component
+                    :isliked="{{json_encode($post->isLiked())}}"
+                    :isdisliked="{{json_encode($post->isDisLiked())}}"
+                    auth="{{\Illuminate\Support\Facades\Auth::user() ? true:false}}"
+                    post="{{\App\Model\Post::class}}"
+                    :likescount="{{$post->likesCount}}"
+                    :dislikescount="{{$post->dislikesCount}}"
+                    postid="{{$post->id}}">
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
+                </post-comment-component>
+{{--                        <div class="col-6 d-inline-block text-right">--}}
+{{--                            <a href="{{route('like.post',[$post,\App\Model\Post::class])}}"><img src="{{asset('siteImages/like1.png')}}" alt="like image" width="40px" height="40px"></a>--}}
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
+{{--                            <span class="badge badge-pill">{{$post->likes_count}}</span>--}}
+{{--                        </div>--}}
+
+{{--                        <div class="col-6 d-inline-block text-left">--}}
+{{--                            <a href="">--}}
+{{--                                <img src="{{asset('siteImages/dislike1.png')}}" alt="like image" width="40px" height="40px">--}}
+{{--                            </a>--}}
+
+{{--                            <span class="badge badge-pill">20</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+
 
                 <hr>
+                <h1 class="text-left text-bold">Post Tags</h1>
+
+                @foreach($post->tags as $tag)
+
+                    <p>{{$tag->name}}</p>
+
+                @endforeach
+
 
                 <!-- Comments Form -->
-                <div class="card my-4">
-                    <h5 class="card-header">Leave a Comment:</h5>
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <textarea class="form-control" rows="3"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-                </div>
+{{--                <div class="card my-4">--}}
+{{--                    @auth--}}
+{{--                   <h5 class="card-header">Leave a Comment:</h5>--}}
 
+{{--                    <div class="card-body">--}}
+{{--                        <form action="{{route('store.comment',$post)}}" method="POST">--}}
+{{--                             @csrf--}}
+{{--                            <div class="form-group">--}}
+{{--                                <textarea class="form-control" rows="3" name="body"></textarea>--}}
+{{--                            </div>--}}
+{{--                            <button type="submit" class="btn btn-primary">Submit</button>--}}
+{{--                        </form>--}}
+{{--                    </div> --}}
+{{--                    @endauth--}}
+
+{{--                </div>--}}
+                    @guest
+                        <div class="col-12 p-3">
+                            <p>Please <span> <a href="{{ route('login') }}">Login</a> </span> to leave your comment</p>
+                        </div>
+                    @endguest
+
+                    @auth
+                    <comments-component
+                        :comments="{{json_encode($comments)}}"
+                        postid="{{$post->id}}"
+                        postslug="{{$post->slug}}"
+                    >
+
+                    </comments-component>
+                    @endauth
+{{--                    @foreach($comments as $comment)--}}
+
+{{--                    --}}{{--                    @foreach($post->comments as $comment)--}}
+{{--                    <div class="media mb-4">--}}
+{{--                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">--}}
+{{--                        <div class="media-body">--}}
+{{--                            <h5 class="mt-0">{{$comment->user->name}}</h5>--}}
+{{--                            {{$comment->body}}--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    @endforeach--}}
                 <!-- Single Comment -->
-                <div class="media mb-4">
-                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                    <div class="media-body">
-                        <h5 class="mt-0">Commenter Name</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </div>
+{{--                <div class="media mb-4">--}}
+{{--                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">--}}
+{{--                    <div class="media-body">--}}
+{{--                        <h5 class="mt-0">Commenter Name</h5>--}}
+{{--                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <!-- Comment with nested comments -->
-                <div class="media mb-4">
-                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                    <div class="media-body">
-                        <h5 class="mt-0">Commenter Name</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+{{--                <!-- Comment with nested comments -->--}}
+{{--                <div class="media mb-4">--}}
+{{--                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">--}}
+{{--                    <div class="media-body">--}}
+{{--                        <h5 class="mt-0">Commenter Name</h5>--}}
+{{--                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.--}}
 
-                        <div class="media mt-4">
-                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                            <div class="media-body">
-                                <h5 class="mt-0">Commenter Name</h5>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
+{{--                        <div class="media mt-4">--}}
+{{--                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">--}}
+{{--                            <div class="media-body">--}}
+{{--                                <h5 class="mt-0">Commenter Name</h5>--}}
+{{--                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="media mt-4">
-                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                            <div class="media-body">
-                                <h5 class="mt-0">Commenter Name</h5>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
+{{--                        <div class="media mt-4">--}}
+{{--                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">--}}
+{{--                            <div class="media-body">--}}
+{{--                                <h5 class="mt-0">Commenter Name</h5>--}}
+{{--                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                    </div>
-                </div>
+{{--                    </div>--}}
+{{--                </div>--}}
 
             </div>
 
+
+
+            </div>
             <!-- Sidebar Widgets Column -->
             <div class="col-md-4">
 
@@ -154,10 +225,9 @@
                         You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
                     </div>
                 </div>
-
-            </div>
-
         </div>
+
+{{--            {{$comments->links()}}--}}
         <!-- /.row -->
 
     </div>

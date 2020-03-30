@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Model\Category;
+use App\Model\Post;
 use App\ModelRepository\CategoryRepository;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,7 @@ class CategoryController extends Controller
 
     public function __construct(CategoryRepository $cRepo)
     {
+
         $this->cRepo = $cRepo;
     }
 

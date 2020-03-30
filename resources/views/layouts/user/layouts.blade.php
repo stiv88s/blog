@@ -15,8 +15,8 @@
     <link href="{{asset('user/externalfiles/boottem/vendor/bootstrap/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="{{asset('user/externalfiles/boottem/externalfiles/boottem/css/blog-post.css')}}" rel="stylesheet" type="text/css">
-
+    <link href="{{asset('user/externalfiles/boottem/css/blog-post.css')}}" rel="stylesheet" type="text/css">
+    @routes
 </head>
 
 <body>
@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="{{route('welcome')}}">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -71,10 +71,12 @@
     </div>
 </nav>
 
-<div class="mt-5">
+    <div class="mt-5 col-12">
 
-@yield('content')
-</div>
+        @yield('content')
+    </div>
+
+
 
 <!-- Footer -->
 <footer class="py-5 bg-dark">
@@ -86,7 +88,9 @@
 
 <!-- Bootstrap core JavaScript -->
 <script src="{{asset('/user/externalfiles/boottem/vendor/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('/user/externalfiles/boottem/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+{{--<script src="{{asset('/user/externalfiles/boottem/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>--}}
+<script src="{{asset('js/app.js')}}"></script>
+@stack('custom-scripts')
 
 </body>
 

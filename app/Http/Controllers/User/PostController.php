@@ -3,12 +3,25 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Model\Comment;
+use App\Model\Like;
+use App\Model\Post;
+use App\Model\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function show()
+    public function show(Request $request,Post $post)
     {
-        return view('user.posts.show');
+
+//        dd($post->dislikesCount);
+//dd(Comment::find(1)->with('user')->first()->created_at);
+        $comments = $post->comments()->with('user')->orderBy('created_at','desc')->paginate(5);
+
+
+        if($request->wantsJson()){
+            return $comments;
+        }
+        return view('user.posts.show', compact('post','comments'));
     }
 }

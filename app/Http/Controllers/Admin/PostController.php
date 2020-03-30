@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Model\Category;
 use App\Model\Post;
+use App\Model\Tag;
 use App\ModelRepository\PostRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +21,11 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('admin.posts.create');
+        $post = new Post();
+        $tags = Tag::all()->pluck('name', 'id');
+        $categorys = Category::all()->pluck('name', 'id');
+
+        return view('admin.posts.create', compact('tags', 'categorys', 'post'));
     }
 
     public function index()
@@ -39,7 +45,9 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $tags = Tag::all()->pluck('name', 'id');
+        $categorys = Category::all()->pluck('name', 'id');
+        return view('admin.posts.edit', compact('post', 'tags', 'categorys'));
     }
 
     public function store(CreatePostRequest $request)
@@ -61,11 +69,14 @@ class PostController extends Controller
             $post->attach($request->file('header_image'), ['key' => 'post_header_image']);
         }
 
+        $post->tags()->sync($request->tags);
+        $post->categorys()->sync($request->categorys);
+
         return redirect()->route('post.index');
 
     }
 
-    public function update(Request $request, Post $post)
+    public function update(UpdatePostRequest $request, Post $post)
     {
         $active = $request->input('is_active', 0);
         $post->fill([
@@ -83,13 +94,16 @@ class PostController extends Controller
 
         $post->save();
 
+        $post->tags()->sync($request->tags);
+        $post->categorys()->sync($request->categorys);
+
         return redirect()->route('post.index');
 
     }
 
     public function show(Post $post)
     {
-      return view('admin.posts.show',compact('post'));
+        return view('admin.posts.show', compact('post'));
     }
 //    public function show($uuid){
 //        dd(Posts::where('uuid',$uuid)->first());
@@ -103,8 +117,12 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
+        if ($post->attachment('post_header_image')) {
+
+            $post->attachment('post_header_image')->delete();
+        }
         $post->delete();
 
-        return redirect()->route('post.index');
+//        return redirect()->route('post.index');
     }
 }

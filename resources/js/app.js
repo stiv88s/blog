@@ -7,7 +7,18 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+// window.Ziggy = Ziggy
 
+// import route from '../../vendor/tightenco/ziggy/src/js/route';
+import { Ziggy } from '../assets/js/ziggy.js';
+import route from 'ziggy';
+
+
+Vue.mixin({
+    methods: {
+        route: (name, params, absolute) => route(name, params, absolute, Ziggy),
+    }
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -20,6 +31,12 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('post-comment-component', require('./components/PostCommentComponent.vue').default);
+Vue.component('comments-component', require('./components/CommentsComponent.vue').default);
+// Vue.component('comment-component', require('./components/CommentComponent.vue').default);
+Vue.component('pagination', require('laravel-vue-pagination'));
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,6 +44,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-});
+if (document.getElementById("app")) {
+    const app = new Vue({
+        el: '#app',
+    });
+}
+

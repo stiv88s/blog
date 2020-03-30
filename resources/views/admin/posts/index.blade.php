@@ -21,14 +21,17 @@
             <tbody>
             @foreach($posts as $post)
                 <tr>
+
                     <td>{{$post->id}}</td>
                     <td>{{$post->title}}</td>
                     <td>{{$post->slug}}</td>
                     <td>{{$post->is_active}}</td>
                     <td class="float-left"><a href="{{route('post.show',$post)}}" class="btn btn-success">Show</a></td>
-                    <td class="float-left"><a href="{{route('post.edit',$post->id)}}" class="btn btn-info">Edit</a></td>
+                    <td class="float-left"><a href="{{route('post.edit',$post->id)}}" class="btn btn-info"><i class="fa fa-fw fa-wrench"></i></a></td>
                     <td class="float-left">
-                        <a href="{{route('post.destroy',$post->id)}}" class="btn btn-danger removeCat">Delete</a>
+
+                        <a href="{{route('post.destroy',$post->id)}}" class="btn btn-danger removePost"><i class="fa fa-fw fa-trash"></i></a>
+
                     </td>
                 </tr>
 
@@ -47,7 +50,7 @@
 @push('scripts')
 
     <script>
-        $('.removeCat').on('click', function (e) {
+        $('.removePost').on('click', function (e) {
             e.preventDefault();
             var url = $(this).attr('href');
             $.ajaxSetup({

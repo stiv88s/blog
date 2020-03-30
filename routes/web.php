@@ -12,11 +12,14 @@
 */
 
 
-Auth::routes();
+
 
 Route::group(['namespace' => 'User'], function () {
-    Route::get('/', 'HomeController@index');
-    Route::get('/post', 'PostController@show')->name('showing.post');
+    Route::get('/', 'HomeController@index')->name('welcome');
+    Route::get('/post/{post}-{slug}', 'PostController@show')->name('showing.post');
+    Route::post('/post{post}/comment','CommentController@store')->name('store.comment');
+    Route::post('/post/{post}/like','LikeController@like')->name('like.post');
+    Route::post('/post/{post}/dislike','DisLikeController@dislike')->name('dislike.post');
 
 });
 
@@ -26,9 +29,12 @@ Route::group(['namespace' => 'User'], function () {
 //})->name('showing.post');
 
 
+
+Auth::routes();
 Route::group([
     'prefix' => 'admin',
-    'namespace' =>'Admin'
+    'namespace' =>'Admin',
+    'middleware'=> ['web','auth']
 ], function () {
     Route::get('/home', 'HomeController@index')->name('home');
 

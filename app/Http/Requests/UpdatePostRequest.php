@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class CreatePostRequest extends FormRequest
+class UpdatePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,6 @@ class CreatePostRequest extends FormRequest
      */
     public function rules()
     {
-
         return [
             'is_active'=>['integer', Rule::in([1, 0])],
             'slug'  => 'required|string',

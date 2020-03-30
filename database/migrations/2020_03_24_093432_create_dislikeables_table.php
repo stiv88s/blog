@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CategoryPosts extends Migration
+class CreateDislikeablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CategoryPosts extends Migration
      */
     public function up()
     {
-        Schema::create('category_posts', function (Blueprint $table) {
+        Schema::create('dislikeables', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('category_id');
-            $table->integer('posts_id');
+            $table->integer('user_id');
+            $table->integer('dislikeable_id');
+            $table->string('dislikeable_type');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CategoryPosts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_posts');
+        Schema::dropIfExists('dislikeables');
     }
 }
