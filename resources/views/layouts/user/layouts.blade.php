@@ -46,21 +46,21 @@
                 </li>
 
 {{--                <div class="flex-center position-ref full-height">--}}
-                    @if (Route::has('login'))
+                    @if (Route::has('user.login'))
 {{--                        <div class="top-right links">--}}
                             @auth
                                 <li class="nav-item">
-                                    <a href="{{ url('admin/home') }}" class="nav-link">Administration</a>
+                                    <a href="{{ route('welcome') }}" class="nav-link">Administration</a>
                                 </li>
 
                             @else
                                 <li class="nav-item">
-                                    <a href="{{ route('login') }}" class="nav-link">Login</a>
+                                    <a href="{{ route('user.login') }}" class="nav-link">Login</a>
                                 </li>
 
 
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="nav-link">Register</a>
+                                @if (Route::has('user.register'))
+                                    <a href="{{ route('user.register') }}" class="nav-link">Register</a>
                                 @endif
                             @endauth
 {{--                        </div>--}}

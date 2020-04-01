@@ -13,4 +13,10 @@ class Tag extends Model
     {
         return $this->belongsToMany(Post::class,'post_tags')->withTimestamps();
     }
+
+    public function postActive()
+    {
+
+        return $this->posts()->where('is_active', '=', 1);
+    }
 }

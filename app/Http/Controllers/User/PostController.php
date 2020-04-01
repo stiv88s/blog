@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Model\Category;
 use App\Model\Comment;
 use App\Model\Like;
 use App\Model\Post;
@@ -17,11 +18,13 @@ class PostController extends Controller
 //        dd($post->dislikesCount);
 //dd(Comment::find(1)->with('user')->first()->created_at);
         $comments = $post->comments()->with('user')->orderBy('created_at','desc')->paginate(5);
-
+        $categories = Category::all();
 
         if($request->wantsJson()){
             return $comments;
         }
-        return view('user.posts.show', compact('post','comments'));
+        return view('user.posts.show', compact('post','comments','categories'));
     }
+
+
 }

@@ -23,84 +23,84 @@
 
                 <!-- Preview Image -->
                 @if($post->header_image)
-                <img class="img-fluid rounded" src="{{asset($post->header_image)}}" alt="images">
+                    <img class="img-fluid rounded" src="{{asset($post->header_image)}}" alt="images">
 
                 @endif
 
                 <hr>
 
-                    {!!$post->body!!}
+                {!!$post->body!!}
 
-                <!-- Post Content -->
-             {!!$post->body!!}
+            <!-- Post Content -->
+                {!!$post->body!!}
                 <hr>
                 <h2 class="text-center mb-2">
                     What do you think?
                 </h2>
                 <hr>
-                 @guest
-                        <div class="col-12">
-                            <p>Please <span> <a href="{{ route('login') }}">Login</a> </span> to leave your Vote</p>
-                        </div>
+                @guest
+                    <div class="col-12">
+                        <p>Please <span> <a href="{{ route('login') }}">Login</a> </span> to leave your Vote</p>
+                    </div>
 
-                 @endguest
+                @endguest
 
-{{--                    <div class="row" id="app">--}}
+                {{--                    <div class="row" id="app">--}}
                 <div id="app">
 
-                <post-comment-component
-                    :isliked="{{json_encode($post->isLiked())}}"
-                    :isdisliked="{{json_encode($post->isDisLiked())}}"
-                    auth="{{\Illuminate\Support\Facades\Auth::user() ? true:false}}"
-                    post="{{\App\Model\Post::class}}"
-                    :likescount="{{$post->likesCount}}"
-                    :dislikescount="{{$post->dislikesCount}}"
-                    postid="{{$post->id}}">
+                    <post-comment-component
+                        :isliked="{{json_encode($post->isLiked())}}"
+                        :isdisliked="{{json_encode($post->isDisLiked())}}"
+                        auth="{{\Illuminate\Support\Facades\Auth::user() ? true:false}}"
+                        post="{{\App\Model\Post::class}}"
+                        :likescount="{{$post->likesCount}}"
+                        :dislikescount="{{$post->dislikesCount}}"
+                        postid="{{$post->id}}">
 
-                </post-comment-component>
-{{--                        <div class="col-6 d-inline-block text-right">--}}
-{{--                            <a href="{{route('like.post',[$post,\App\Model\Post::class])}}"><img src="{{asset('siteImages/like1.png')}}" alt="like image" width="40px" height="40px"></a>--}}
+                    </post-comment-component>
+                    {{--                        <div class="col-6 d-inline-block text-right">--}}
+                    {{--                            <a href="{{route('like.post',[$post,\App\Model\Post::class])}}"><img src="{{asset('siteImages/like1.png')}}" alt="like image" width="40px" height="40px"></a>--}}
 
-{{--                            <span class="badge badge-pill">{{$post->likes_count}}</span>--}}
-{{--                        </div>--}}
+                    {{--                            <span class="badge badge-pill">{{$post->likes_count}}</span>--}}
+                    {{--                        </div>--}}
 
-{{--                        <div class="col-6 d-inline-block text-left">--}}
-{{--                            <a href="">--}}
-{{--                                <img src="{{asset('siteImages/dislike1.png')}}" alt="like image" width="40px" height="40px">--}}
-{{--                            </a>--}}
+                    {{--                        <div class="col-6 d-inline-block text-left">--}}
+                    {{--                            <a href="">--}}
+                    {{--                                <img src="{{asset('siteImages/dislike1.png')}}" alt="like image" width="40px" height="40px">--}}
+                    {{--                            </a>--}}
 
-{{--                            <span class="badge badge-pill">20</span>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                    {{--                            <span class="badge badge-pill">20</span>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
 
 
-                <hr>
-                <h1 class="text-left text-bold">Post Tags</h1>
+                    <hr>
+                    <h1 class="text-left text-bold">Post Tags</h1>
 
-                @foreach($post->tags as $tag)
+                    @foreach($post->tags as $tag)
+                        <a href="{{route('show.tags.posts',[$tag,$tag->slug])}}"
+                           class=" btn btn-info">{{$tag->name}}</a>
 
-                    <p>{{$tag->name}}</p>
-
-                @endforeach
+                    @endforeach
 
 
                 <!-- Comments Form -->
-{{--                <div class="card my-4">--}}
-{{--                    @auth--}}
-{{--                   <h5 class="card-header">Leave a Comment:</h5>--}}
+                    {{--                <div class="card my-4">--}}
+                    {{--                    @auth--}}
+                    {{--                   <h5 class="card-header">Leave a Comment:</h5>--}}
 
-{{--                    <div class="card-body">--}}
-{{--                        <form action="{{route('store.comment',$post)}}" method="POST">--}}
-{{--                             @csrf--}}
-{{--                            <div class="form-group">--}}
-{{--                                <textarea class="form-control" rows="3" name="body"></textarea>--}}
-{{--                            </div>--}}
-{{--                            <button type="submit" class="btn btn-primary">Submit</button>--}}
-{{--                        </form>--}}
-{{--                    </div> --}}
-{{--                    @endauth--}}
+                    {{--                    <div class="card-body">--}}
+                    {{--                        <form action="{{route('store.comment',$post)}}" method="POST">--}}
+                    {{--                             @csrf--}}
+                    {{--                            <div class="form-group">--}}
+                    {{--                                <textarea class="form-control" rows="3" name="body"></textarea>--}}
+                    {{--                            </div>--}}
+                    {{--                            <button type="submit" class="btn btn-primary">Submit</button>--}}
+                    {{--                        </form>--}}
+                    {{--                    </div> --}}
+                    {{--                    @endauth--}}
 
-{{--                </div>--}}
+                    {{--                </div>--}}
                     @guest
                         <div class="col-12 p-3">
                             <p>Please <span> <a href="{{ route('login') }}">Login</a> </span> to leave your comment</p>
@@ -108,62 +108,61 @@
                     @endguest
 
                     @auth
-                    <comments-component
-                        :comments="{{json_encode($comments)}}"
-                        postid="{{$post->id}}"
-                        postslug="{{$post->slug}}"
-                    >
+                        <comments-component
+                            :comments="{{json_encode($comments)}}"
+                            postid="{{$post->id}}"
+                            postslug="{{$post->slug}}"
+                        >
 
-                    </comments-component>
+                        </comments-component>
                     @endauth
-{{--                    @foreach($comments as $comment)--}}
+                    {{--                    @foreach($comments as $comment)--}}
 
-{{--                    --}}{{--                    @foreach($post->comments as $comment)--}}
-{{--                    <div class="media mb-4">--}}
-{{--                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">--}}
-{{--                        <div class="media-body">--}}
-{{--                            <h5 class="mt-0">{{$comment->user->name}}</h5>--}}
-{{--                            {{$comment->body}}--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    @endforeach--}}
+                    {{--                    --}}{{--                    @foreach($post->comments as $comment)--}}
+                    {{--                    <div class="media mb-4">--}}
+                    {{--                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">--}}
+                    {{--                        <div class="media-body">--}}
+                    {{--                            <h5 class="mt-0">{{$comment->user->name}}</h5>--}}
+                    {{--                            {{$comment->body}}--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+                    {{--                    @endforeach--}}
                 <!-- Single Comment -->
-{{--                <div class="media mb-4">--}}
-{{--                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">--}}
-{{--                    <div class="media-body">--}}
-{{--                        <h5 class="mt-0">Commenter Name</h5>--}}
-{{--                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                    {{--                <div class="media mb-4">--}}
+                    {{--                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">--}}
+                    {{--                    <div class="media-body">--}}
+                    {{--                        <h5 class="mt-0">Commenter Name</h5>--}}
+                    {{--                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.--}}
+                    {{--                    </div>--}}
+                    {{--                </div>--}}
 
-{{--                <!-- Comment with nested comments -->--}}
-{{--                <div class="media mb-4">--}}
-{{--                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">--}}
-{{--                    <div class="media-body">--}}
-{{--                        <h5 class="mt-0">Commenter Name</h5>--}}
-{{--                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.--}}
+                    {{--                <!-- Comment with nested comments -->--}}
+                    {{--                <div class="media mb-4">--}}
+                    {{--                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">--}}
+                    {{--                    <div class="media-body">--}}
+                    {{--                        <h5 class="mt-0">Commenter Name</h5>--}}
+                    {{--                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.--}}
 
-{{--                        <div class="media mt-4">--}}
-{{--                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">--}}
-{{--                            <div class="media-body">--}}
-{{--                                <h5 class="mt-0">Commenter Name</h5>--}}
-{{--                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                    {{--                        <div class="media mt-4">--}}
+                    {{--                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">--}}
+                    {{--                            <div class="media-body">--}}
+                    {{--                                <h5 class="mt-0">Commenter Name</h5>--}}
+                    {{--                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.--}}
+                    {{--                            </div>--}}
+                    {{--                        </div>--}}
 
-{{--                        <div class="media mt-4">--}}
-{{--                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">--}}
-{{--                            <div class="media-body">--}}
-{{--                                <h5 class="mt-0">Commenter Name</h5>--}}
-{{--                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                    {{--                        <div class="media mt-4">--}}
+                    {{--                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">--}}
+                    {{--                            <div class="media-body">--}}
+                    {{--                                <h5 class="mt-0">Commenter Name</h5>--}}
+                    {{--                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.--}}
+                    {{--                            </div>--}}
+                    {{--                        </div>--}}
 
-{{--                    </div>--}}
-{{--                </div>--}}
+                    {{--                    </div>--}}
+                    {{--                </div>--}}
 
-            </div>
-
+                </div>
 
 
             </div>
@@ -184,53 +183,22 @@
                 </div>
 
                 <!-- Categories Widget -->
-                <div class="card my-4">
-                    <h5 class="card-header">Categories</h5>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li>
-                                        <a href="#">Web Design</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">HTML</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Freebies</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li>
-                                        <a href="#">JavaScript</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">CSS</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Tutorials</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            @include('widgets.categories')
 
-                <!-- Side Widget -->
+            <!-- Side Widget -->
                 <div class="card my-4">
                     <h5 class="card-header">Side Widget</h5>
                     <div class="card-body">
-                        You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+                        You can put anything you want inside of these side widgets. They are easy to use, and feature
+                        the new Bootstrap 4 card containers!
                     </div>
                 </div>
-        </div>
+            </div>
 
-{{--            {{$comments->links()}}--}}
+        {{--            {{$comments->links()}}--}}
         <!-- /.row -->
 
-    </div>
-    <!-- /.container -->
+        </div>
+        <!-- /.container -->
 
 @endsection
