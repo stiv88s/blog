@@ -16,13 +16,14 @@ class HomeController extends Controller
 
     public function __construct(PostRepository $post)
     {
+
         $this->postR = $post;
     }
 
     public function index()
     {
-
         $posts = $this->postR->paginate(5);
+//        dd($this->postR->filter());
         $categories = Category::all();
 
         return view('welcome', compact('posts', 'categories'));

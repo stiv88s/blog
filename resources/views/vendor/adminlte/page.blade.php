@@ -40,8 +40,8 @@
 @section('body_data',
 (config('adminlte.sidebar_scrollbar_theme', 'os-theme-light') != 'os-theme-light' ? 'data-scrollbar-theme=' . config('adminlte.sidebar_scrollbar_theme')  : '') . ' ' . (config('adminlte.sidebar_scrollbar_auto_hide', 'l') != 'l' ? 'data-scrollbar-auto-hide=' . config('adminlte.sidebar_scrollbar_auto_hide')   : ''))
 
-@php( $logout_url = View::getSection('logout_url') ?? config('adminlte.logout_url', 'logout') )
-@php( $dashboard_url = View::getSection('dashboard_url') ?? config('adminlte.dashboard_url', 'home') )
+@php( $logout_url = View::getSection('logout_url') ?? config('adminlte.logout_url', 'admin.logout') )
+@php( $dashboard_url = View::getSection('dashboard_url') ?? config('adminlte.dashboard_url', 'admin/home') )
 
 @if (config('adminlte.use_route_url', false))
     @php( $logout_url = $logout_url ? route($logout_url) : '' )
@@ -133,7 +133,7 @@
                 </a>
 
             @else
-                <a href="{{ route('home')  }}" class="brand-link {{ config('adminlte.classes_brand') }}">
+                <a href="{{ route('admin.home')  }}" class="brand-link {{ config('adminlte.classes_brand') }}">
                     <img src="{{ asset(config('adminlte.logo_img', 'vendor/adminlte/dist/img/AdminLTELogo.png')) }}" alt="{{config('adminlte.logo_img_alt', 'AdminLTE')}}" class="brand-image img-circle elevation-3" style="opacity: .8">
                     <span class="brand-text font-weight-light {{ config('adminlte.classes_brand_text') }}">
                         {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}

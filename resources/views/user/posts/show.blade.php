@@ -40,7 +40,7 @@
                 <hr>
                 @guest
                     <div class="col-12">
-                        <p>Please <span> <a href="{{ route('login') }}">Login</a> </span> to leave your Vote</p>
+                        <p>Please <span> <a href="{{ route('user.login') }}">Login</a> </span> to leave your Vote</p>
                     </div>
 
                 @endguest
@@ -103,7 +103,7 @@
                     {{--                </div>--}}
                     @guest
                         <div class="col-12 p-3">
-                            <p>Please <span> <a href="{{ route('login') }}">Login</a> </span> to leave your comment</p>
+                            <p>Please <span> <a href="{{ route('user.login') }}">Login</a> </span> to leave your comment</p>
                         </div>
                     @endguest
 

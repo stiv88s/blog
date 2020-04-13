@@ -35,6 +35,8 @@ Vue.component('post-comment-component', require('./components/PostCommentCompone
 Vue.component('comments-component', require('./components/CommentsComponent.vue').default);
 // Vue.component('comment-component', require('./components/CommentComponent.vue').default);
 Vue.component('pagination', require('laravel-vue-pagination'));
+Vue.component('reset-password-component', require('./components/ResetPasswordComponent.vue').default);
+
 
 
 

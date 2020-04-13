@@ -1,7 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.admin.layouts')
 
 @section('content')
 <div class="container">
+    <h1>Admin</h1>
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -16,7 +18,7 @@
 
                     {{ __('Before proceeding, please check your email for a verification link.') }}
                     {{ __('If you did not receive the email') }},
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+                    <form class="d-inline" method="POST" action="{{ route('admin.verification.resend') }}">
                         @csrf
                         <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
                     </form>

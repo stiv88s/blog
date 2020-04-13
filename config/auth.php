@@ -46,10 +46,19 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
         'admin' => [
             'driver' => 'session',
             'provider' => 'admin',
         ],
+//        'userall' => [
+//            'driver' => 'session',
+//            'provider' => 'useralls',
+//        ],
+//        'del' => [
+//            'driver' => 'session',
+//            'provider' => 'del',
+//        ],
     ],
 
     /*
@@ -74,15 +83,18 @@ return [
             'driver' => 'eloquent',
             'model' => App\Model\User::class,
         ],
-        'admins' => [
+        'admin' => [
             'driver' => 'eloquent',
             'model' => App\Model\Admin::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+//         'useralls' => [
+//             'driver' => 'eloquent',
+//             'model' => App\Model\User::class,
+//         ],
+//        'del' => [
+//            'driver' => 'eloquent',
+//            'model' => App\Model\User::class,
+//        ],
     ],
 
     /*
@@ -103,6 +115,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'admins' => [
+            'provider' => 'admin',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

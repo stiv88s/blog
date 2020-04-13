@@ -1,7 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.admin.layouts')
 
 @section('content')
 <div class="container">
+    <h1>Admin</h1>
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -14,7 +16,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <form method="POST" action="{{ route('admin.password.email') }}">
                         @csrf
 
                         <div class="form-group row">

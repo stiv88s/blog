@@ -10,13 +10,13 @@
             </div>
         @endif
 
-        <label class="text-feader">Tag</label>
-        {!! Form::text('tag',null,['class'=>'form-control form-group'])!!}
+        <label class="text-feader">Slug</label>
+        {!! Form::text('slug',null,['class'=>'form-control form-group'])!!}
 
 
-        @if($errors->has('tag'))
+        @if($errors->has('slug'))
             <div class="alert alert-danger">
-                {{$errors->first('tag')}}
+                {{$errors->first('slug')}}
             </div>
         @endif
 

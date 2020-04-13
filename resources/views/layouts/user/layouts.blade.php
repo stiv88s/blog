@@ -49,8 +49,22 @@
                     @if (Route::has('user.login'))
 {{--                        <div class="top-right links">--}}
                             @auth
+
                                 <li class="nav-item">
                                     <a href="{{ route('welcome') }}" class="nav-link">Administration</a>
+                                </li>
+                                <li class="nav-item">
+
+                                        <a class="nav-link" href="{{ route('user.logout') }}"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+
                                 </li>
 
                             @else

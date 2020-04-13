@@ -64,14 +64,14 @@ class Handler extends ExceptionHandler
      */
     protected function unauthenticated($request, AuthenticationException $exception)
     {
-        dd('here');
-//        $routeName = 'admin.login';
-//        if (in_array('robot', $exception->guards())) {
-//            $routeName = 'robot.login';
-//        }
-//
-//        return $request->expectsJson()
-//            ? response()->json(['message' => $exception->getMessage()], 401)
-//            : redirect()->guest(route($routeName));
+
+        $routeName = 'user.login';
+        if (in_array('admin', $exception->guards())) {
+            $routeName = 'admin.login';
+        }
+
+        return $request->expectsJson()
+            ? response()->json(['message' => $exception->getMessage()], 401)
+            : redirect()->guest(route($routeName));
     }
 }

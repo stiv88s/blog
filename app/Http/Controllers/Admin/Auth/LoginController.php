@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User\Auth;
+namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -38,7 +38,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-//        $this->middleware('guest:del')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
 
     }
 
@@ -49,13 +49,13 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('user.auth.login');
+        return view('admin.auth.login');
     }
 
 
     public function redirectTo()
     {
-        return route('user.home');
+        return route('admin.home');
     }
 
     /**
@@ -67,7 +67,7 @@ class LoginController extends Controller
      */
     protected function loggedOut(Request $request)
     {
-        return redirect()->route('welcome');
+        return redirect()->route('admin.home');
     }
 
     /**
@@ -75,9 +75,10 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Contracts\Auth\StatefulGuard
      */
-//    protected function guard()
-//    {
-//        return Auth::guard('del');
-//    }
+    protected function guard()
+    {
+        return Auth::guard('admin');
+    }
+
 
 }
