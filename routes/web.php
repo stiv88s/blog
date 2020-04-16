@@ -11,12 +11,26 @@
 |
 */
 
+Route::redirect('/', '/'.locale()->current(), 301);
 
-Route::group(['namespace' => 'User'], function () {
+Route::group([
+    'prefix'=> \App\Locale::getUrlSegment((string)Request::segment(1)),
+    'middleware'=> ['locale']
+],function(){
+
+
+Route::group([
+    'namespace' => 'User',
+//    'prefix'=> (string)Request::segment(1),
+//    'prefix'=> \App\Locale::getUrlSegment((string)Request::segment(1)),
+//    'middleware'=> ['locale']
+
+], function () {
     Route::get('/', 'HomeController@index')->middleware(['web'])->name('welcome');
 //    Route::get('/user/dashboard',function(){
 //        dd('ooo');
 //    })->name('user.home');
+Route::get('set-locale','HomeController@setLocale')->middleware(['web'])->name('setLocale');
 
     Route::get('/post/{post}-{slug}', 'PostController@show')->name('showing.post');
     Route::get('/category/{category}-{slug}/post', 'CategoryController@showCategoryPosts')->name('show.categories.posts');
@@ -106,5 +120,7 @@ Route::group([
     //Users
 
     Route::resource('user', 'UserController');
+
+});
 
 });

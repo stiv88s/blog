@@ -31,18 +31,18 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{route('welcome')}}">Home
+                    <a class="nav-link" href="{{route('welcome')}}">{{__('welcome.home')}}
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="#">{{__('welcome.about')}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
+                    <a class="nav-link" href="#">{{__('welcome.services')}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="#">{{__('welcome.contact')}}</a>
                 </li>
 
 {{--                <div class="flex-center position-ref full-height">--}}
@@ -58,7 +58,7 @@
                                         <a class="nav-link" href="{{ route('user.logout') }}"
                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                                            {{ __('welcome.logout') }}
                                         </a>
 
                                         <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
@@ -69,16 +69,24 @@
 
                             @else
                                 <li class="nav-item">
-                                    <a href="{{ route('user.login') }}" class="nav-link">Login</a>
+                                    <a href="{{ route('user.login') }}" class="nav-link">{{__('welcome.login')}}</a>
                                 </li>
 
 
                                 @if (Route::has('user.register'))
-                                    <a href="{{ route('user.register') }}" class="nav-link">Register</a>
+                                    <a href="{{ route('user.register') }}" class="nav-link">{{__('welcome.register')}}</a>
                                 @endif
                             @endauth
 {{--                        </div>--}}
                     @endif
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-us"> </span> {{app()->getLocale()}}</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown09">
+                        @foreach(config('app.supported_locales') as $key=>$locale)
+                        <a class="dropdown-item" href="{{route('setLocale',['lang'=>$key])}}"><span class="flag-icon flag-icon-fr" > </span> {{$locale['name']}}</a>
+                        @endforeach
+                    </div>
+                </li>
 {{--                </div>--}}
             </ul>
         </div>

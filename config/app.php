@@ -110,6 +110,27 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Supported Application Locales
+    |--------------------------------------------------------------------------
+    |
+    | Our supported locales will have available frontend and model
+    | translations.
+    |
+    */
+    'supported_locales' => [
+
+        'ru' => [
+            'name' => 'Russian',
+            'dir' => 'ltr',
+        ],
+        'en' => [
+            'name' => 'English',
+            'dir' => 'ltr'
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Encryption Key
     |--------------------------------------------------------------------------
     |
@@ -161,6 +182,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        App\Providers\LocaleServiceProvider::class,
 
         /*
          * Package Service Providers...

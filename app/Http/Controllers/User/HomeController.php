@@ -8,6 +8,7 @@ use App\Model\Post;
 use App\ModelRepository\PostRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class HomeController extends Controller
@@ -22,10 +23,29 @@ class HomeController extends Controller
 
     public function index()
     {
+//        if(Session::has('locale')){
+//            $locale = Session('locale');
+//
+//        }
         $posts = $this->postR->paginate(5);
 //        dd($this->postR->filter());
         $categories = Category::all();
 
         return view('welcome', compact('posts', 'categories'));
+    }
+
+    public function setLocale(Request $request){
+
+        if (in_array($request->name, array_keys(config('app.supported_locales')))) {
+            Session(['locale'=>$request->lang]);
+
+
+        }else{
+            Session(['locale'=>$request->lang]);
+        }
+
+        app()->setLocale($request->lang);
+
+        return redirect()->to('/'.app()->getLocale());
     }
 }
