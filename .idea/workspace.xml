@@ -3,18 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/user/layouts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/user/layouts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/posts/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/widgets/categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/widgets/categories.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Locale.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Locale.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/adminlte.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/adminlte.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,19 +155,19 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/lang/ru" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
-      <recent name="$PROJECT_DIR$/resources/views/user" />
-      <recent name="$PROJECT_DIR$/storage/app/public/siteImages" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/tags" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/layouts/admin" />
       <recent name="$PROJECT_DIR$/resources/views/layouts" />
       <recent name="$PROJECT_DIR$/resources/views/admin" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/User" />
       <recent name="$PROJECT_DIR$/public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/lang/ru" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
+      <recent name="$PROJECT_DIR$/resources/views/user" />
+      <recent name="$PROJECT_DIR$/storage/app/public/siteImages" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/tags" />
     </key>
   </component>
   <component name="RunManager">
@@ -248,10 +240,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="350" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1584355524276" />
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1586341703805">
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1587039787456">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1586341703805" />
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1587039787456" />
     <state x="378" y="111" key="#phpunit.xml" timestamp="1582189376288">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -260,6 +252,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585047765328" />
+    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog" timestamp="1587038738100">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1587038723590" />
+    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.23.1440.821@0.23.1440.821" timestamp="1587038738100" />
     <state x="461" y="273" key="NewPhpClassDialog" timestamp="1586770688574">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -275,14 +272,14 @@
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1587019770427" />
     <state x="399" y="280" key="com.intellij.ide.util.TipDialog/0.23.1440.816@0.23.1440.816" timestamp="1582544980241" />
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.23.1440.825@0.23.1440.825" timestamp="1584521793055" />
-    <state x="462" y="94" width="978" height="486" key="find.popup" timestamp="1587023062792">
+    <state x="462" y="94" width="978" height="486" key="find.popup" timestamp="1587041653620">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="462" y="94" width="978" height="486" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1587023062792" />
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1587021903680">
+    <state x="462" y="94" width="978" height="486" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1587041653620" />
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1587041870281">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1587021903680" />
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1587041870281" />
     <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1582547452888" />
   </component>
 </project>

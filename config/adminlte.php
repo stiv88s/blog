@@ -132,11 +132,11 @@ return [
     |
     */
 
-    'use_route_url' => false,
+    'use_route_url' => true,
 
-    'dashboard_url' => 'admin/home',
+    'dashboard_url' => 'admin.home',
 
-    'logout_url' => 'admin/logout',
+    'logout_url' => 'admin.logout',
 
     'login_url' => 'login',
 
@@ -174,6 +174,7 @@ return [
 
     'menu' => [
         [
+
             'text' => 'search',
             'search' => true,
             'topnav' => true,
@@ -198,12 +199,12 @@ return [
         ],
         [
             'text' => 'Users',
-            'url' => 'admin/user',
+            'route' => 'user.index',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Posts',
-            'url' => 'admin/post',
+            'route' => 'post.index',
             'icon' => 'fas fa-fw fa-user',
 //            'submenu' => [
 //                [
@@ -214,12 +215,12 @@ return [
         ],
         [
             'text' => 'Categories',
-            'url' => 'admin/category',
+            'route' => 'category.index',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Tags',
-            'url' => 'admin/tag',
+            'route' => 'tag.index',
             'icon' => 'fas fa-fw fa-user',
         ],
         [

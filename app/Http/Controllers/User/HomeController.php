@@ -34,18 +34,17 @@ class HomeController extends Controller
         return view('welcome', compact('posts', 'categories'));
     }
 
-    public function setLocale(Request $request){
+    public function setLocale(Request $request)
+    {
+        if (in_array($request->lang, array_keys(config('app.supported_locales')))) {
+            Session(['locale' => $request->lang]);
+            app()->setLocale($request->lang);
 
-        if (in_array($request->name, array_keys(config('app.supported_locales')))) {
-            Session(['locale'=>$request->lang]);
 
-
-        }else{
-            Session(['locale'=>$request->lang]);
+        } else {
+            Session(['locale' => config('app.fallback_locale')]);
         }
 
-        app()->setLocale($request->lang);
-
-        return redirect()->to('/'.app()->getLocale());
+        return redirect()->to('/' . app()->getLocale());
     }
 }

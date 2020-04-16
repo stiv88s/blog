@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use MongoDB\Driver\Session;
 
 class RegisterController extends Controller
 {
@@ -39,8 +40,11 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+//        dd('sesija',\Illuminate\Support\Facades\Session::get('locale'));
+//        dd('lolo',app()->getLocale());
         $this->middleware('guest');
         $this->redirectTo = app()->getLocale().'/user/home';
+//        dd($this->redirectTo);
 
     }
 
@@ -76,8 +80,20 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
+//        dd($this->redirectTo,app()->getLocale());
         return view('user.auth.register');
     }
+//
+//    public function redirectPath()
+//    {
+////        dd(app()->getLocale());
+//        if (method_exists($this, 'redirectTo')) {
+////            dd('exist');
+//            return $this->redirectTo();
+//        }
+////dd('here',$this->redirectTo. '/home',app()->getLocale());
+//        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+//    }
 
 //    public function register(Request $request){
 //

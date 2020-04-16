@@ -136,7 +136,9 @@ class Locale
             return $locale;
         }else{
             if (in_array($segment, array_keys(config('app.supported_locales')))) {
-                $locale = Session(['locale'=>$segment]);
+//                $locale = Session(['locale'=>$segment]);
+                Session::put('locale',$segment);
+
                 return $segment;
             } else {
                 return config('app.fallback_locale');

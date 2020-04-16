@@ -10,14 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+                            //User Routes
 Route::redirect('/', '/'.locale()->current(), 301);
 
 Route::group([
     'prefix'=> \App\Locale::getUrlSegment((string)Request::segment(1)),
     'middleware'=> ['locale']
 ],function(){
-
 
 Route::group([
     'namespace' => 'User',
@@ -26,6 +25,8 @@ Route::group([
 //    'middleware'=> ['locale']
 
 ], function () {
+//    dd(\Illuminate\Support\Facades\Session::get('locale'),'routeFIle');
+
     Route::get('/', 'HomeController@index')->middleware(['web'])->name('welcome');
 //    Route::get('/user/dashboard',function(){
 //        dd('ooo');
@@ -36,6 +37,7 @@ Route::get('set-locale','HomeController@setLocale')->middleware(['web'])->name('
     Route::get('/category/{category}-{slug}/post', 'CategoryController@showCategoryPosts')->name('show.categories.posts');
     Route::get('tag/{tag}-{slug}/posts', 'TagController@showTagPosts')->name('show.tags.posts');
     Route::group(['middleware'=>['web','auth']],function () {
+//
         Route::post('/post{post}/comment', 'CommentController@store')->name('store.comment');
         Route::post('/post/{post}/like', 'LikeController@like')->name('like.post');
         Route::post('/post/{post}/dislike', 'DisLikeController@dislike')->name('dislike.post');
@@ -54,9 +56,11 @@ Route::get('set-locale','HomeController@setLocale')->middleware(['web'])->name('
 //    $this->post('password/confirm', 'Auth\ConfirmPasswordController@confirm');
 
 });
+    //User Routes
 
 Route::group([
-    'namespace' => 'User'
+    'namespace' => 'User',
+    'middleware'=> ['locale']
 ], function () {
     Route::get('user/login', 'Auth\LoginController@showLoginForm')->name('user.login');
     Route::post('user/login', 'Auth\LoginController@login')->name('user.login.send');
@@ -74,7 +78,7 @@ Route::group([
     Route::post('user/password/reset', 'Auth\ResetPasswordController@reset')->name('user.password.update');
 });
 
-
+                //Admin Routes
 Route::group([
     'namespace' => 'Admin'
 ], function () {
@@ -99,6 +103,7 @@ Route::group([
 
 
 //Auth::routes();
+                        //Admin Routes
 
 Route::group([
     'prefix' => 'admin',
