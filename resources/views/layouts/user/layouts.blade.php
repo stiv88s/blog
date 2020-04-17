@@ -51,7 +51,7 @@
                             @auth
 
                                 <li class="nav-item">
-                                    <a href="{{ route('welcome') }}" class="nav-link">Administration</a>
+                                    <a href="{{ route('user.home') }}" class="nav-link">Administration</a>
                                 </li>
                                 <li class="nav-item">
 

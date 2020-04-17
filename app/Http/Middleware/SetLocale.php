@@ -16,18 +16,9 @@ class SetLocale
      */
     public function handle($request, Closure $next)
     {
-
-        if(!Session::has('locale')){
-            $desiredLocale = $request->segment(1);
-            $locale = locale()->isSupported($desiredLocale) ? $desiredLocale : locale()->fallback();
-            locale()->set($locale);
-            Session(['locale'=> $locale]);
-        }else {
-
-            $locale = Session::get('locale');
-            locale()->set($locale);
-
-        };
+        $desiredLocale = $request->segment(1);
+        $locale = locale()->isSupported($desiredLocale) ? $desiredLocale : locale()->fallback();
+        locale()->set($locale);
 
         return $next($request);
     }

@@ -131,19 +131,14 @@ class Locale
     public static function getUrlSegment($segment)
     {
 
-        if(Session::has('locale')){
-            $locale = Session('locale');
-            return $locale;
-        }else{
-            if (in_array($segment, array_keys(config('app.supported_locales')))) {
-//                $locale = Session(['locale'=>$segment]);
-                Session::put('locale',$segment);
+        if (in_array($segment, array_keys(config('app.supported_locales')))) {
 
-                return $segment;
-            } else {
-                return config('app.fallback_locale');
-            }
+            return $segment;
+        } else {
+
+            return config('app.fallback_locale');
         }
+
     }
 
 }

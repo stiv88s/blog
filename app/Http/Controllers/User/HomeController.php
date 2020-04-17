@@ -36,15 +36,15 @@ class HomeController extends Controller
 
     public function setLocale(Request $request)
     {
+
         if (in_array($request->lang, array_keys(config('app.supported_locales')))) {
-            Session(['locale' => $request->lang]);
+
             app()->setLocale($request->lang);
 
-
         } else {
+
             Session(['locale' => config('app.fallback_locale')]);
         }
-
         return redirect()->to('/' . app()->getLocale());
     }
 }
