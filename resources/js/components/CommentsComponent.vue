@@ -35,7 +35,7 @@
     import CommentComponent from '../components/CommentComponent.vue';
 
     export default {
-        props: ['comments', 'postid', 'postslug'],
+        props: ['comments', 'postid', 'postslug','applocale'],
 
         data() {
             return {
@@ -46,7 +46,7 @@
         },
         methods: {
             saveComment() {
-                axios.post(route("store.comment", this.postid).url(), {
+                axios.post(route("store.comment", [this.applocale, this.postid]).url(), {
                     'body': this.body
 
                 }).then((e) => {
@@ -61,7 +61,7 @@
                 })
             },
             getResults(page = 1) {
-                axios.get("/post/" + this.postid + "-" + this.postslug + "?page=" + page)
+                axios.get("/"+this.applocale+"/post/" + this.postid + "-" + this.postslug + "?page=" + page)
                     .then(response => {
                         this.commentsData = response.data
                         // this.laravelData = response.data;

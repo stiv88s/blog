@@ -1973,7 +1973,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['comments', 'postid', 'postslug'],
+  props: ['comments', 'postid', 'postslug', 'applocale'],
   data: function data() {
     return {
       commentsData: {},
@@ -1985,7 +1985,7 @@ __webpack_require__.r(__webpack_exports__);
     saveComment: function saveComment() {
       var _this = this;
 
-      axios.post(route("store.comment", this.postid).url(), {
+      axios.post(route("store.comment", [this.applocale, this.postid]).url(), {
         'body': this.body
       }).then(function (e) {
         console.log(e);
@@ -2004,7 +2004,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get("/post/" + this.postid + "-" + this.postslug + "?page=" + page).then(function (response) {
+      axios.get("/" + this.applocale + "/post/" + this.postid + "-" + this.postslug + "?page=" + page).then(function (response) {
         _this2.commentsData = response.data; // this.laravelData = response.data;
       });
     }
@@ -2082,7 +2082,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['isliked', 'isdisliked', 'post', 'likescount', 'dislikescount', 'postid', 'auth'],
+  props: ['isliked', 'isdisliked', 'post', 'likescount', 'dislikescount', 'postid', 'auth', 'applocale'],
   data: function data() {
     return {
       authenticated: false,
@@ -2102,7 +2102,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       // console.log('first '+this.imageLikeStatus)
-      axios.post(route("like.post", this.postid).url(), {
+      axios.post(route("like.post", [this.applocale, this.postid]).url(), {
         'type': this.post
       }).then(function (response) {
         console.log(response.data);
@@ -2117,7 +2117,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       // console.log('first '+this.imageDisLikeStatus)
-      axios.post(route("dislike.post", this.postid).url(), {
+      axios.post(route("dislike.post", [this.applocale, this.postid]).url(), {
         'type': this.post
       }).then(function (response) {
         console.log(response.data);
@@ -50888,277 +50888,272 @@ var Ziggy = {
       "domain": null
     },
     "welcome": {
-      "uri": "\/",
+      "uri": "{locale?}",
+      "methods": ["GET", "HEAD"],
+      "domain": null
+    },
+    "setLocale": {
+      "uri": "en\/set-locale",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "showing.post": {
-      "uri": "post\/{post}-{slug}",
+      "uri": "{locale}\/post\/{post}-{slug}",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "show.categories.posts": {
-      "uri": "category\/{category}-{slug}\/post",
+      "uri": "{locale}\/category\/{category}-{slug}\/post",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "show.tags.posts": {
-      "uri": "tag\/{tag}-{slug}\/posts",
+      "uri": "{locale}\/tag\/{tag}-{slug}\/posts",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "store.comment": {
-      "uri": "post{post}\/comment",
+      "uri": "{locale}\/post{post}\/comment",
       "methods": ["POST"],
       "domain": null
     },
     "like.post": {
-      "uri": "post\/{post}\/like",
+      "uri": "{locale}\/post\/{post}\/like",
       "methods": ["POST"],
       "domain": null
     },
     "dislike.post": {
-      "uri": "post\/{post}\/dislike",
+      "uri": "{locale}\/post\/{post}\/dislike",
       "methods": ["POST"],
       "domain": null
     },
     "user.home": {
-      "uri": "user\/home",
+      "uri": "{locale}\/user\/home",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "user.login": {
-      "uri": "user\/login",
+      "uri": "{locale}\/user\/login",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "user.login.send": {
-      "uri": "user\/login",
+      "uri": "{locale}\/user\/login",
       "methods": ["POST"],
       "domain": null
     },
     "user.logout": {
-      "uri": "user\/logout",
+      "uri": "{locale}\/user\/logout",
       "methods": ["POST"],
       "domain": null
     },
     "user.register": {
-      "uri": "user\/register",
+      "uri": "{locale}\/user\/register",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "user.send.register": {
-      "uri": "user\/register",
+      "uri": "{locale}\/user\/register",
       "methods": ["POST"],
       "domain": null
     },
     "user.password.request": {
-      "uri": "user\/password\/reset",
+      "uri": "{locale}\/user\/password\/reset",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "user.password.email": {
-      "uri": "user\/password\/email",
+      "uri": "{locale}\/user\/password\/email",
       "methods": ["POST"],
       "domain": null
     },
     "user.password.reset": {
-      "uri": "user\/password\/reset\/{token}",
+      "uri": "{locale}\/user\/password\/reset\/{token}",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "user.password.update": {
-      "uri": "user\/password\/reset",
+      "uri": "{locale}\/user\/password\/reset",
       "methods": ["POST"],
       "domain": null
     },
     "admin.login": {
-      "uri": "admin\/login",
+      "uri": "{locale}\/admin\/login",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "admin.login.send": {
-      "uri": "admin\/login",
+      "uri": "{locale}\/admin\/login",
       "methods": ["POST"],
       "domain": null
     },
     "admin.logout": {
-      "uri": "admin\/logout",
-      "methods": ["POST"],
-      "domain": null
-    },
-    "admin.register": {
-      "uri": "admin\/register",
-      "methods": ["GET", "HEAD"],
-      "domain": null
-    },
-    "admin.send.register": {
-      "uri": "admin\/register",
+      "uri": "{locale}\/admin\/logout",
       "methods": ["POST"],
       "domain": null
     },
     "admin.password.request": {
-      "uri": "admin\/password\/reset",
+      "uri": "{locale}\/admin\/password\/reset",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "admin.password.email": {
-      "uri": "admin\/password\/email",
+      "uri": "{locale}\/admin\/password\/email",
       "methods": ["POST"],
       "domain": null
     },
     "admin.password.reset": {
-      "uri": "admin\/password\/reset\/{token}",
+      "uri": "{locale}\/admin\/password\/reset\/{token}",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "admin.password.update": {
-      "uri": "admin\/password\/reset",
+      "uri": "{locale}\/admin\/password\/reset",
       "methods": ["POST"],
       "domain": null
     },
     "admin.home": {
-      "uri": "admin\/home",
+      "uri": "{locale}\/admin\/home",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "post.index": {
-      "uri": "admin\/post",
+      "uri": "{locale}\/admin\/post",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "post.create": {
-      "uri": "admin\/post\/create",
+      "uri": "{locale}\/admin\/post\/create",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "post.store": {
-      "uri": "admin\/post",
+      "uri": "{locale}\/admin\/post",
       "methods": ["POST"],
       "domain": null
     },
     "post.show": {
-      "uri": "admin\/post\/{post}",
+      "uri": "{locale}\/admin\/post\/{post}",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "post.edit": {
-      "uri": "admin\/post\/{post}\/edit",
+      "uri": "{locale}\/admin\/post\/{post}\/edit",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "post.update": {
-      "uri": "admin\/post\/{post}",
+      "uri": "{locale}\/admin\/post\/{post}",
       "methods": ["PUT", "PATCH"],
       "domain": null
     },
     "post.destroy": {
-      "uri": "admin\/post\/{post}",
+      "uri": "{locale}\/admin\/post\/{post}",
       "methods": ["DELETE"],
       "domain": null
     },
     "category.index": {
-      "uri": "admin\/category",
+      "uri": "{locale}\/admin\/category",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "category.create": {
-      "uri": "admin\/category\/create",
+      "uri": "{locale}\/admin\/category\/create",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "category.store": {
-      "uri": "admin\/category",
+      "uri": "{locale}\/admin\/category",
       "methods": ["POST"],
       "domain": null
     },
     "category.show": {
-      "uri": "admin\/category\/{category}",
+      "uri": "{locale}\/admin\/category\/{category}",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "category.edit": {
-      "uri": "admin\/category\/{category}\/edit",
+      "uri": "{locale}\/admin\/category\/{category}\/edit",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "category.update": {
-      "uri": "admin\/category\/{category}",
+      "uri": "{locale}\/admin\/category\/{category}",
       "methods": ["PUT", "PATCH"],
       "domain": null
     },
     "category.destroy": {
-      "uri": "admin\/category\/{category}",
+      "uri": "{locale}\/admin\/category\/{category}",
       "methods": ["DELETE"],
       "domain": null
     },
     "tag.index": {
-      "uri": "admin\/tag",
+      "uri": "{locale}\/admin\/tag",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "tag.create": {
-      "uri": "admin\/tag\/create",
+      "uri": "{locale}\/admin\/tag\/create",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "tag.store": {
-      "uri": "admin\/tag",
+      "uri": "{locale}\/admin\/tag",
       "methods": ["POST"],
       "domain": null
     },
     "tag.show": {
-      "uri": "admin\/tag\/{tag}",
+      "uri": "{locale}\/admin\/tag\/{tag}",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "tag.edit": {
-      "uri": "admin\/tag\/{tag}\/edit",
+      "uri": "{locale}\/admin\/tag\/{tag}\/edit",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "tag.update": {
-      "uri": "admin\/tag\/{tag}",
+      "uri": "{locale}\/admin\/tag\/{tag}",
       "methods": ["PUT", "PATCH"],
       "domain": null
     },
     "tag.destroy": {
-      "uri": "admin\/tag\/{tag}",
+      "uri": "{locale}\/admin\/tag\/{tag}",
       "methods": ["DELETE"],
       "domain": null
     },
     "user.index": {
-      "uri": "admin\/user",
+      "uri": "{locale}\/admin\/user",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "user.create": {
-      "uri": "admin\/user\/create",
+      "uri": "{locale}\/admin\/user\/create",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "user.store": {
-      "uri": "admin\/user",
+      "uri": "{locale}\/admin\/user",
       "methods": ["POST"],
       "domain": null
     },
     "user.show": {
-      "uri": "admin\/user\/{user}",
+      "uri": "{locale}\/admin\/user\/{user}",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "user.edit": {
-      "uri": "admin\/user\/{user}\/edit",
+      "uri": "{locale}\/admin\/user\/{user}\/edit",
       "methods": ["GET", "HEAD"],
       "domain": null
     },
     "user.update": {
-      "uri": "admin\/user\/{user}",
+      "uri": "{locale}\/admin\/user\/{user}",
       "methods": ["PUT", "PATCH"],
       "domain": null
     },
     "user.destroy": {
-      "uri": "admin\/user\/{user}",
+      "uri": "{locale}\/admin\/user\/{user}",
       "methods": ["DELETE"],
       "domain": null
     }

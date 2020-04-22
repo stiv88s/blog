@@ -20,7 +20,7 @@
 
 <script>
     export default {
-        props: ['isliked', 'isdisliked', 'post', 'likescount', 'dislikescount', 'postid', 'auth'],
+        props: ['isliked', 'isdisliked', 'post', 'likescount', 'dislikescount', 'postid', 'auth','applocale'],
         data() {
 
             return {
@@ -42,7 +42,7 @@
 
             likePost() {
                 // console.log('first '+this.imageLikeStatus)
-                axios.post(route("like.post", this.postid).url(), {
+                axios.post(route("like.post", [this.applocale, this.postid] ).url(), {
                     'type': this.post
                 }).then((response) => {
                         console.log(response.data)
@@ -58,7 +58,7 @@
 
             dislikePost() {
                 // console.log('first '+this.imageDisLikeStatus)
-                axios.post(route("dislike.post", this.postid).url(), {
+                axios.post(route("dislike.post", [this.applocale,this.postid]).url(), {
                     'type': this.post
                 }).then((response) => {
                         console.log(response.data)

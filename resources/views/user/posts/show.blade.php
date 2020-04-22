@@ -49,6 +49,7 @@
                 <div id="app">
 
                     <post-comment-component
+                        applocale="{{app()->getLocale()}}"
                         :isliked="{{json_encode($post->isLiked())}}"
                         :isdisliked="{{json_encode($post->isDisLiked())}}"
                         auth="{{\Illuminate\Support\Facades\Auth::user() ? true:false}}"
@@ -111,6 +112,7 @@
                         <comments-component
                             :comments="{{json_encode($comments)}}"
                             postid="{{$post->id}}"
+                            applocale="{{app()->getLocale()}}"
                             postslug="{{$post->slug}}"
                         >
 

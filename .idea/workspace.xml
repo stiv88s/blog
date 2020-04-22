@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/ziggy.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/ziggy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/CommentsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CommentsComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/PostCommentComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/PostCommentComponent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/posts/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -286,11 +291,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585047765328" />
-    <state x="182" y="89" width="1240" height="700" key="DiffContextDialog" timestamp="1587565674462">
+    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog" timestamp="1587566510087">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
-    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1587565634548" />
-    <state x="182" y="89" width="1240" height="700" key="DiffContextDialog/0.23.1440.816@0.23.1440.816" timestamp="1587565674462" />
+    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1587566200201" />
+    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.23.1440.816@0.23.1440.816" timestamp="1587566510087" />
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.23.1440.821@0.23.1440.821" timestamp="1587038738100" />
     <state x="461" y="273" key="NewPhpClassDialog" timestamp="1586770688574">
       <screen x="0" y="0" width="1440" height="900" />
