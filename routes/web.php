@@ -13,6 +13,8 @@
                             //User Routes
 Route::redirect('/', '/'.locale()->current(), 301);
 
+Route::get('/', 'User\HomeController@index')->middleware(['web','locale'])->prefix('{locale?}')->name('welcome');
+
 Route::group([
     'prefix'=> \App\Locale::getUrlSegment((string)Request::segment(1)),
     'middleware'=> ['locale']
@@ -20,17 +22,8 @@ Route::group([
 
 Route::group([
     'namespace' => 'User',
-//    'prefix'=> (string)Request::segment(1),
-//    'prefix'=> \App\Locale::getUrlSegment((string)Request::segment(1)),
-//    'middleware'=> ['locale']
-
 ], function () {
-//    dd(\Illuminate\Support\Facades\Session::get('locale'),'routeFIle');
 
-    Route::get('/', 'HomeController@index')->middleware(['web'])->name('welcome');
-//    Route::get('/user/dashboard',function(){
-//        dd('ooo');
-//    })->name('user.home');
 Route::get('set-locale','HomeController@setLocale')->middleware(['web'])->name('setLocale');
 
     Route::get('/post/{post}-{slug}', 'PostController@show')->name('showing.post');

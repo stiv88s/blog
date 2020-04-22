@@ -23,12 +23,7 @@ class HomeController extends Controller
 
     public function index()
     {
-//        if(Session::has('locale')){
-//            $locale = Session('locale');
-//
-//        }
         $posts = $this->postR->paginate(5);
-//        dd($this->postR->filter());
         $categories = Category::all();
 
         return view('welcome', compact('posts', 'categories'));
@@ -41,10 +36,14 @@ class HomeController extends Controller
 
             app()->setLocale($request->lang);
 
+            Session::put('locale',$request->lang);
+            Session::save();
+
         } else {
 
             Session(['locale' => config('app.fallback_locale')]);
         }
+
         return redirect()->to('/' . app()->getLocale());
     }
 }

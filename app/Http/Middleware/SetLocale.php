@@ -17,8 +17,18 @@ class SetLocale
     public function handle($request, Closure $next)
     {
         $desiredLocale = $request->segment(1);
-        $locale = locale()->isSupported($desiredLocale) ? $desiredLocale : locale()->fallback();
-        locale()->set($locale);
+        if (!$desiredLocale) {
+
+            if (Session::has('locale')) {
+                $locale = Session::get('locale');
+                locale()->set($locale);
+            }
+        } else {
+            $locale = locale()->isSupported($desiredLocale) ? $desiredLocale : locale()->fallback();
+            locale()->set($locale);
+            Session::put('locale', $locale);
+            Session::save();
+        }
 
         return $next($request);
     }

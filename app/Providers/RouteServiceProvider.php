@@ -45,10 +45,25 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
+        $this->mapWebRoutesLocale();
 
         //
     }
 
+
+    protected function mapWebRoutesLocale()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(function () {
+                base_path('routes/web.php');
+                Route::bind('locale', function ($value) {
+                    if (!in_array($value, array_keys(config('app.supported_locales')))) {
+                        abort(404);
+                    }
+                });
+            });
+    }
 
     /**
      * Define the "web" routes for the application.

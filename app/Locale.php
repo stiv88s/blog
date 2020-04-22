@@ -7,6 +7,12 @@ namespace App;
 use http\Env\Request;
 use Illuminate\Support\Facades\Session;
 
+/**
+ * Class Locale
+ * @package App
+ * https://phrase.com/blog/posts/laravel-i18n-frontend-best-practices/
+ */
+
 class Locale
 {
     /**
