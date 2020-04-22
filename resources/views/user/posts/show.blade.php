@@ -76,7 +76,7 @@
 
                     <hr>
                     <h1 class="text-left text-bold">Post Tags</h1>
-
+{{--working--}}
                     @foreach($post->tags as $tag)
                         <a href="{{route('show.tags.posts',[app()->getLocale(),$tag,$tag->slug])}}"
                            class=" btn btn-info">{{$tag->name}}</a>

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/Auth/ResetPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/posts/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,8 +227,34 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="reflocal1" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="reflocal1" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -260,11 +286,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585047765328" />
-    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog" timestamp="1587560700115">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="182" y="89" width="1240" height="700" key="DiffContextDialog" timestamp="1587565674462">
+      <screen x="0" y="23" width="1440" height="816" />
     </state>
-    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1587560700115" />
-    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.23.1440.816@0.23.1440.816" timestamp="1587559286315" />
+    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1587565634548" />
+    <state x="182" y="89" width="1240" height="700" key="DiffContextDialog/0.23.1440.816@0.23.1440.816" timestamp="1587565674462" />
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.23.1440.821@0.23.1440.821" timestamp="1587038738100" />
     <state x="461" y="273" key="NewPhpClassDialog" timestamp="1586770688574">
       <screen x="0" y="0" width="1440" height="900" />
