@@ -46,7 +46,7 @@ class ResetPasswordNotification extends Notification
         $routeName = $this->model == 'admin' ? 'admin.password.reset' : 'user.password.reset';
         return (new MailMessage)
                     ->line('You are receiving this email because we received a password reset request for your account.')
-                    ->action('Reset Password', route($routeName,['token' => $this->token]))
+                    ->action('Reset Password', route($routeName,[app()->getLocale(),'token' => $this->token]))
                     ->line('Thank you for using our application!');
     }
 

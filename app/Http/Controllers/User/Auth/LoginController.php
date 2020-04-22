@@ -55,7 +55,7 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        return route('user.home');
+        return route('user.home',app()->getLocale());
     }
 
     /**
