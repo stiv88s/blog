@@ -8,7 +8,7 @@
                 <ul class="list-unstyled mb-0">
                     @foreach($categories as $cat)
                     <li>
-                        <a href="{{route('show.categories.posts',[$cat,$cat->slug])}}">{{$cat->name}}</a>
+                        <a href="{{route('show.categories.posts',[app()->getLocale(),$cat,$cat->slug])}}">{{$cat->name}}</a>
                     </li>
                     @endforeach
                 </ul>

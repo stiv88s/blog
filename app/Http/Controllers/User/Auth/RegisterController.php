@@ -40,12 +40,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-//        dd('sesija',\Illuminate\Support\Facades\Session::get('locale'));
-//        dd('lolo',app()->getLocale());
         $this->middleware('guest');
         $this->redirectTo = app()->getLocale().'/user/home';
-//        dd($this->redirectTo);
-
     }
 
     /**

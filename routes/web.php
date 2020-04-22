@@ -14,9 +14,13 @@
 Route::redirect('/', '/'.locale()->current(), 301);
 
 Route::get('/', 'User\HomeController@index')->middleware(['web','locale'])->prefix('{locale?}')->name('welcome');
+Route::get('/set-locale','ChangeLocaleController@setLocale')->middleware(['web','locale'])->prefix(\App\Locale::getUrlSegment((string)Request::segment(1)))->name('setLocale');
+
 
 Route::group([
-    'prefix'=> \App\Locale::getUrlSegment((string)Request::segment(1)),
+//    'prefix'=> \App\Locale::getUrlSegment((string)Request::segment(1)),
+    'prefix'=> '{locale}',
+
     'middleware'=> ['locale']
 ],function(){
 
@@ -24,7 +28,7 @@ Route::group([
     'namespace' => 'User',
 ], function () {
 
-Route::get('set-locale','HomeController@setLocale')->middleware(['web'])->name('setLocale');
+//Route::get('set-locale','HomeController@setLocale')->middleware(['web'])->name('setLocale');
 
     Route::get('/post/{post}-{slug}', 'PostController@show')->name('showing.post');
     Route::get('/category/{category}-{slug}/post', 'CategoryController@showCategoryPosts')->name('show.categories.posts');
@@ -53,7 +57,7 @@ Route::get('set-locale','HomeController@setLocale')->middleware(['web'])->name('
 
 Route::group([
     'namespace' => 'User',
-    'middleware'=> ['locale']
+    'middleware'=> ['web','locale']
 ], function () {
     Route::get('user/login', 'Auth\LoginController@showLoginForm')->name('user.login');
     Route::post('user/login', 'Auth\LoginController@login')->name('user.login.send');

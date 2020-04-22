@@ -40,7 +40,7 @@
                 <hr>
                 @guest
                     <div class="col-12">
-                        <p>Please <span> <a href="{{ route('user.login') }}">Login</a> </span> to leave your Vote</p>
+                        <p>Please <span> <a href="{{ route('user.login',app()->getLocale()) }}">Login</a> </span> to leave your Vote</p>
                     </div>
 
                 @endguest
@@ -78,7 +78,7 @@
                     <h1 class="text-left text-bold">Post Tags</h1>
 
                     @foreach($post->tags as $tag)
-                        <a href="{{route('show.tags.posts',[$tag,$tag->slug])}}"
+                        <a href="{{route('show.tags.posts',[app()->getLocale(),$tag,$tag->slug])}}"
                            class=" btn btn-info">{{$tag->name}}</a>
 
                     @endforeach
@@ -103,7 +103,7 @@
                     {{--                </div>--}}
                     @guest
                         <div class="col-12 p-3">
-                            <p>Please <span> <a href="{{ route('user.login') }}">Login</a> </span> to leave your comment</p>
+                            <p>Please <span> <a href="{{ route('user.login',app()->getLocale()) }}">Login</a> </span> to leave your comment</p>
                         </div>
                     @endguest
 

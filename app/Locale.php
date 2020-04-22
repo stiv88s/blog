@@ -136,7 +136,6 @@ class Locale
 
     public static function getUrlSegment($segment)
     {
-
         if (in_array($segment, array_keys(config('app.supported_locales')))) {
 
             return $segment;
