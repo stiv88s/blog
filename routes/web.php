@@ -14,7 +14,9 @@
 Route::redirect('/', '/'.locale()->current(), 301);
 
 Route::get('/', 'User\HomeController@index')->middleware(['web','locale'])->prefix('{locale?}')->name('welcome');
-Route::get('/set-locale','ChangeLocaleController@setLocale')->middleware(['web','locale'])->prefix(\App\Locale::getUrlSegment((string)Request::segment(1)))->name('setLocale');
+Route::get('/set-locale','ChangeLocaleController@setLocale')->middleware(['web','locale'])->prefix('{locale}')->name('setLocale');
+//Route::get('/set-locale','ChangeLocaleController@setLocale')->middleware(['web','locale'])->prefix(\App\Locale::getUrlSegment((string)Request::segment(1)))->name('setLocale');
+
 
 
 Route::group([

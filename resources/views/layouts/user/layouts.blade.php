@@ -85,7 +85,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdown09">
 
                         @foreach(config('app.supported_locales') as $key=>$locale)
-                        <a class="dropdown-item" href="{{route('setLocale',['lang'=>$key])}}"><span class="flag-icon flag-icon-fr" > </span> {{$locale['name']}}</a>
+                        <a class="dropdown-item" href="{{route('setLocale',[app()->getLocale(),'lang'=>$key])}}"><span class="flag-icon flag-icon-fr" > </span> {{$locale['name']}}</a>
                         @endforeach
                     </div>
                 </li>
