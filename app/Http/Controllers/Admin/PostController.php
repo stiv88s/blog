@@ -72,7 +72,7 @@ class PostController extends Controller
         $post->tags()->sync($request->tags);
         $post->categorys()->sync($request->categorys);
 
-        return redirect()->route('post.index');
+        return redirect()->route('post.index',app()->getLocale());
 
     }
 
@@ -97,7 +97,7 @@ class PostController extends Controller
         $post->tags()->sync($request->tags);
         $post->categorys()->sync($request->categorys);
 
-        return redirect()->route('post.index');
+        return redirect()->route('post.index',app()->getLocale());
 
     }
 

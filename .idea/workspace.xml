@@ -3,7 +3,33 @@
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TagController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChangeLocaleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChangeLocaleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/SetLocale.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/SetLocale.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Locale.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Locale.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/adminlte.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/adminlte.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/categorys/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categorys/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/categorys/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categorys/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/categorys/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categorys/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/tags/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tags/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/tags/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tags/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/tags/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tags/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/layouts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/layouts.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/user/layouts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/user/layouts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/adminlte/page.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,9 +39,7 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -141,7 +165,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -217,11 +240,15 @@
       <workItem from="1586764688614" duration="147000" />
       <workItem from="1586769874727" duration="545000" />
       <workItem from="1587019770049" duration="2187000" />
+      <workItem from="1587711777482" duration="40000" />
+      <workItem from="1587711842377" duration="13324000" />
+      <workItem from="1587731143310" duration="48000" />
+      <workItem from="1588053830798" duration="19463000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -240,7 +267,6 @@
                   </entry>
                 </map>
               </option>
-              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -261,16 +287,17 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="460" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585569604739">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="460" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1585569604739" />
-    <state x="408" y="168" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1584614469740">
+    <state x="408" y="168" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1587711806672">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="408" y="168" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900@0.0.1440.900" timestamp="1584614469740" />
+    <state x="408" y="168" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900@0.0.1440.900" timestamp="1587711806672" />
     <state x="408" y="177" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.823@0.23.1440.823" timestamp="1584526633698" />
     <state x="350" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584355524276">
       <screen x="0" y="0" width="1440" height="900" />
@@ -288,11 +315,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585047765328" />
-    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog" timestamp="1587566510087">
-      <screen x="0" y="23" width="1440" height="816" />
+    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog" timestamp="1588072880698">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1587566200201" />
-    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.23.1440.816@0.23.1440.816" timestamp="1587566510087" />
+    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1588072880698" />
+    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.23.1440.816@0.23.1440.816" timestamp="1587567378336" />
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.23.1440.821@0.23.1440.821" timestamp="1587038738100" />
     <state x="461" y="273" key="NewPhpClassDialog" timestamp="1586770688574">
       <screen x="0" y="0" width="1440" height="900" />
@@ -303,30 +330,20 @@
     </state>
     <state x="541" y="370" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1586771259709" />
     <state x="541" y="361" key="NewPhpFileDialog/0.23.1440.822@0.23.1440.822" timestamp="1582546495706" />
-    <state x="399" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1587019770427">
+    <state x="399" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1587711777834">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1587019770427" />
+    <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1587711777834" />
     <state x="399" y="280" key="com.intellij.ide.util.TipDialog/0.23.1440.816@0.23.1440.816" timestamp="1582544980241" />
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.23.1440.825@0.23.1440.825" timestamp="1584521793055" />
-    <state x="462" y="108" width="978" height="550" key="find.popup" timestamp="1587567159874">
+    <state x="97" y="213" width="978" height="538" key="find.popup" timestamp="1588078320027">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="462" y="108" width="978" height="550" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1587567159874" />
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1587566941492">
+    <state x="97" y="213" width="978" height="538" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1588078320027" />
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1588070633035">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1587566941492" />
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1588070633035" />
     <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1582547452888" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/ChangeLocaleController.php</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

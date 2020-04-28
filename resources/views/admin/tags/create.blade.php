@@ -9,7 +9,7 @@
         <hr>
         <div class="row">
             <div class="col-12">
-                {!! Form::open(['route' => 'tag.store','method'=>'POST','files'=>true]) !!}
+                {!! Form::open(['route' => ['tag.store',app()->getLocale()],'method'=>'POST','files'=>true]) !!}
 
                 @include('admin.tags.form')
 

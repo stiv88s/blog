@@ -18,13 +18,12 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-
         if (Auth::guard($guard)->check()) {
 
             if ($guard) {
                 $routeName = $guard == 'admin' ? 'admin.home' : 'user.home';
 
-                return redirect()->route($routeName);
+                return redirect()->route($routeName,app()->getLocale());
             }
 
             return redirect('/');

@@ -9,7 +9,7 @@
         <hr>
         <div class="row">
             <div class="col-12">
-                {!! Form::model($tag,['route' => ['tag.update',$tag],'method'=>'PATCH','files'=>true]) !!}
+                {!! Form::model($tag,['route' => ['tag.update',app()->getLocale(),$tag],'method'=>'PATCH','files'=>true]) !!}
 
 
 

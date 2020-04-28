@@ -9,7 +9,7 @@
         <hr>
         <div class="row">
             <div class="col-12">
-                {!! Form::model($post,['route' => ['post.update',$post],'method'=>'PATCH','files'=>true]) !!}
+                {!! Form::model($post,['route' => ['post.update',app()->getLocale(),$post],'method'=>'PATCH','files'=>true]) !!}
 
                 @include('admin.posts.form')
 

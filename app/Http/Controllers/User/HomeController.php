@@ -36,7 +36,7 @@ class HomeController extends Controller
 
             app()->setLocale($request->lang);
 
-            Session::put('locale',$request->lang);
+            Session::put('locale', $request->lang);
             Session::save();
 
         } else {

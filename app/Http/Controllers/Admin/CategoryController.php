@@ -18,10 +18,9 @@ class CategoryController extends Controller
         $this->cRepo = $cRepo;
     }
 
-    public function index()
+    public function index($locale=null)
     {
         $categories = Category::all();
-
         return view('admin.categorys.index', compact('categories'));
     }
 
@@ -34,7 +33,6 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
-
         return view('admin.categorys.edit', compact('category'));
     }
 
@@ -42,7 +40,7 @@ class CategoryController extends Controller
     {
         $this->cRepo->update($category->id, $request->all());
 
-        return redirect()->route('category.index');
+        return redirect()->route('category.index',app()->getLocale());
 
     }
 
@@ -51,11 +49,11 @@ class CategoryController extends Controller
         return view('admin.categorys.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request,$locale=null)
     {
         Category::create($request->all());
 
-        return redirect()->route('category.index');
+        return redirect()->route('category.index',app()->getLocale());
     }
 
 

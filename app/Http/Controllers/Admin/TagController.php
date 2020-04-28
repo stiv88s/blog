@@ -49,7 +49,7 @@ class TagController extends Controller
     {
         $this->trepo->create($request->all());
 
-        return redirect()->route('tag.index');
+        return redirect()->route('tag.index',app()->getLocale());
     }
 
 
@@ -77,7 +77,7 @@ class TagController extends Controller
     {
         $this->trepo->update($id,$request->all());
 
-        return redirect()->route('tag.index');
+        return redirect()->route('tag.index',app()->getLocale());
     }
 
     /**

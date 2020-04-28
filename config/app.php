@@ -122,10 +122,15 @@ return [
         'ru' => [
             'name' => 'Russian',
             'dir' => 'ltr',
+            'img' => 'russia.png'
+
+
         ],
         'en' => [
             'name' => 'English',
-            'dir' => 'ltr'
+            'dir' => 'ltr',
+            'img' => 'usa.png'
+
         ],
     ],
 

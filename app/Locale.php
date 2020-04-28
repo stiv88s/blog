@@ -134,16 +134,16 @@ class Locale
         return static::$configuredSupportedLocales;
     }
 
-    public static function getUrlSegment($segment)
-    {
-        if (in_array($segment, array_keys(config('app.supported_locales')))) {
-
-            return $segment;
-        } else {
-
-            return config('app.fallback_locale');
-        }
-
-    }
+//    public static function getUrlSegment($segment)
+//    {
+//        if (in_array($segment, array_keys(config('app.supported_locales')))) {
+//
+//            return $segment;
+//        } else {
+//
+//            return config('app.fallback_locale');
+//        }
+//
+//    }
 
 }

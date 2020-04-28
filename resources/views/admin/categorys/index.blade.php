@@ -5,7 +5,7 @@
         Categories
     </h1>
 
-    <a href="{{route('category.create')}}" class="btn btn-danger">Create Category</a>
+    <a href="{{route('category.create',app()->getLocale())}}" class="btn btn-danger">Create Category</a>
 
     <div class="card-body">
         <table class="table">
@@ -23,9 +23,9 @@
                     <td>{{$cat->id}}</td>
                     <td>{{$cat->name}}</td>
                     <td>{{$cat->tag}}</td>
-                    <td class="float-left"><a href="{{route('category.edit',$cat->id)}}" class="btn btn-info">Edit</a></td>
+                    <td class="float-left"><a href="{{route('category.edit',[app()->getLocale(),$cat->id])}}" class="btn btn-info">Edit</a></td>
                     <td class="float-left">
-                        <a href="{{route('category.destroy',$cat->id)}}" class="btn btn-danger removeCat">Delete</a>
+                        <a href="{{route('category.destroy',[app()->getLocale(),$cat->id])}}" class="btn btn-danger removeCat">Delete</a>
                     </td>
                 </tr>
 

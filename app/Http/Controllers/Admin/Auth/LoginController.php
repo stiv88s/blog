@@ -55,7 +55,7 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        return route('admin.home');
+        return route('admin.home',app()->getLocale());
     }
 
     /**
@@ -67,7 +67,7 @@ class LoginController extends Controller
      */
     protected function loggedOut(Request $request)
     {
-        return redirect()->route('admin.home');
+        return redirect()->route('admin.home',app()->getLocale());
     }
 
     /**

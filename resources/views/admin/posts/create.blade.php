@@ -9,7 +9,7 @@
         <hr>
         <div class="row">
             <div class="col-12">
-                {!! Form::open(['route' => 'post.store','method'=>'POST','files'=>true]) !!}
+                {!! Form::open(['route' => ['post.store',app()->getLocale()],'method'=>'POST','files'=>true]) !!}
 
                 @include('admin.posts.form')
 

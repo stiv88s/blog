@@ -5,7 +5,7 @@
       Tags
     </h1>
 
-    <a href="{{route('tag.create')}}" class="btn btn-danger">Create Tag</a>
+    <a href="{{route('tag.create',app()->getLocale())}}" class="btn btn-danger">Create Tag</a>
 
     <div class="card-body">
         <table class="table">
@@ -23,9 +23,9 @@
                     <td>{{$tag->id}}</td>
                     <td>{{$tag->name}}</td>
                     <td>{{$tag->slug}}</td>
-                    <td class="float-left"><a href="{{route('tag.edit',$tag->id)}}" class="btn btn-info">Edit</a></td>
+                    <td class="float-left"><a href="{{route('tag.edit',[app()->getLocale(),$tag->id])}}" class="btn btn-info">Edit</a></td>
                     <td class="float-left">
-                        <a href="{{route('tag.destroy',$tag->id)}}" class="btn btn-danger removeTag">Delete</a>
+                        <a href="{{route('tag.destroy',[app()->getLocale(),$tag->id])}}" class="btn btn-danger removeTag">Delete</a>
                     </td>
                 </tr>
 

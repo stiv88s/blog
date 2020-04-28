@@ -4,9 +4,17 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Routing\UrlGenerator;
+use Illuminate\Support\Facades\URL;
 
 class SetLocale
 {
+
+    public function __construct(UrlGenerator $url)
+    {
+        $this->url = $url;
+
+    }
     /**
      * Handle an incoming request.
      *
@@ -29,6 +37,9 @@ class SetLocale
             Session::put('locale', $locale);
             Session::save();
         }
+
+//        delete app()->getlocale in all routes
+//        URL::defaults(['locale' => app()->getLocale()]);
 
         return $next($request);
     }
