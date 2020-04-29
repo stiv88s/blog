@@ -12,20 +12,17 @@ class LikeController extends Controller
 {
     public function like(Request $request, $id)
     {
-
         $type = $request->type;
-
-
         $like = $this->checkLike($type, $id);
         $dislike = $this->checkDislike($type, $id);
 
         if ($like && !$dislike) {
             $like->delete();
 
-            $likesCount = $this->getLikeCount($id,$type);
+            $likesCount = $this->getLikeCount($id, $type);
             $dislikesCount = $this->getDisLikeCount($id, $type);
 
-            return ['like' => false, 'likecount'=> $likesCount,'dislike'=>false,'dislikecount'=>$dislikesCount];
+            return ['like' => false, 'likecount' => $likesCount, 'dislike' => false, 'dislikecount' => $dislikesCount];
 
         } elseif (!$like && $dislike) {
             $dislike->delete();
@@ -35,22 +32,22 @@ class LikeController extends Controller
                 'likeable_type' => $type,
                 'likeable_id' => $id
             ]);
-            $likesCount = $this->getLikeCount($id,$type);
+            $likesCount = $this->getLikeCount($id, $type);
             $dislikesCount = $this->getDisLikeCount($id, $type);
 
 
-            return ['like' => true, 'likecount'=> $likesCount, 'dislike' => false,'dislikecount'=>$dislikesCount];
+            return ['like' => true, 'likecount' => $likesCount, 'dislike' => false, 'dislikecount' => $dislikesCount];
         } else {
             Like::create([
                 'user_id' => Auth::id(),
                 'likeable_type' => $type,
                 'likeable_id' => $id
             ]);
-            $likesCount = $this->getLikeCount($id,$type);
+            $likesCount = $this->getLikeCount($id, $type);
             $dislikesCount = $this->getDisLikeCount($id, $type);
 
 
-            return ['like' => true,'likecount'=> $likesCount,'dislike'=>false,'dislikecount'=>$dislikesCount];
+            return ['like' => true, 'likecount' => $likesCount, 'dislike' => false, 'dislikecount' => $dislikesCount];
 
         }
 
@@ -77,7 +74,9 @@ class LikeController extends Controller
 
         return $dislike;
     }
-    public function getLikeCount($id,$type){
+
+    public function getLikeCount($id, $type)
+    {
         $likesCount = Like::whereLikeableId($id)
             ->whereLikeableType($type)->get()->count();
         return $likesCount;
