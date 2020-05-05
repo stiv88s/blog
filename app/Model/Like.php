@@ -22,11 +22,12 @@ class Like extends Model
      */
     public function posts()
     {
-        return $this->morphedByMany('App\Model\Post', 'likeable');
+        return $this->morphedByMany('App\Model\Post', 'likeable','likeables','id','likeable_id');
     }
 
     public function comments()
     {
         return $this->morphedByMany('App\Model\Comment', 'likeable');
     }
+
 }

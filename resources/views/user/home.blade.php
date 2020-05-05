@@ -2,8 +2,26 @@
 
 @section('content')
 
-{{--    @dd(\Illuminate\Support\Facades\Auth::user());--}}
+    <div class="col-12">
+        <h1>Your Liked Posts</h1>
+        <hr>
 
-    <div>{{\Illuminate\Support\Facades\Auth::user()->name}}</div>
+        @foreach($likedPosts as $postCollection)
 
- @endsection
+            @foreach($postCollection->posts as $post)
+                <div>
+                    <a href="{{route('showing.post',[app()->getLocale(),$post->id,$post->slug])}}">{{$post->title}}</a>
+
+                </div>
+                <br>
+
+            @endforeach
+
+
+        @endforeach
+        <br>
+    </div>
+
+
+
+@endsection

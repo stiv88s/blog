@@ -4,6 +4,8 @@ namespace App\ModelRepository;
 
 use App\Model\Admin;
 use App\Model\Post;
+use Illuminate\Cache\Events\CacheHit;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class PostRepository extends Repository
@@ -22,11 +24,13 @@ class PostRepository extends Repository
 
     public function paginate($limit = 5)
     {
+        $posts = Cache::remember('posts', 120, function () use ($limit) {
+            $q = $this->getEntity()::where('is_active', 1);
 
-        $q = $this->getEntity()::where('is_active', 1);
+            return $q->paginate($limit);
+        });
 
-        return $q->paginate($limit);
-
+        return $posts;
     }
 
     public function filter()
@@ -37,8 +41,7 @@ class PostRepository extends Repository
 //        $fil = ['subtitle'=>'eu','slug'=>'uk','slug'=>'ukraine'];
 
 
-        $values = ['user_id'=>[1],'slug'=>['uk','ukraine']];
-
+        $values = ['user_id' => [1], 'slug' => ['uk', 'ukraine']];
 
 
 //        $q->whereIn('subtitle', [0=>'eu']);
@@ -56,18 +59,18 @@ class PostRepository extends Repository
 //dd($s);
 //        dd($values);
 
-foreach($values as $key=>$value){
+        foreach ($values as $key => $value) {
 
-                $q->whereIn($key, $value);
+            $q->whereIn($key, $value);
 
-}
+        }
 //        foreach($fil as $key=> $val){
 //
 //            $q->whereIn($key, [$val]);
 //        }
 
 //        dd($q->get());
-        $s=$q->get();
+        $s = $q->get();
         dd($s);
         $queries = DB::getQueryLog();
         dd($queries);

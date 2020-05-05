@@ -13,6 +13,10 @@ class Post extends Model
 
     protected $fillable = ['title', 'subtitle', 'is_active', 'slug', 'body', 'user_id'];
 
+//    protected $virtualCount = [
+//        'people' => 0
+//    ];
+
 
     public function getHeaderImageAttribute()
     {
@@ -71,6 +75,17 @@ class Post extends Model
     {
         return $this->dislikes()->count();
     }
+
+//    public function getPeopleCountAttribute()
+//    {
+//
+//        return $this->virtualCount['people'];
+//    }
+//
+//    public function setVirtualCountPeople()
+//    {
+//        $this->virtualCount['people'] +=1;
+//    }
 
 //    public function getRouteKeyName()
 //    {

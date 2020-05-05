@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Model\Category;
+use App\Model\Like;
 use App\Model\Post;
 use App\ModelRepository\PostRepository;
 use Illuminate\Http\Request;
@@ -25,25 +26,26 @@ class HomeController extends Controller
     {
         $posts = $this->postR->paginate(5);
         $categories = Category::all();
+        $likedPosts = Like::where('user_id', Auth::id())->with('posts')->get();
 
-        return view('welcome', compact('posts', 'categories'));
+        return view('user.home', compact('posts', 'categories', 'likedPosts'));
     }
 
-    public function setLocale(Request $request)
-    {
-
-        if (in_array($request->lang, array_keys(config('app.supported_locales')))) {
-
-            app()->setLocale($request->lang);
-
-            Session::put('locale', $request->lang);
-            Session::save();
-
-        } else {
-
-            Session(['locale' => config('app.fallback_locale')]);
-        }
-
-        return redirect()->to('/' . app()->getLocale());
-    }
+//    public function setLocale(Request $request)
+//    {
+//
+//        if (in_array($request->lang, array_keys(config('app.supported_locales')))) {
+//
+//            app()->setLocale($request->lang);
+//
+//            Session::put('locale', $request->lang);
+//            Session::save();
+//
+//        } else {
+//
+//            Session(['locale' => config('app.fallback_locale')]);
+//        }
+//
+//        return redirect()->to('/' . app()->getLocale());
+//    }
 }

@@ -17,7 +17,7 @@ Route::redirect('/admin/login','/'.app()->getLocale().'/admin/login/',301);
 Route::redirect('/user/login','/'.app()->getLocale().'/user/login/',301);
 
 
-Route::get('/', 'User\HomeController@index')->middleware(['web','locale'])->prefix('{locale?}')->name('welcome');
+Route::get('/', 'User\WelcomeController@index')->middleware(['web','locale'])->prefix('{locale?}')->name('welcome');
 Route::get('/set-locale','ChangeLocaleController@setLocale')->middleware(['web','locale'])->prefix('{user?}/{locale}')->name('setLocale');
 //Route::get('/admin/login','Admin\Auth\LoginController@showLoginForm')->middleware(['web','locale'])->prefix('{locale}')->name('admin.login');
 //Route::get('/set-locale','ChangeLocaleController@setLocale')->middleware(['web','locale'])->prefix(\App\Locale::getUrlSegment((string)Request::segment(1)))->name('setLocale');
@@ -48,9 +48,11 @@ Route::group([
 
 
     // Authentication Routes...
-    Route::get('user/home', function(){
-        return view('user.home');
-    })->middleware('web','auth')->name('user.home');
+//    Route::get('user/home', function(){
+//        return view('user.home');
+//    })->middleware('web','auth')->name('user.home');
+
+    Route::get('user/home','HomeController@index')->middleware('web','auth')->name('user.home');
 
 
 
