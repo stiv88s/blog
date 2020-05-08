@@ -20,7 +20,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'phone', 'status'
     ];
 
     /**
@@ -32,10 +32,16 @@ class Admin extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function roles()
+    {
+
+        return $this->belongsToMany(Role::class, 'admin_roles')->withTimestamps();
+    }
+
     public function sendPasswordResetNotification($token)
     {
 
-        $this->notify(new ResetPasswordNotification($token,'admin'));
+        $this->notify(new ResetPasswordNotification($token, 'admin'));
     }
 
 }

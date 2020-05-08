@@ -232,10 +232,37 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="{{route('role.index',app()->getLocale())}}" class="nav-link">
+                                        <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
+                                        <p>
+                                            Roles
+                                        </p>
+                                    </a>
+                                </li>
+
+
+
+                                <li class="nav-item">
                                     <a href="{{route('user.index',app()->getLocale())}}" class="nav-link">
                                         <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
                                         <p>
                                             Users
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('blocked.users',app()->getLocale())}}" class="nav-link">
+                                        <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
+                                        <p>
+                                            Blocked Users
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('admin.index',app()->getLocale())}}" class="nav-link">
+                                        <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
+                                        <p>
+                                            Admins
                                         </p>
                                     </a>
                                 </li>
@@ -307,6 +334,7 @@
 
 @section('adminlte_js')
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     @stack('js')
     @yield('js')
 @stop

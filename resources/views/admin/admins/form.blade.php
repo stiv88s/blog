@@ -27,6 +27,37 @@
                         <strong>{{($errors->first('password'))}}</strong>
                     </span>
         @endif
+
+
+        <label class="text-feader">Phone</label>
+        {!! Form::text('phone',null,['class'=>'form-control form-group'])!!}
+
+
+        @if($errors->has('phone'))
+            <div class="alert alert-danger">
+                {{$errors->first('phone')}}
+            </div>
+        @endif
+
+        <label class="text-feader">Status</label>
+        {!! Form::text('status',null,['class'=>'form-control form-group'])!!}
+
+
+        @if($errors->has('status'))
+            <div class="alert alert-danger">
+                {{$errors->first('status')}}
+            </div>
+        @endif
+
+        {{Form::label('roles', 'Select Role')}}
+        @if($errors->has('roles'))
+            <div class="alert alert-danger">
+                {{$errors->first('roles')}}
+            </div>
+        @endif
+        {{Form::select('roles',$roles,null,array('multiple'=>'multiple','name'=>'roles[]', 'class'=>'selectpicker'))}}
+
+
         <br>
     </div>
 
