@@ -15,7 +15,7 @@ class AddForeignKeyToPost extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->change();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+//            $table->foreign('user_id')->references('id')->on('admins')->onDelete('cascade');
         });
 
     }

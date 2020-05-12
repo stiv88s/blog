@@ -140,9 +140,10 @@ Route::group([
 
         Route::get('blocked-users','BlockedUsersController@index')->name('blocked.users');
 
-        Route::post('blocked-users/{user}/block','BlockedUsersController@block')->name('blockUser');
+        Route::post('block-users/{user}/block','BlockedUsersController@block')->name('blockUser');
 
         Route::post('blocked-users/{user}/unblock','BlockedUsersController@unblock')->name('unblockUser');
+
     });
 
 });

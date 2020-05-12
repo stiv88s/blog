@@ -34,7 +34,7 @@
 </div>
 
 
-{!! Form::submit('Save Admin',['class'=>'btn btn-block btn-round btn-bold btn-primary']); !!}
+{!! Form::submit('Save',['class'=>'btn btn-block btn-round btn-bold btn-primary']); !!}
 
 <script>
     $(document).ready(function() {

@@ -29,9 +29,9 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $roles = Role::all()->pluck('rolename','id');
+        $roles = Role::all()->pluck('rolename', 'id');
 
-        return view('admin.admins.create',compact('roles'));
+        return view('admin.admins.create', compact('roles'));
     }
 
     /**
@@ -44,24 +44,24 @@ class AdminController extends Controller
     {
         DB::beginTransaction();
 
-        try{
+        try {
             $admin = Admin::create([
                 'name' => $request->input('name'),
                 'email' => $request->input('email'),
                 'phone' => $request->input('phone'),
-                'status' => $request->input('status',0),
-                'password' =>  bcrypt($request->input('password'))
+                'status' => $request->input('status', 0),
+                'password' => bcrypt($request->input('password'))
             ]);
 
             $admin->roles()->sync($request->roles);
 
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
 
             DB::rollBack();
         }
         DB::commit();
 
-        return redirect()->route('admin.index',app()->getLocale());
+        return redirect()->route('admin.index', app()->getLocale());
 
 
     }
@@ -75,9 +75,9 @@ class AdminController extends Controller
     public function edit(Admin $admin)
     {
 
-        $roles = Role::all()->pluck('rolename','id');
+        $roles = Role::all()->pluck('rolename', 'id');
 
-        return view('admin.admins.edit',compact('admin','roles'));
+        return view('admin.admins.edit', compact('admin', 'roles'));
     }
 
     /**
@@ -93,14 +93,14 @@ class AdminController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'phone' => $request->input('phone'),
-            'status' => $request->input('status',0),
-            'password' =>  bcrypt($request->input('password'))
+            'status' => $request->input('status', 0),
+            'password' => bcrypt($request->input('password'))
         ]);
         $admin->save();
 
         $admin->roles()->sync($request->roles);
 
-        return redirect()->route('admin.index',app()->getLocale());
+        return redirect()->route('admin.index', app()->getLocale());
 
     }
 
@@ -112,6 +112,11 @@ class AdminController extends Controller
      */
     public function destroy(Admin $admin)
     {
+        if (!$admin->posts->isEmpty()) {
+            foreach ($admin->posts as $post) {
+                $post->delete();
+            }
+        }
         $admin->delete();
     }
 }

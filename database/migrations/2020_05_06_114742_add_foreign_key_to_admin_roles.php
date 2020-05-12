@@ -16,8 +16,8 @@ class AddForeignKeyToAdminRoles extends Migration
         Schema::table('admin_roles', function (Blueprint $table) {
             $table->unsignedBigInteger('admin_id')->change();
             $table->unsignedBigInteger('role_id')->change();
-            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+//            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
+//            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
         });
     }
 

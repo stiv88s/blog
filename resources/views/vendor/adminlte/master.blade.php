@@ -20,7 +20,9 @@
         {{--        <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">--}}
         {{--    qqqq--}}
         {{--        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>--}}
-        <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+{{--        <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>--}}
+
+
         {{--        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--}}
 
     <!-- include summernote css/js -->
@@ -28,7 +30,12 @@
         {{--        <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>--}}
         <link rel="stylesheet" href="{{asset('css/summernote-bs4.css')}}">
         {{--        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">--}}
-        <script src="{{asset('js/summernote-bs4.js')}}"></script>
+{{--        <script src="{{asset('js/summernote-bs4.js')}}"></script>--}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.16/css/bootstrap-select.min.css" />
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
         {{--        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>--}}
 
 
@@ -41,23 +48,26 @@
         <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
 
         @yield('adminlte_css')
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+
+        {{--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.17/css/bootstrap-select.css" />--}}
 
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     @else
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @endif
+    @routes
 </head>
 <body class="@yield('classes_body')" @yield('body_data')>
 
 @yield('body')
 
+
 @if(! config('adminlte.enabled_laravel_mix'))
 
 
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+{{--    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>--}}
+{{--    <script src="{{ asset('vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>--}}
     {{--<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>--}}
 
 
@@ -66,9 +76,19 @@
 
     @yield('adminlte_js')
 @else
-    <script src="{{ asset('js/app.js') }}"></script>
+{{--    <script src="{{ asset('js/app.js') }}"></script>--}}
 @endif
+
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+
+{{--<script src="{{ asset('js/app.js') }}"></script>--}}
+
+<script src="{{asset('js/summernote-bs4.js')}}"></script>
+
+
 <script>
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -77,8 +97,9 @@
 </script>
 @stack('scripts')
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.16/js/bootstrap-select.min.js"></script>
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>--}}
+{{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
 
 </body>
 </html>

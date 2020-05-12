@@ -15,6 +15,7 @@
         <table class="table">
             <thead>
             <tr>
+                <td>User id</td>
                 <td>User Name</td>
                 <td>Admin Name</td>
                 <td>Reason</td>

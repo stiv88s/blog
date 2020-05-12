@@ -17,7 +17,7 @@
                 <hr>
 
                 <!-- Date/Time -->
-                <p class="post-meta">Posted by {{$post->user->name}} on {{ $post->created_at->format('F d, Y')}}</p>
+                <p class="post-meta">Posted by {{$post->admin->name}} on {{ $post->created_at->format('F d, Y')}}</p>
 
                 <hr>
 

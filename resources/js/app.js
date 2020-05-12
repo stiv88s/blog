@@ -38,6 +38,7 @@ Vue.component('pagination', require('laravel-vue-pagination'));
 Vue.component('reset-password-component', require('./components/ResetPasswordComponent.vue').default);
 Vue.component('block-user-component', require('./components/BlockUserComponent.vue').default);
 Vue.component('users-component', require('./components/UsersComponent.vue').default);
+// Vue.component('user-component', require('./components/UserComponent.vue').default);
 
 
 /**
@@ -50,46 +51,13 @@ if (document.getElementById("app")) {
     const app = new Vue({
             el: '#app',
             data: {
-                blockeduserid: '',
-                username: '',
-                reason: '',
-                blockreasonform: false,
-                display: 'none',
-                user: ''
+
             },
             methods: {
-                blockUserModal(user) {
-                    this.user = user
-                    this.username = user.name
-                    this.blockreasonform = true
-                    this.display = 'block'
 
-                },
-                blockUser() {
-                    if ((this.reason.trim()).length > 5) {
-                        axios.post()
-
-
-                    } else {
-                        return false;
-                    }
-
-
-                    // if(count(this.reason.length))
-
-                }
-                ,
-                cancelModal() {
-                    this.display = 'none'
-                    this.blockreasonform = false
-                }
             },
             computed: {
-                dynamic() {
-                    return {
-                        display: this.display
-                    }
-                }
+
             }
         })
     ;

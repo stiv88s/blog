@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Model\Admin;
+use App\Model\BlockedUsers;
 use App\Model\User;
 use Illuminate\Http\Request;
 
@@ -91,7 +93,11 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $user->delete();
+        $userBlocked = BlockedUsers::where('user_id',$id)->first();
+        if($userBlocked){
+            $userBlocked->delete();
 
+        }
+        $user->delete();
     }
 }
