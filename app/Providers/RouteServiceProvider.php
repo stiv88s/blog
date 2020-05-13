@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+use Laravel\Passport\Passport;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -44,9 +45,9 @@ class RouteServiceProvider extends ServiceProvider
     public function map()
     {
         $this->mapApiRoutes();
-
         $this->mapWebRoutes();
         $this->mapWebRoutesLocale();
+        $this->mapApiAuthRoutes();
 
         //
     }
@@ -56,6 +57,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('web')
             ->namespace($this->namespace)
+            ->domain(config('app.host'))
             ->group(function () {
                 base_path('routes/web.php');
                 Route::bind('locale', function ($value) {
@@ -87,11 +89,38 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapApiRoutes()
+
+//require base_path('routes/api.php');
+    protected function mapApiAuthRoutes()
     {
-        Route::prefix('api')
-            ->middleware('api')
+        Route::middleware('api')
+            ->domain('api.' . config('app.host'))
             ->namespace($this->namespace)
-            ->group(base_path('routes/api.php'));
+//            base_path('routes/api.php')
+            ->group(function (){
+                Passport::routes();
+            });
+    }
+//    protected function mapApiPassportRoutes()
+//    {
+//        Route::prefix('api')
+//            ->middleware('api')
+//            ->namespace($this->namespace)
+////            base_path('routes/api.php')
+//            ->group(function (){
+//                Passport::routes();
+//            });
+//    }
+    protected function mapApiRoutes(){
+        Route::prefix('api/v1')
+            ->middleware('api')
+            ->domain('api' . config('app.host'))
+            ->as('api1.')
+            ->namespace($this->namespace)
+            ->group(function (){
+                require base_path('routes/api.php');
+
+            });
+
     }
 }

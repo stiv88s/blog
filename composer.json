@@ -14,6 +14,7 @@
         "fideloper/proxy": "^4.0",
         "jeroennoten/laravel-adminlte": "^3.0",
         "laravel/framework": "^6.2",
+        "laravel/passport": "^9.1",
         "laravel/tinker": "^2.0",
         "laravelcollective/html": "^6.0",
         "tightenco/ziggy": "^0.9.0",

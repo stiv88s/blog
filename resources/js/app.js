@@ -39,7 +39,20 @@ Vue.component('reset-password-component', require('./components/ResetPasswordCom
 Vue.component('block-user-component', require('./components/BlockUserComponent.vue').default);
 Vue.component('users-component', require('./components/UsersComponent.vue').default);
 // Vue.component('user-component', require('./components/UserComponent.vue').default);
+Vue.component(
+    'passport-clients',
+    require('./components/passport/Clients.vue').default
+);
 
+Vue.component(
+    'passport-authorized-clients',
+    require('./components/passport/AuthorizedClients.vue').default
+);
+
+Vue.component(
+    'passport-personal-access-tokens',
+    require('./components/passport/PersonalAccessTokens.vue').default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
