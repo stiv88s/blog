@@ -44,9 +44,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        $this->mapApiRoutes();
-        $this->mapWebRoutes();
+//        $this->mapWebRoutes();
         $this->mapWebRoutesLocale();
+        $this->mapApiRoutes();
         $this->mapApiAuthRoutes();
 
         //
@@ -56,10 +56,10 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutesLocale()
     {
         Route::middleware('web')
+            ->domain(env('APP_HOST'))
             ->namespace($this->namespace)
-            ->domain(config('app.host'))
             ->group(function () {
-                base_path('routes/web.php');
+                require base_path('routes/web.php');
                 Route::bind('locale', function ($value) {
                     if (!in_array($value, array_keys(config('app.supported_locales')))) {
                         abort(404);
@@ -75,12 +75,13 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapWebRoutes()
-    {
-        Route::middleware('web')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/web.php'));
-    }
+//    protected function mapWebRoutes()
+//    {
+//        Route::middleware('web')
+//            ->domain(config('app.host'))
+//            ->namespace($this->namespace)
+//            ->group(base_path('routes/web.php'));
+//    }
 
     /**
      * Define the "api" routes for the application.
@@ -94,8 +95,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiAuthRoutes()
     {
         Route::middleware('api')
-            ->domain('api.' . config('app.host'))
-            ->namespace($this->namespace)
+            ->domain('api.' . env('APP_HOST'))
 //            base_path('routes/api.php')
             ->group(function (){
                 Passport::routes();
@@ -113,10 +113,10 @@ class RouteServiceProvider extends ServiceProvider
 //    }
     protected function mapApiRoutes(){
         Route::prefix('api/v1')
-            ->middleware('api')
-            ->domain('api' . config('app.host'))
+            ->middleware(['api','auth:api'])
+            ->domain('api.' . env('APP_HOST'))
             ->as('api1.')
-            ->namespace($this->namespace)
+            ->namespace($this->namespace . '\Api')
             ->group(function (){
                 require base_path('routes/api.php');
 

@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "admin-lte": "^3.0.2",
+        "apidoc": "^0.22.1",
         "bootstrap3-wysihtml5-bower": "^0.3.3",
         "laravel-vue-pagination": "^2.3.1"
     }
