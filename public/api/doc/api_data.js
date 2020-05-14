@@ -1,7 +1,7 @@
 define({ "api": [
   {
     "type": "post",
-    "url": "/oauth/token",
+    "url": "https://api.admin-blog.test/oauth/token",
     "title": "Login - Request Auth Token",
     "name": "Get_User_auth_token",
     "group": "Auth",
@@ -73,7 +73,7 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/oauth/token",
+    "url": "https://api.admin-blog.test/oauth/token",
     "title": "Refresh Auth Token",
     "name": "Refresh_User_auth_token",
     "group": "Auth",
@@ -138,28 +138,42 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/api/v1/post/",
-    "title": "Request Post information",
-    "name": "GetPost",
+    "url": "https://api.admin-blog.test/api/v1/post/",
+    "title": "List of posts",
     "group": "Post",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "lastname",
-            "description": "<p>Mandatory Lastname.</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"firstname\": \"John\",\n  \"lastname\": \"Doe\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n \"data\": [\n      {\n     \"id\": 8,\n     \"title\": \"this is new\",\n     \"subtitle\": \"title\",\n     \"admin_name\": \"stiv\",\n     \"created_at\": \"2020-05-14 09:20:31\"\n     }\n  ],\n \"total\": 2,\n \"count\": 1,\n \"current_page\": 2,\n \"last_page\": 2,\n \"link_to_next_page\": null,\n \"prev_link_page\": \"http://api.admin-blog.test/api/v1/post?page=1\"\n\n\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/Http/Controllers/Api/PostController.php",
+    "groupTitle": "Post",
+    "name": "GetHttpsApiAdminBlogTestApiV1Post",
+    "header": {
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n  \"Accept\": \"application/json\"\n  \"Authorization\": \"Bearer {token}\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "https://api.admin-blog.test/api/v1/post/{post_id}",
+    "title": "Post Show",
+    "group": "Post",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n \"data\": [\n      {\n     \"id\": 8,\n     \"title\": \"this is new\",\n     \"subtitle\": \"title\",\n     \"admin_name\": \"stiv\",\n     \"created_at\": \"2020-05-14 09:20:31\",\n     'is_liked' : true,\n     'is_disliked' :false,\n     'like_count':25,\n     'dislike_count':3,\n     'comments':[\n          {\n           \"id\": 1,\n          \"user_name\": \"ssss\",\n          \"body\": \"nnn\",\n          \"created_at\": \"6 days ago\"\n          },\n          {\n          \"id\": 2,\n          \"user_name\": \"ssss\",\n          \"body\": \"ddd\",\n          \"created_at\": \"5 days ago\"\n          },\n\n         ],\n     \"comments_next_page\": \"http://api.admin-blog.test/api/v1/post/7?page=2\",\n     \"comments_prev_page\": null\n     }\n  ],\n\n}",
           "type": "json"
         }
       ]
@@ -170,27 +184,21 @@ define({ "api": [
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "UserNotFound",
-            "description": "<p>The id of the User was not found.</p>"
+            "field": "UNAUTHORIZED",
+            "description": "<p>404 Not found</p>"
           }
         ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"UserNotFound\"\n}",
-          "type": "json"
-        }
-      ]
+      }
     },
     "version": "0.0.0",
     "filename": "app/Http/Controllers/Api/PostController.php",
     "groupTitle": "Post",
+    "name": "GetHttpsApiAdminBlogTestApiV1PostPost_id",
     "header": {
       "examples": [
         {
           "title": "Header-Example:",
-          "content": "{\n  \"Accept\": \"application/json\"\n  \"Authorization\": \"Bearer {token}\"\n  \"X-DEVICE-ID\": \"{token}\"\n  'X-LOCATION-C': '{\"lat\":***, \"lng\":***}'\n}",
+          "content": "{\n  \"Accept\": \"application/json\"\n  \"Authorization\": \"Bearer {token}\"\n}",
           "type": "json"
         }
       ]

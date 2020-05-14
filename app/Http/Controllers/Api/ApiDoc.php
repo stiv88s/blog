@@ -6,7 +6,7 @@ namespace App\Http\Api;
 class ApiDoc{
 
     /**
-     * @api               {post} /oauth/token Refresh Auth Token
+     * @api               {post} https://api.admin-blog.test/oauth/token Refresh Auth Token
      * @apiName           Refresh User auth token
      * @apiGroup          Auth
      *
@@ -31,7 +31,7 @@ class ApiDoc{
      */
 
     /**
-     * @api               {post} /oauth/token Login - Request Auth Token
+     * @api               {post} https://api.admin-blog.test/oauth/token Login - Request Auth Token
      * @apiName           Get User auth token
      * @apiGroup          Auth
      *
@@ -62,8 +62,6 @@ class ApiDoc{
      *     {
      *       "Accept": "application/json"
      *       "Authorization": "Bearer {token}"
-     *       "X-DEVICE-ID": "{token}"
-     *       'X-LOCATION-C': '{"lat":***, "lng":***}'
      *     }
      */
 
