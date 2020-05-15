@@ -266,6 +266,23 @@
                                         </p>
                                     </a>
                                 </li>
+                                <li class="nav-item has-treeview">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-fw fa-chart-pie"></i>
+                                        <p>
+                                            Doc
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview" style="display: none;">
+                                        <li class="nav-item">
+                                            <a href="/api/doc/index.html" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Api v1</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                                 {{--                        <li @if (isset($item['id'])) id="{{ $item['id'] }}" @endif class="nav-item @if (isset($item['submenu'])){{ $item['submenu_class'] }}@endif">--}}
                                 {{--                            <a class="nav-link {{ $item['class'] }}" href="{{ $item['href'] }}"--}}
                                 {{--                               @if (isset($item['target'])) target="{{ $item['target'] }}" @endif--}}
