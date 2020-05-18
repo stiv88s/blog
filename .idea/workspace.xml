@@ -17,7 +17,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Service/Wheathers/Wheather.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Service/Wheathers/Wheather.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

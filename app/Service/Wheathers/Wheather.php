@@ -15,11 +15,6 @@ class Wheather
     public function load($city)
     {
         if ($city != null) {
-//            if (Session::get('city')) {
-//                $city = Session::get('city');
-//
-//            }else{
-//            }
 
             $wheather = $this->getCityWheater($city);
 
@@ -31,13 +26,11 @@ class Wheather
 
             }
 
-
             return $wheather;
 
         } else {
             return back();
         }
-
     }
 
     public function getWheather()
@@ -125,8 +118,7 @@ class Wheather
 
             });
             return $wheather;
-
-
+            
         } catch (\Exception $e) {
 
             return ['error' => 'city not found'];
