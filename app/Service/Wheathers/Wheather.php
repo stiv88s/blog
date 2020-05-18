@@ -42,6 +42,8 @@ class Wheather
 
     public function getWheather()
     {
+//        https://rapidapi.com/community/api/open-weather-map
+//        https://rapidapi.com/developer/billing/subscriptions-and-usage
         if (Auth::check()) {
 
             if (Auth::user()->prefered_city) {
