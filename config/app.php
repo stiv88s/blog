@@ -201,6 +201,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\WheatherServiceProvider::class,
 
     ],
 
@@ -253,6 +254,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
+        'Wheather' => App\Service\Wheathers\WheatherFacade::class,
 
     ],
 

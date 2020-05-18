@@ -18,7 +18,15 @@
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/WelcomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/WelcomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/categories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/categories/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/posts/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,10 +302,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="460" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589371127124">
+    <state x="460" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589807601703">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="460" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1589371127124" />
+    <state x="460" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1589807601703" />
     <state x="408" y="168" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1587711806672">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -307,10 +315,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1589376331651" />
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589785279378">
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589811428716">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1589785279378" />
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1589811428716" />
     <state x="378" y="111" key="#phpunit.xml" timestamp="1589452446121">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -320,20 +328,20 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585047765328" />
-    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog" timestamp="1588937637114">
+    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog" timestamp="1589805032926">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1588937637114" />
+    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1589805032926" />
     <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.23.1440.816@0.23.1440.816" timestamp="1588931470530" />
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.23.1440.821@0.23.1440.821" timestamp="1587038738100" />
-    <state x="461" y="273" key="NewPhpClassDialog" timestamp="1589543950384">
+    <state x="461" y="273" key="NewPhpClassDialog" timestamp="1589798668582">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="461" y="273" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1589543950384" />
-    <state x="541" y="370" key="NewPhpFileDialog" timestamp="1589541238759">
+    <state x="461" y="273" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1589798668582" />
+    <state x="541" y="370" key="NewPhpFileDialog" timestamp="1589796016117">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="541" y="370" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1589541238759" />
+    <state x="541" y="370" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1589796016117" />
     <state x="541" y="361" key="NewPhpFileDialog/0.23.1440.822@0.23.1440.822" timestamp="1582546495706" />
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1587711777834">
       <screen x="0" y="0" width="1440" height="900" />
@@ -341,17 +349,17 @@
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1587711777834" />
     <state x="399" y="280" key="com.intellij.ide.util.TipDialog/0.23.1440.816@0.23.1440.816" timestamp="1582544980241" />
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.23.1440.825@0.23.1440.825" timestamp="1584521793055" />
-    <state x="97" y="231" width="978" height="548" key="find.popup" timestamp="1589792817084">
+    <state x="97" y="231" width="978" height="548" key="find.popup" timestamp="1589811685141">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1589792817084" />
+    <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1589811685141" />
     <state x="305" y="122" width="978" height="540" key="find.popup/0.23.1440.814@0.23.1440.814" timestamp="1588920541577" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1588933222560" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1588933213695" />
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1589793535353">
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1589806003935">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1589793535353" />
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1589806003935" />
     <state x="385" y="206" width="670" height="561" key="search.everywhere.popup/0.23.1440.814@0.23.1440.814" timestamp="1588919209027" />
     <state x="385" y="206" width="670" height="563" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1588932504141" />
     <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1582547452888" />

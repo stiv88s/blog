@@ -189,12 +189,29 @@
 
             <!-- Side Widget -->
                 <div class="card my-4">
-                    <h5 class="card-header">Side Widget</h5>
+                    <h5 class="card-header">Wheater</h5>
+                    <form action="{{route('showing.post',[app()->getLocale(),$post,$post->slug])}}" method="get">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="city" placeholder="Search by city" aria-label="Search by city" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit">Search</button>
+                            </div>
+                        </div>
+
+                    </form>
                     <div class="card-body">
-                        You can put anything you want inside of these side widgets. They are easy to use, and feature
-                        the new Bootstrap 4 card containers!
+                        <p><strong>City:</strong> {{$wheather['name']}}</p>
+                        <p>Wind:{{$wheather['wind']['speed']}} </p>
+                        <p>Temp:{{$wheather['main']['temp'] -273.15 . ' C'}} </p>
                     </div>
                 </div>
+{{--                <div class="card my-4">--}}
+{{--                    <h5 class="card-header">Side Widgetss</h5>--}}
+{{--                    <div class="card-body">--}}
+{{--                        You can put anything you want inside of these side widgets. They are easy to use, and feature--}}
+{{--                        the new Bootstrap 4 card containers!--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
 
         {{--            {{$comments->links()}}--}}

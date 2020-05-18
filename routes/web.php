@@ -54,7 +54,6 @@ Route::group([
 
         Route::get('user/home', 'HomeController@index')->middleware('web', 'auth')->name('user.home');
 
-
 //
 //    $this->get('password/confirm', 'Auth\ConfirmPasswordController@showConfirmForm')->name('password.confirm');
 //    $this->post('password/confirm', 'Auth\ConfirmPasswordController@confirm');
