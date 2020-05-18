@@ -31,6 +31,11 @@ class PostShowResource extends JsonResource
                     'user_name' => $e->user->name,
                     'body' => $e->body,
                     'created_at' => $e->created_at,
+                    'user_id' => $e->user_id,
+                    'is_liked' => $e->isliked(),
+                    'is_disliked' => $e->isdisliked(),
+                    'like_count' => $e->likesCount ?? 0,
+                    'dislike_count' => $e->dislikesCount ?? 0,
                 ];
             }),
             'comments_next_page' => $this->comments()->paginate(3)->nextPageUrl(),

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\PostsIndexResource;
 use App\Http\Resources\Api\PostShowResource;
+use App\Model\Comment;
 use App\Model\Post;
 use App\ModelRepository\PostRepository;
 use Illuminate\Http\Request;
@@ -83,12 +84,20 @@ class PostController extends Controller
      *               "user_name": "ssss",
      *               "body": "nnn",
      *               "created_at": "6 days ago"
+     *               'is_liked' : true,
+     *               'is_disliked' :false,
+     *               'like_count' : 25,
+     *               'dislike_count' :5
      *               },
      *               {
      *               "id": 2,
      *               "user_name": "ssss",
      *               "body": "ddd",
      *               "created_at": "5 days ago"
+     *               'is_liked' : true,
+     *               'is_disliked' :false,
+     *               'like_count' : 25,
+     *               'dislike_count' :5
      *               },
      *
      *              ],

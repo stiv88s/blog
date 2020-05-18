@@ -25,29 +25,33 @@ Comment extends Model
         return $this->morphToMany(User::class, 'likeable');
     }
 
-    public function dislike()
+    public function dislikes()
     {
-        return $this->morphToMany(User::class, 'dislikeables');
+        return $this->morphToMany(User::class, 'dislikeable');
     }
 
     public function isLiked()
     {
-        return (bool)$this->likes()->where('user_id', Auth::id())->exist();
+        return (bool)$this->likes()->where('user_id', Auth::id())->exists();
     }
 
     public function isDisliked()
     {
-        return (bool)$this->dislikes()->where('user_id', Auth::id())->exist();
+        return (bool)$this->dislikes()->where('user_id', Auth::id())->exists();
     }
 
-    public function getLikeCountAttribute()
+    public function getLikesCountAttribute()
     {
         return $this->likes()->count();
     }
 
+    public function getDislikesCountAttribute()
+    {
+        return $this->dislikes()->count();
+    }
+
     public function getCreatedAtAttribute($value)
     {
-
         return Carbon::parse($value)->diffForHumans();
     }
 }
