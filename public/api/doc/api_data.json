@@ -138,6 +138,124 @@
   },
   {
     "type": "get",
+    "url": "https://api.admin-blog.test/api/v1/dislike/{model_id}",
+    "title": "Dislike Entity",
+    "group": "Dislike",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "model_type",
+            "description": "<p>post or comment</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n 'like' => true,\n 'likecount' => 1,\n 'dislike' => false,\n 'dislikecount' => 12\n\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Not found</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>Bad Request</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "app/Http/Controllers/Api/DislikeController.php",
+    "groupTitle": "Dislike",
+    "name": "GetHttpsApiAdminBlogTestApiV1DislikeModel_id",
+    "header": {
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n  \"Accept\": \"application/json\"\n  \"Authorization\": \"Bearer {token}\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "https://api.admin-blog.test/api/v1/like/{model_id}",
+    "title": "Like Entity",
+    "group": "Like",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "model_type",
+            "description": "<p>post or comment</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n 'like' => true,\n 'likecount' => 1,\n 'dislike' => false,\n 'dislikecount' => 12\n\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Not found</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>Bad Request</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "app/Http/Controllers/Api/LikeController.php",
+    "groupTitle": "Like",
+    "name": "GetHttpsApiAdminBlogTestApiV1LikeModel_id",
+    "header": {
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n  \"Accept\": \"application/json\"\n  \"Authorization\": \"Bearer {token}\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
     "url": "https://api.admin-blog.test/api/v1/post/",
     "title": "List of posts",
     "group": "Post",

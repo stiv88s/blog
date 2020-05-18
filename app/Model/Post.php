@@ -41,7 +41,7 @@ class Post extends Model
 
     public function dislikes()
     {
-        return $this->morphToMany('App\Model\User', 'dislikeable')->whereDeletedAt(null);
+        return $this->morphToMany('App\Model\User', 'dislikeable');
     }
 
     public function isliked()

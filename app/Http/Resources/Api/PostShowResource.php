@@ -24,7 +24,7 @@ class PostShowResource extends JsonResource
             'is_liked' => $this->isliked(),
             'is_disliked' => $this->isdisliked(),
             'like_count' => $this->likesCount ?? 0,
-            'dislike_count' => $this->dislikeCount ?? 0,
+            'dislike_count' => $this->dislikesCount ?? 0,
             'comments' => $this->comments()->paginate(3)->transform(function ($e) {
                 return [
                     'id' => $e->id,
