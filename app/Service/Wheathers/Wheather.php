@@ -25,7 +25,6 @@ class Wheather
                 $city = Session::put('city', $city);
 
             }
-
             return $wheather;
 
         } else {
@@ -118,7 +117,7 @@ class Wheather
 
             });
             return $wheather;
-            
+
         } catch (\Exception $e) {
 
             return ['error' => 'city not found'];
