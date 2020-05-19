@@ -108,16 +108,18 @@
                         </div>
                     @endguest
 
-                    @auth
+{{--                    @auth--}}
                         <comments-component
                             :comments="{{json_encode($comments)}}"
+                            comment="{{\App\Model\Comment::class}}"
                             postid="{{$post->id}}"
                             applocale="{{app()->getLocale()}}"
                             postslug="{{$post->slug}}"
+                            auth="{{\Illuminate\Support\Facades\Auth::user() ? true:false}}"
                         >
 
                         </comments-component>
-                    @endauth
+{{--                    @endauth--}}
                     {{--                    @foreach($comments as $comment)--}}
 
                     {{--                    --}}{{--                    @foreach($post->comments as $comment)--}}
@@ -199,7 +201,7 @@
                         </div>
 
                     </form>
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <p><img src="http://openweathermap.org/img/wn/{{$wheather['weather'][0]['icon']}}.png" width="50px" height="50px" alt="image"></p>
                         <p><strong>City: </strong> {{$wheather['name']}}</p>
                         <p><strong>Wind: </strong>{{$wheather['wind']['speed']}} m/s</p>
@@ -208,7 +210,7 @@
                 </div>
             </div>
 
-                    {{$comments->links()}}
+{{--                    {{$comments->links()}}--}}
         <!-- /.row -->
 
         </div>

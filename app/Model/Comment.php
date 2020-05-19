@@ -15,6 +15,13 @@ Comment extends Model
         'created_at',
     ];
 
+    protected $appends = [
+        'likes_count',
+        'dislikes_count',
+        'is_liked',
+        'is_disliked'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -53,5 +60,15 @@ Comment extends Model
     public function getCreatedAtAttribute($value)
     {
         return Carbon::parse($value)->diffForHumans();
+    }
+
+    public function getIsLikedAttribute()
+    {
+        return $this->isLiked();
+    }
+
+    public function getIsDislikedAttribute()
+    {
+        return $this->isDisliked();
     }
 }

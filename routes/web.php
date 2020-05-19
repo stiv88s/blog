@@ -42,8 +42,8 @@ Route::group([
         Route::group(['middleware' => ['web', 'auth']], function () {
 //
             Route::post('/post{post}/comment', 'CommentController@store')->name('store.comment');
-            Route::post('/post/{post}/like', 'LikeController@like')->name('like.post');
-            Route::post('/post/{post}/dislike', 'DisLikeController@dislike')->name('dislike.post');
+            Route::post('/post/{post}/like/{comment?}', 'LikeController@like')->name('like.post');
+            Route::post('/post/{post}/dislike/{comment?}', 'DisLikeController@dislike')->name('dislike.post');
         });
 
 

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="card my-4">
+        <div class="card my-4" v-if="auth">
             <h5 class="card-header">Leave a Comment:</h5>
 
             <div class="card-body">
@@ -8,7 +8,7 @@
 
                     {{error}}
                 </div>
-                <form @submit.prevent="saveComment">
+                <form @submit.prevent="saveComment" >
                     <div class="form-group">
                         <textarea class="form-control" rows="3" name="body" v-model="body"></textarea>
                     </div>
@@ -20,8 +20,9 @@
         <div class="media mb-4">
             <div class="media-body">
 
-                <comment-component v-for="(value,index) in commentsData.data" :key="index"
-                                   :comment="value"></comment-component>
+                <comment-component v-for="(value,index) in commentsData.data" :key="value.id"
+                                   :comment="value"
+                ></comment-component>
 
                 <pagination :data="commentsData" @pagination-change-page="getResults"></pagination>
 
@@ -35,7 +36,7 @@
     import CommentComponent from '../components/CommentComponent.vue';
 
     export default {
-        props: ['comments', 'postid', 'postslug','applocale'],
+        props: ['comments', 'postid', 'postslug','applocale','auth','comment'],
 
         data() {
             return {

@@ -1945,6 +1945,27 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1958,8 +1979,61 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['comment'],
+  data: function data() {
+    var _ref;
+
+    return _ref = {
+      isliked: false,
+      isdisliked: false,
+      likeCount: 0,
+      dislikeCount: 0,
+      postid: 0,
+      auth: true,
+      imageLikeStatus: '/siteImages/like1.png',
+      imageDislikeStatus: '/siteImages/dislike1.png',
+      likeImage: '/siteImages/like1.png',
+      likedImage: '/siteImages/like2.png'
+    }, _defineProperty(_ref, "likeCount", 0), _defineProperty(_ref, "dislikeImage", '/siteImages/dislike1.png'), _defineProperty(_ref, "dislikedImage", '/siteImages/dislike2.png'), _defineProperty(_ref, "dislikeCount", 0), _ref;
+  },
+  methods: {
+    likeComment: function likeComment() {
+      var _this = this;
+
+      axios.post(route("like.post", [this.$parent.applocale, this.postid, this.comment.id]).url(), {
+        'type': this.$parent.comment
+      }).then(function (response) {
+        console.log(response.data);
+        _this.likeCount = response.data.likecount;
+        _this.dislikeCount = response.data.dislikecount;
+        response.data.like == false ? _this.imageLikeStatus = _this.likeImage : _this.imageLikeStatus = _this.likedImage;
+        response.data.dislike == false ? _this.imageDislikeStatus = _this.dislikeImage : _this.imageDislikeStatus = _this.dislikedImage; // console.log(this.imageLikeStatus)
+      });
+    },
+    dislikeComment: function dislikeComment() {
+      var _this2 = this;
+
+      axios.post(route("dislike.post", [this.$parent.applocale, this.postid, this.comment.id]).url(), {
+        'type': this.$parent.comment
+      }).then(function (response) {
+        // console.log(response.data)
+        _this2.likeCount = response.data.likecount;
+        _this2.dislikeCount = response.data.dislikecount;
+        response.data.like == false ? _this2.imageLikeStatus = _this2.likeImage : _this2.imageLikeStatus = _this2.likedImage;
+        response.data.dislike == false ? _this2.imageDislikeStatus = _this2.dislikeImage : _this2.imageDislikeStatus = _this2.dislikedImage; // console.log(this.imageDisLikeStatus)
+      });
+    }
+  },
   mounted: function mounted() {
-    console.log(this.comment);
+    console.log(this.comment.id); // console.log(this.$parent.applocale)
+
+    this.isliked = this.comment.is_liked;
+    this.isdisliked = this.comment.is_disliked;
+    this.likeCount = this.comment.likes_count;
+    this.dislikeCount = this.comment.dislikes_count;
+    this.postid = this.comment.post_id;
+    this.auth = this.$parent.auth;
+    this.comment.is_liked == false ? this.imageLikeStatus = this.likeImage : this.imageLikeStatus = this.likedImage;
+    this.comment.is_disliked == false ? this.imageDisLikeStatus = this.dislikeImage : this.imageDislikeStatus = this.dislikedImage;
   }
 });
 
@@ -2008,9 +2082,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['comments', 'postid', 'postslug', 'applocale'],
+  props: ['comments', 'postid', 'postslug', 'applocale', 'auth', 'comment'],
   data: function data() {
     return {
       commentsData: {},
@@ -40091,7 +40166,80 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("p", [_vm._v("posted : " + _vm._s(_vm.comment.created_at))]),
-      _vm._v("\n        " + _vm._s(_vm.comment.body) + "\n    ")
+      _vm._v("\n        " + _vm._s(_vm.comment.body) + "\n        "),
+      _c("div", { staticClass: "row pt-2" }, [
+        _c("div", { staticClass: "col-1 d-inline-block text-left" }, [
+          _vm.auth
+            ? _c("a", { attrs: { href: "" } }, [
+                _c("img", {
+                  attrs: {
+                    src: _vm.imageLikeStatus,
+                    alt: "like image",
+                    width: "15px",
+                    height: "15px"
+                  },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.likeComment($event)
+                    }
+                  }
+                })
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.auth == false
+            ? _c("img", {
+                attrs: {
+                  src: _vm.likeImage,
+                  alt: "like",
+                  width: "15px",
+                  height: "15px"
+                }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _c("span", { staticClass: "badge badge-pill" }, [
+            _vm._v(_vm._s(_vm.likeCount))
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-1 d-inline-block text-left" }, [
+          _vm.auth
+            ? _c("a", { attrs: { href: "" } }, [
+                _c("img", {
+                  attrs: {
+                    src: _vm.imageDislikeStatus,
+                    alt: "like image",
+                    width: "15px",
+                    height: "15px"
+                  },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.dislikeComment($event)
+                    }
+                  }
+                })
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.auth == false
+            ? _c("img", {
+                attrs: {
+                  src: _vm.dislikeImage,
+                  alt: "dislike",
+                  width: "15px",
+                  height: "15px"
+                }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _c("span", { staticClass: "badge badge-pill" }, [
+            _vm._v(_vm._s(_vm.dislikeCount))
+          ])
+        ])
+      ])
     ])
   ])
 }
@@ -40118,69 +40266,78 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "card my-4" }, [
-      _c("h5", { staticClass: "card-header" }, [_vm._v("Leave a Comment:")]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "card-body" },
-        [
-          _vm._l(_vm.validationErrors.body, function(error, index) {
-            return _vm.validationErrors
-              ? _c("div", { key: index, staticClass: "alert-danger" }, [
-                  _vm._v(
-                    "\n\n                " + _vm._s(error) + "\n            "
-                  )
-                ])
-              : _vm._e()
-          }),
+    _vm.auth
+      ? _c("div", { staticClass: "card my-4" }, [
+          _c("h5", { staticClass: "card-header" }, [
+            _vm._v("Leave a Comment:")
+          ]),
           _vm._v(" "),
           _c(
-            "form",
-            {
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.saveComment($event)
-                }
-              }
-            },
+            "div",
+            { staticClass: "card-body" },
             [
-              _c("div", { staticClass: "form-group" }, [
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.body,
-                      expression: "body"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { rows: "3", name: "body" },
-                  domProps: { value: _vm.body },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.body = $event.target.value
-                    }
-                  }
-                })
-              ]),
+              _vm._l(_vm.validationErrors.body, function(error, index) {
+                return _vm.validationErrors
+                  ? _c("div", { key: index, staticClass: "alert-danger" }, [
+                      _vm._v(
+                        "\n\n                " +
+                          _vm._s(error) +
+                          "\n            "
+                      )
+                    ])
+                  : _vm._e()
+              }),
               _vm._v(" "),
               _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-                [_vm._v("Submit")]
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.saveComment($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.body,
+                          expression: "body"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { rows: "3", name: "body" },
+                      domProps: { value: _vm.body },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.body = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("Submit")]
+                  )
+                ]
               )
-            ]
+            ],
+            2
           )
-        ],
-        2
-      )
-    ]),
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c("div", { staticClass: "media mb-4" }, [
       _c(
@@ -40189,7 +40346,7 @@ var render = function() {
         [
           _vm._l(_vm.commentsData.data, function(value, index) {
             return _c("comment-component", {
-              key: index,
+              key: value.id,
               attrs: { comment: value }
             })
           }),
@@ -54218,337 +54375,417 @@ var Ziggy = {
     "welcome": {
       "uri": "{locale?}",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "setLocale": {
       "uri": "{user?}\/{locale}\/set-locale",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "showing.post": {
       "uri": "{locale}\/post\/{post}-{slug}",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "show.categories.posts": {
       "uri": "{locale}\/category\/{category}-{slug}\/post",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "show.tags.posts": {
       "uri": "{locale}\/tag\/{tag}-{slug}\/posts",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "store.comment": {
       "uri": "{locale}\/post{post}\/comment",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "like.post": {
-      "uri": "{locale}\/post\/{post}\/like",
+      "uri": "{locale}\/post\/{post}\/like\/{comment?}",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "dislike.post": {
-      "uri": "{locale}\/post\/{post}\/dislike",
+      "uri": "{locale}\/post\/{post}\/dislike\/{comment?}",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.home": {
       "uri": "{locale}\/user\/home",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.login": {
       "uri": "{locale}\/user\/login",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.login.send": {
       "uri": "{locale}\/user\/login",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.logout": {
       "uri": "{locale}\/user\/logout",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.register": {
       "uri": "{locale}\/user\/register",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.send.register": {
       "uri": "{locale}\/user\/register",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.password.request": {
       "uri": "{locale}\/user\/password\/reset",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.password.email": {
       "uri": "{locale}\/user\/password\/email",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.password.reset": {
       "uri": "{locale}\/user\/password\/reset\/{token}",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.password.update": {
       "uri": "{locale}\/user\/password\/reset",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "admin.login": {
       "uri": "{locale}\/admin\/login",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "admin.login.send": {
       "uri": "{locale}\/admin\/login",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "admin.logout": {
       "uri": "{locale}\/admin\/logout",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "admin.password.request": {
       "uri": "{locale}\/admin\/password\/reset",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "admin.password.email": {
       "uri": "{locale}\/admin\/password\/email",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "admin.password.reset": {
       "uri": "{locale}\/admin\/password\/reset\/{token}",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "admin.password.update": {
       "uri": "{locale}\/admin\/password\/reset",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "admin.home": {
       "uri": "{locale}\/admin\/home",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "post.index": {
       "uri": "{locale}\/admin\/post",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "post.create": {
       "uri": "{locale}\/admin\/post\/create",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "post.store": {
       "uri": "{locale}\/admin\/post",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "post.show": {
       "uri": "{locale}\/admin\/post\/{post}",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "post.edit": {
       "uri": "{locale}\/admin\/post\/{post}\/edit",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "post.update": {
       "uri": "{locale}\/admin\/post\/{post}",
       "methods": ["PUT", "PATCH"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "post.destroy": {
       "uri": "{locale}\/admin\/post\/{post}",
       "methods": ["DELETE"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "category.index": {
       "uri": "{locale}\/admin\/category",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "category.create": {
       "uri": "{locale}\/admin\/category\/create",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "category.store": {
       "uri": "{locale}\/admin\/category",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "category.show": {
       "uri": "{locale}\/admin\/category\/{category}",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "category.edit": {
       "uri": "{locale}\/admin\/category\/{category}\/edit",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "category.update": {
       "uri": "{locale}\/admin\/category\/{category}",
       "methods": ["PUT", "PATCH"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "category.destroy": {
       "uri": "{locale}\/admin\/category\/{category}",
       "methods": ["DELETE"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "tag.index": {
       "uri": "{locale}\/admin\/tag",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "tag.create": {
       "uri": "{locale}\/admin\/tag\/create",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "tag.store": {
       "uri": "{locale}\/admin\/tag",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "tag.edit": {
       "uri": "{locale}\/admin\/tag\/{tag}\/edit",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "tag.update": {
       "uri": "{locale}\/admin\/tag\/{tag}",
       "methods": ["PUT", "PATCH"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "tag.destroy": {
       "uri": "{locale}\/admin\/tag\/{tag}",
       "methods": ["DELETE"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.index": {
       "uri": "{locale}\/admin\/user",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.create": {
       "uri": "{locale}\/admin\/user\/create",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.store": {
       "uri": "{locale}\/admin\/user",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.edit": {
       "uri": "{locale}\/admin\/user\/{user}\/edit",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.update": {
       "uri": "{locale}\/admin\/user\/{user}",
       "methods": ["PUT", "PATCH"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "user.destroy": {
       "uri": "{locale}\/admin\/user\/{user}",
       "methods": ["DELETE"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "admin.index": {
       "uri": "{locale}\/admin\/admin",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "admin.create": {
       "uri": "{locale}\/admin\/admin\/create",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "admin.store": {
       "uri": "{locale}\/admin\/admin",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "admin.edit": {
       "uri": "{locale}\/admin\/admin\/{admin}\/edit",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "admin.update": {
       "uri": "{locale}\/admin\/admin\/{admin}",
       "methods": ["PUT", "PATCH"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "admin.destroy": {
       "uri": "{locale}\/admin\/admin\/{admin}",
       "methods": ["DELETE"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "role.index": {
       "uri": "{locale}\/admin\/role",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "role.create": {
       "uri": "{locale}\/admin\/role\/create",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "role.store": {
       "uri": "{locale}\/admin\/role",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "role.edit": {
       "uri": "{locale}\/admin\/role\/{role}\/edit",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "role.update": {
       "uri": "{locale}\/admin\/role\/{role}",
       "methods": ["PUT", "PATCH"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "role.destroy": {
       "uri": "{locale}\/admin\/role\/{role}",
       "methods": ["DELETE"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "blocked.users": {
       "uri": "{locale}\/admin\/blocked-users",
       "methods": ["GET", "HEAD"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
     "blockUser": {
       "uri": "{locale}\/admin\/block-users\/{user}\/block",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
     },
-    "here": {
-      "uri": "{locale}\/admin\/here",
+    "unblockUser": {
+      "uri": "{locale}\/admin\/blocked-users\/{user}\/unblock",
       "methods": ["POST"],
-      "domain": null
+      "domain": "admin-blog.test"
+    },
+    "api1.": {
+      "uri": "api\/v1\/dislike\/{model_id}",
+      "methods": ["POST"],
+      "domain": "api.admin-blog.test"
+    },
+    "passport.authorizations.authorize": {
+      "uri": "oauth\/authorize",
+      "methods": ["GET", "HEAD"],
+      "domain": "api.admin-blog.test"
+    },
+    "passport.authorizations.approve": {
+      "uri": "oauth\/authorize",
+      "methods": ["POST"],
+      "domain": "api.admin-blog.test"
+    },
+    "passport.authorizations.deny": {
+      "uri": "oauth\/authorize",
+      "methods": ["DELETE"],
+      "domain": "api.admin-blog.test"
+    },
+    "passport.token": {
+      "uri": "oauth\/token",
+      "methods": ["POST"],
+      "domain": "api.admin-blog.test"
+    },
+    "passport.tokens.index": {
+      "uri": "oauth\/tokens",
+      "methods": ["GET", "HEAD"],
+      "domain": "api.admin-blog.test"
+    },
+    "passport.tokens.destroy": {
+      "uri": "oauth\/tokens\/{token_id}",
+      "methods": ["DELETE"],
+      "domain": "api.admin-blog.test"
+    },
+    "passport.token.refresh": {
+      "uri": "oauth\/token\/refresh",
+      "methods": ["POST"],
+      "domain": "api.admin-blog.test"
+    },
+    "passport.clients.index": {
+      "uri": "oauth\/clients",
+      "methods": ["GET", "HEAD"],
+      "domain": "api.admin-blog.test"
+    },
+    "passport.clients.store": {
+      "uri": "oauth\/clients",
+      "methods": ["POST"],
+      "domain": "api.admin-blog.test"
+    },
+    "passport.clients.update": {
+      "uri": "oauth\/clients\/{client_id}",
+      "methods": ["PUT"],
+      "domain": "api.admin-blog.test"
+    },
+    "passport.clients.destroy": {
+      "uri": "oauth\/clients\/{client_id}",
+      "methods": ["DELETE"],
+      "domain": "api.admin-blog.test"
+    },
+    "passport.scopes.index": {
+      "uri": "oauth\/scopes",
+      "methods": ["GET", "HEAD"],
+      "domain": "api.admin-blog.test"
+    },
+    "passport.personal.tokens.index": {
+      "uri": "oauth\/personal-access-tokens",
+      "methods": ["GET", "HEAD"],
+      "domain": "api.admin-blog.test"
+    },
+    "passport.personal.tokens.store": {
+      "uri": "oauth\/personal-access-tokens",
+      "methods": ["POST"],
+      "domain": "api.admin-blog.test"
+    },
+    "passport.personal.tokens.destroy": {
+      "uri": "oauth\/personal-access-tokens\/{token_id}",
+      "methods": ["DELETE"],
+      "domain": "api.admin-blog.test"
     }
   },
   baseUrl: 'http://admin-blog.test/',

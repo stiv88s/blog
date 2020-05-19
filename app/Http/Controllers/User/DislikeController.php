@@ -10,12 +10,13 @@ use Illuminate\Support\Facades\Auth;
 
 class DislikeController extends Controller
 {
-    public function dislike(Request $request, $id)
+    public function dislike(Request $request, $id,$comment=null)
     {
+        if($comment){
+            $id = $comment;
+        }
 
         $type = $request->type;
-
-
         $like = $this->checkLike($type, $id);
         $dislike = $this->checkDislike($type, $id);
 

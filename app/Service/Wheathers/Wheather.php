@@ -17,11 +17,15 @@ class Wheather
         if ($city != null) {
 
             $wheather = $this->getCityWheater($city);
+            if (array_key_exists('error', $wheather)) {
+                $city = 'Chicago';
+                $wheather = $this->getCityWheater($city);
+            }
 
-            if(Auth::check()){
+            if (Auth::check()) {
                 Auth::user()->prefered_city = $city;
                 Auth::user()->save();
-            }else{
+            } else {
                 $city = Session::put('city', $city);
 
             }
@@ -113,6 +117,7 @@ class Wheather
 
                 $request = $client->get("https://community-open-weather-map.p.rapidapi.com/weather?q={$city}", $postData);
                 $json = json_decode($request->getBody(), true);
+
                 return $json;
 
             });
