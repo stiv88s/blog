@@ -26,6 +26,7 @@
                 <td>Name</td>
                 <td>Email</td>
                 <td>Role</td>
+                <td>Permission</td>
                 <td>Status</td>
                 <td>Actions</td>
             </tr>
@@ -39,6 +40,13 @@
                     <td>
                         @foreach($admin->roles as $role)
                             {{$role->rolename.','}}
+                        @endforeach
+                    </td>
+                    <td>
+                        @foreach($admin->roles as $role)
+                            @foreach($role->permissions as $permission)
+                                {{$permission->name.','}}
+                            @endforeach
                         @endforeach
                     </td>
                     <td>{{$admin->status}}</td>

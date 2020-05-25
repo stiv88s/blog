@@ -19,6 +19,7 @@
             <tr>
                 <td>Id</td>
                 <td>Rolename</td>
+                <td>Permission</td>
                 <td>Actions</td>
 
             </tr>
@@ -28,9 +29,18 @@
                 <tr>
                     <td>{{$role->id}}</td>
                     <td>{{$role->rolename}}</td>
-                    <td class="float-left"><a href="{{route('role.edit',[app()->getLocale(),$role->id])}}" class="btn btn-info">Edit</a></td>
+                    <td>
+
+                        @foreach($role->permissions as $permission)
+                            {{$permission->name.','}}
+                        @endforeach
+
+                    </td>
+                    <td class="float-left"><a href="{{route('role.edit',[app()->getLocale(),$role->id])}}"
+                                              class="btn btn-info">Edit</a></td>
                     <td class="float-left">
-                        <a href="{{route('role.destroy',[app()->getLocale(),$role->id])}}" class="btn btn-danger removeTag">Delete</a>
+                        <a href="{{route('role.destroy',[app()->getLocale(),$role->id])}}"
+                           class="btn btn-danger removeTag">Delete</a>
                     </td>
                 </tr>
 
