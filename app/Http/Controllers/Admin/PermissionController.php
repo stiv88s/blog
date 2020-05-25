@@ -3,21 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Model\Tag;
-use App\ModelRepository\TagsRepository;
+use App\Model\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class TagController extends Controller
+class PermissionController extends Controller
 {
-
-    protected $trepo;
-
-    public function __construct(TagsRepository $trepo)
-    {
-        $this->trepo = $trepo;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -25,9 +16,9 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::all();
+        $permissions = Permission::all();
 
-        return view('admin.tags.index', compact('tags'));
+        return view('admin.permissions.index', compact('permissions'));
     }
 
     /**
@@ -37,7 +28,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('admin.tags.create');
+        return view('admin.permissions.create');
     }
 
     /**
@@ -48,11 +39,13 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        $this->trepo->create($request->all());
+        $permission = Permission::create([
+            'name' => $request->name
+        ]);
 
-        Session::flash('status', 'Tag is Created');
+       Session::flash('status', 'Permission is stored');
 
-        return redirect()->route('tag.index',app()->getLocale());
+        return redirect()->route('permission.index', app()->getLocale());
     }
 
 
@@ -62,11 +55,9 @@ class TagController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Permission $permission)
     {
-        $tag = $this->trepo->findOrFail($id);
-
-        return view('admin.tags.edit', compact('tag'));
+        return view('admin.permissions.edit', compact('permission'));
     }
 
     /**
@@ -76,13 +67,17 @@ class TagController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Permission $permission)
     {
-        $this->trepo->update($id,$request->all());
+        $permission->fill([
+            'name' => $request->name
+        ]);
 
-        Session::flash('status', 'Tag is Updated');
+        $permission->save();
 
-        return redirect()->route('tag.index',app()->getLocale());
+        Session::flash('status', 'Permission is Updated');
+
+        return redirect()->route('permission.index', app()->getLocale());
     }
 
     /**
@@ -91,9 +86,9 @@ class TagController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Permission $permission)
     {
-        $this->trepo->destroy($id);
+        $permission->delete();
 
     }
 }

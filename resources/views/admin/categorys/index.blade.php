@@ -5,6 +5,13 @@
         Categories
     </h1>
 
+    @if (session('status'))
+
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
+
     <a href="{{route('category.create',app()->getLocale())}}" class="btn btn-danger">Create Category</a>
 
     <div class="card-body">

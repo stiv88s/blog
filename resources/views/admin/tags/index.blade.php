@@ -5,6 +5,13 @@
       Tags
     </h1>
 
+    @if (session('status'))
+
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
+
     <a href="{{route('tag.create',app()->getLocale())}}" class="btn btn-danger">Create Tag</a>
 
     <div class="card-body">

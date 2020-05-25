@@ -7,6 +7,7 @@ use App\Model\Admin;
 use App\Model\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -61,6 +62,8 @@ class AdminController extends Controller
         }
         DB::commit();
 
+        Session::flash('status', 'Admin is Created');
+
         return redirect()->route('admin.index', app()->getLocale());
 
 
@@ -99,6 +102,8 @@ class AdminController extends Controller
         $admin->save();
 
         $admin->roles()->sync($request->roles);
+
+        Session::flash('status', 'Admin is Updated');
 
         return redirect()->route('admin.index', app()->getLocale());
 

@@ -7,6 +7,7 @@ use App\Model\Category;
 use App\Model\Post;
 use App\ModelRepository\CategoryRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
 {
@@ -40,6 +41,8 @@ class CategoryController extends Controller
     {
         $this->cRepo->update($category->id, $request->all());
 
+        Session::flash('status', 'Category is Updated');
+
         return redirect()->route('category.index',app()->getLocale());
 
     }
@@ -52,6 +55,8 @@ class CategoryController extends Controller
     public function store(Request $request,$locale=null)
     {
         Category::create($request->all());
+
+        Session::flash('status', 'Category is Created');
 
         return redirect()->route('category.index',app()->getLocale());
     }

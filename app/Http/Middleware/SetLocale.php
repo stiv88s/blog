@@ -35,7 +35,7 @@ class SetLocale
             $locale = locale()->isSupported($desiredLocale) ? $desiredLocale : locale()->fallback();
             locale()->set($locale);
             Session::put('locale', $locale);
-            Session::save();
+//            Session::save();
         }
 
 //        delete app()->getlocale in all routes

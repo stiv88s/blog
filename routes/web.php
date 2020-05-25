@@ -143,6 +143,10 @@ Route::group([
 
         Route::post('blocked-users/{user}/unblock','BlockedUsersController@unblock')->name('unblockUser');
 
+        //Permission
+
+        Route::resource('permission','PermissionController')->except('show');;
+
     });
 
 });

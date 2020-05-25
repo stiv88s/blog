@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Model\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class RoleController extends Controller
 {
@@ -42,6 +43,8 @@ class RoleController extends Controller
             'rolename' => $request->rolename
         ]);
 
+        Session::flash('status', 'Role is Created');
+
         return redirect()->route('role.index',app()->getLocale());
     }
 
@@ -72,6 +75,8 @@ class RoleController extends Controller
         ]);
 
         $role->save();
+
+        Session::flash('status', 'Role is Updated');
 
         return redirect()->route('role.index',app()->getLocale());
 

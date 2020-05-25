@@ -7,6 +7,7 @@ use App\Model\Admin;
 use App\Model\BlockedUsers;
 use App\Model\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -45,6 +46,7 @@ class UserController extends Controller
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password'))
         ]);
+        Session::flash('status', 'User is Created');
 
         return redirect()->route('user.index', app()->getLocale());
 
@@ -78,6 +80,8 @@ class UserController extends Controller
         ]);
 
         $user->save();
+
+        Session::flash('status', 'User is Updated');
 
         return redirect()->route('user.index', app()->getLocale());
 

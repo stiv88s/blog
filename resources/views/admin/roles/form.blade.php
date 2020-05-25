@@ -14,5 +14,5 @@
 </div>
 
 
-{!! Form::submit('Save Tag',['class'=>'btn btn-block btn-round btn-bold btn-primary']); !!}
+{!! Form::submit('Save Role',['class'=>'btn btn-block btn-round btn-bold btn-primary']); !!}
 

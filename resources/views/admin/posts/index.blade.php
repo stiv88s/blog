@@ -4,6 +4,12 @@
     <h1>
         Posts
     </h1>
+    @if (session('status'))
+
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
 
     <a href="{{route('post.create',app()->getLocale())}}" class="btn btn-danger">Create Post</a>
 

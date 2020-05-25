@@ -11,6 +11,7 @@ use App\Model\Tag;
 use App\ModelRepository\PostRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class PostController extends Controller
 {
@@ -72,6 +73,8 @@ class PostController extends Controller
         $post->tags()->sync($request->tags);
         $post->categorys()->sync($request->categorys);
 
+        Session::flash('status', 'Post is created');
+
         return redirect()->route('post.index',app()->getLocale());
 
     }
@@ -96,6 +99,8 @@ class PostController extends Controller
 
         $post->tags()->sync($request->tags);
         $post->categorys()->sync($request->categorys);
+
+        Session::flash('status', 'Post is Updated');
 
         return redirect()->route('post.index',app()->getLocale());
 

@@ -266,6 +266,14 @@
                                         </p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{route('permission.index',app()->getLocale())}}" class="nav-link">
+                                        <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
+                                        <p>
+                                            Permissions
+                                        </p>
+                                    </a>
+                                </li>
                                 <li class="nav-item has-treeview">
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-fw fa-chart-pie"></i>
