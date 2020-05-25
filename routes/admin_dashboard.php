@@ -12,7 +12,7 @@ Route::group(['prefix' => '{locale}',
     Route::resource('category', 'CategoryController');
 
     //Tag
-    Route::resource('tag', 'TagController')->except('show')->middleware('can:create,App\Model\Tag::class');
+    Route::resource('tag', 'TagController')->except('show');
 
     //Users
 

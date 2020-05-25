@@ -42,10 +42,7 @@ class TagPolicy
      */
     public function create(Admin $admin)
     {
-
-        return false;
-        dd('stop');
-        dd($admin);
+        
 
     }
 
