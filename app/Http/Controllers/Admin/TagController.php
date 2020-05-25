@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Model\Post;
 use App\Model\Tag;
 use App\ModelRepository\TagsRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class TagController extends Controller
@@ -37,6 +39,14 @@ class TagController extends Controller
      */
     public function create()
     {
+//        $this->authorize('create',Tag::class);
+//        if (Auth::user()->can('create', Tag::class)) {
+//
+//            dd('ok');
+//        } else {
+//            abort(403, 'Only admins can');
+//        }
+
         return view('admin.tags.create');
     }
 
@@ -52,7 +62,7 @@ class TagController extends Controller
 
         Session::flash('status', 'Tag is Created');
 
-        return redirect()->route('tag.index',app()->getLocale());
+        return redirect()->route('tag.index', app()->getLocale());
     }
 
 
@@ -78,11 +88,11 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->trepo->update($id,$request->all());
+        $this->trepo->update($id, $request->all());
 
         Session::flash('status', 'Tag is Updated');
 
-        return redirect()->route('tag.index',app()->getLocale());
+        return redirect()->route('tag.index', app()->getLocale());
     }
 
     /**

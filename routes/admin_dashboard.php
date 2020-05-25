@@ -1,7 +1,7 @@
 <?php
 
-Route::group([  'prefix' => '{locale}',
-    'middleware' => ['locale']],function(){
+Route::group(['prefix' => '{locale}',
+    'middleware' => ['locale']], function () {
     Route::get('/home', 'HomeController@index')->name('admin.home');
 
     //Post
@@ -12,7 +12,7 @@ Route::group([  'prefix' => '{locale}',
     Route::resource('category', 'CategoryController');
 
     //Tag
-    Route::resource('tag', 'TagController')->except('show');
+    Route::resource('tag', 'TagController')->except('show')->middleware('can:create,App\Model\Tag::class');
 
     //Users
 
@@ -26,11 +26,11 @@ Route::group([  'prefix' => '{locale}',
 
     //BLocked Users
 
-    Route::get('blocked-users','BlockedUsersController@index')->name('blocked.users');
+    Route::get('blocked-users', 'BlockedUsersController@index')->name('blocked.users');
 
-    Route::post('block-users/{user}/block','BlockedUsersController@block')->name('blockUser');
+    Route::post('block-users/{user}/block', 'BlockedUsersController@block')->name('blockUser');
 
-    Route::post('blocked-users/{user}/unblock','BlockedUsersController@unblock')->name('unblockUser');
+    Route::post('blocked-users/{user}/unblock', 'BlockedUsersController@unblock')->name('unblockUser');
 
 
 });

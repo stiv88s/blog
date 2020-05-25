@@ -18,12 +18,9 @@
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Permission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/admins/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/admins/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/roles/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/roles/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/roles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/roles/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TagController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin_dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin_dashboard.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +252,7 @@
       <workItem from="1589784789503" duration="3681000" />
       <workItem from="1589872901129" duration="8169000" />
       <workItem from="1590045779831" duration="9930000" />
-      <workItem from="1590392329754" duration="7918000" />
+      <workItem from="1590392329754" duration="14293000" />
     </task>
     <servers />
   </component>
@@ -315,11 +312,12 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1589376331651" />
-    <state x="458" y="216" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590060229921">
+    <state x="458" y="216" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590402838081">
       <screen x="0" y="23" width="1440" height="821" />
     </state>
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1589811428716" />
     <state x="458" y="216" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/-247.-1057.1920.1057@0.23.1440.821" timestamp="1590060229921" />
+    <state x="458" y="216" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821@0.23.1440.821" timestamp="1590402838081" />
     <state x="378" y="111" key="#phpunit.xml" timestamp="1589452446121">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -329,13 +327,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585047765328" />
-    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog" timestamp="1589876180328">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="135" y="59" width="1240" height="641" key="DiffContextDialog" timestamp="1590407113934">
+      <screen x="0" y="23" width="1440" height="823" />
     </state>
     <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1589876180328" />
     <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1589805032926" />
     <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.23.1440.816@0.23.1440.816" timestamp="1588931470530" />
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.23.1440.821@0.23.1440.821" timestamp="1587038738100" />
+    <state x="135" y="59" width="1240" height="641" key="DiffContextDialog/0.23.1440.823@0.23.1440.823" timestamp="1590407113934" />
     <state x="461" y="273" key="NewPhpClassDialog" timestamp="1589798668582">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -363,15 +362,15 @@
     <state x="97" y="233" width="978" height="501" key="find.popup/0.23.1440.821/-247.-1057.1920.1057@0.23.1440.821" timestamp="1590053837998" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1590398695220" />
     <state x="97" y="247" width="978" height="536" key="find.popup/0.23.1440.877/-247.-1057.1920.992@0.23.1440.877" timestamp="1590055063368" />
-    <state x="385" y="207" width="670" height="564" key="search.everywhere.popup" timestamp="1590400572749">
-      <screen x="0" y="23" width="1440" height="821" />
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1590406168968">
+      <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1589879357157" />
     <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1589806003935" />
     <state x="385" y="206" width="670" height="561" key="search.everywhere.popup/0.23.1440.814@0.23.1440.814" timestamp="1588919209027" />
     <state x="385" y="206" width="670" height="563" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1588932504141" />
     <state x="385" y="207" width="670" height="564" key="search.everywhere.popup/0.23.1440.821/-247.-1057.1920.1057@0.23.1440.821" timestamp="1590052169028" />
-    <state x="385" y="207" width="670" height="564" key="search.everywhere.popup/0.23.1440.821@0.23.1440.821" timestamp="1590400572749" />
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1582547452888" />
+    <state x="385" y="207" width="670" height="564" key="search.everywhere.popup/0.23.1440.821@0.23.1440.821" timestamp="1590402191977" />
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1590406168968" />
   </component>
 </project>

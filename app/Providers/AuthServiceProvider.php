@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Model\Tag;
+use App\Policies\TagPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -14,6 +16,9 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Model' => 'App\Policies\ModelPolicy',
+        'App\Model\Tag' => TagPolicy::class
+
+
     ];
 
     /**
@@ -24,7 +29,10 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+//        Gate::define('tag', function(){
+//            return false;
+//        });
 
-        //
+        Gate::define('tag', TagPolicy::class);
     }
 }
