@@ -42,7 +42,7 @@ class TagPolicy
      */
     public function create(Admin $admin)
     {
-        
+
 
     }
 
