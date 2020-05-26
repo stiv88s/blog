@@ -1,15 +1,13 @@
 <template>
     <div>
+        <div v-if="loading==true" style="position:fixed; left: 50%; z-index: 9; top: 50%;">
+
+            <h3>Please wait...</h3>
+            <img src="/admin/Load.svg" alt="loading">
+
+        </div>
         <a :href="route('permission.create',this.applocale)" class="btn btn-danger float-left">Create Permission</a>
-        <br>
-        <!--        <form action="{{route('generatePermission',app()->getLocale())}}" method="post" class="mt-2">-->
-        <!--            @csrf-->
-
-        <!--            <div class="input-group-append">-->
-        <!--                <input type="submit" class="btn btn-outline-success" value="Generate Permission">-->
-        <!--            </div>-->
-
-        <!--        </form>-->
+        <button class="btn btn-outline-success" @click="generatePermissions">Generate Permissions</button>
 
         <div class="card-body">
             <table class="table">
@@ -21,27 +19,10 @@
                 </tr>
                 </thead>
 
-<!--                <tbody>-->
-                    <tbody is="permission-component" class="text-center" v-for="(permission,index) in permissions"
-                        :key="index"
-                        :permission="permission"
-                    ></tbody>
-                <!--                @foreach($permissions as $permission)-->
-                <!--                <tr>-->
-                <!--                    <td>{{$permission->id}}</td>-->
-                <!--                    <td>{{$permission->name}}</td>-->
-                <!--                    <td class="float-left"><a href="{{route('permission.edit',[app()->getLocale(),$permission->id])}}"-->
-                <!--                                              class="btn btn-info">Edit</a></td>-->
-                <!--                    <td class="float-left">-->
-                <!--                        <a href="{{route('permission.destroy',[app()->getLocale(),$permission->id])}}"-->
-                <!--                           class="btn btn-danger removePermission">Delete</a>-->
-                <!--                    </td>-->
-                <!--                </tr>-->
-
-
-                <!--                @endforeach-->
-
-<!--                </tbody>-->
+                <tbody is="permission-component" @loadpermission="loading" class="text-center" v-for="(permission,index) in permissions"
+                       :key="index"
+                       :permission="permission"
+                ></tbody>
 
             </table>
 
@@ -57,13 +38,28 @@
         props: ['applocale', 'permiss'],
         data() {
             return {
-                permissions : [],
+                loading:false,
+                permissions: [],
 
+            }
+        },
+        methods: {
+            generatePermissions() {
+                this.loading = true
+                axios.post(route('generatePermission', [this.applocale]).url())
+
+                    .then(response => {
+                        if (response.data.length > 0) {
+                            this.permissions = this.permissions.concat(response.data)
+                        }
+                        this.loading = false
+                    }).catch(error => {
+                           this.loading = false
+                       })
             }
         },
         mounted() {
             this.permissions = this.permiss
-            console.log(this.permiss)
         },
         name: "PermissionsComponent"
     }

@@ -96,7 +96,12 @@ class PermissionController extends Controller
     public function generate(Request $request)
     {
         $permission = GPermission::generate();
+
         Session::flash('status', 'Permission is Generated');
+
+        if($request->wantsJson()){
+            return $permission;
+        }
 
         return redirect()->route('permission.index', app()->getLocale());
     }

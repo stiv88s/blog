@@ -2247,35 +2247,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['applocale', 'permiss'],
   data: function data() {
     return {
+      loading: false,
       permissions: []
     };
   },
+  methods: {
+    generatePermissions: function generatePermissions() {
+      var _this = this;
+
+      this.loading = true;
+      axios.post(route('generatePermission', [this.applocale]).url()).then(function (response) {
+        if (response.data.length > 0) {
+          _this.permissions = _this.permissions.concat(response.data);
+        }
+
+        _this.loading = false;
+      })["catch"](function (error) {
+        _this.loading = false;
+      });
+    }
+  },
   mounted: function mounted() {
     this.permissions = this.permiss;
-    console.log(this.permiss);
   },
   name: "PermissionsComponent"
 });
@@ -40601,6 +40598,25 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _vm.loading == true
+      ? _c(
+          "div",
+          {
+            staticStyle: {
+              position: "fixed",
+              left: "50%",
+              "z-index": "9",
+              top: "50%"
+            }
+          },
+          [
+            _c("h3", [_vm._v("Please wait...")]),
+            _vm._v(" "),
+            _c("img", { attrs: { src: "/admin/Load.svg", alt: "loading" } })
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
     _c(
       "a",
       {
@@ -40610,7 +40626,14 @@ var render = function() {
       [_vm._v("Create Permission")]
     ),
     _vm._v(" "),
-    _c("br"),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-outline-success",
+        on: { click: _vm.generatePermissions }
+      },
+      [_vm._v("Generate Permissions")]
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
       _c(
@@ -40624,7 +40647,8 @@ var render = function() {
               key: index,
               tag: "tbody",
               staticClass: "text-center",
-              attrs: { permission: permission }
+              attrs: { permission: permission },
+              on: { loadpermission: _vm.loading }
             })
           })
         ],
