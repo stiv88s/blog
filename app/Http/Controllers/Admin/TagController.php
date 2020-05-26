@@ -39,13 +39,8 @@ class TagController extends Controller
      */
     public function create()
     {
-//        $this->authorize('create',Tag::class);
-//        if (Auth::user()->can('create', Tag::class)) {
-//
-//            dd('ok');
-//        } else {
-//            abort(403, 'Only admins can');
-//        }
+        $this->authorize('create', Tag::class);
+
 
         return view('admin.tags.create');
     }
@@ -58,6 +53,8 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Tag::class);
+
         $this->trepo->create($request->all());
 
         Session::flash('status', 'Tag is Created');
@@ -72,9 +69,10 @@ class TagController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tag $tag)
     {
-        $tag = $this->trepo->findOrFail($id);
+
+        $this->authorize('update', $tag);
 
         return view('admin.tags.edit', compact('tag'));
     }
@@ -86,9 +84,11 @@ class TagController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tag $tag)
     {
-        $this->trepo->update($id, $request->all());
+        $this->authorize('update', $tag);
+
+        $this->trepo->update($tag->id, $request->all());
 
         Session::flash('status', 'Tag is Updated');
 
@@ -101,9 +101,10 @@ class TagController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tag $tag)
     {
-        $this->trepo->destroy($id);
+        $this->authorize('delete', $tag);
+        $this->trepo->destroy($tag->id);
 
     }
 }

@@ -33,6 +33,6 @@ class AuthServiceProvider extends ServiceProvider
 //            return false;
 //        });
 
-        Gate::define('tag', TagPolicy::class);
+//        Gate::define('tag', TagPolicy::class);
     }
 }

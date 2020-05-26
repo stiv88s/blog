@@ -49,4 +49,8 @@ class Admin extends Authenticatable
         return $this->hasMany(Post::class,'user_id','id');
     }
 
+    public function isSuperAdmin(){
+        return (bool)Auth()->user()->roles->where('rolename','superadmin')->first();
+    }
+
 }

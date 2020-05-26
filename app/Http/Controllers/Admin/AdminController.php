@@ -97,8 +97,10 @@ class AdminController extends Controller
             'email' => $request->input('email'),
             'phone' => $request->input('phone'),
             'status' => $request->input('status', 0),
-            'password' => bcrypt($request->input('password'))
         ]);
+        if ($request->input('password')) {
+            $admin->password = bcrypt($request->input('password'));
+        }
         $admin->save();
 
         $admin->roles()->sync($request->roles);
