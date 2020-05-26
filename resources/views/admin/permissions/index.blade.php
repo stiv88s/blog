@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>
-       Permissions
+        Permissions
     </h1>
 
     @if (session('status'))
@@ -12,7 +12,16 @@
         </div>
     @endif
 
+
     <a href="{{route('permission.create',app()->getLocale())}}" class="btn btn-danger">Create Permission</a>
+    <form action="{{route('generatePermission',app()->getLocale())}}" method="post" class="mt-2">
+        @csrf
+
+        <div class="input-group-append">
+            <input type="submit" class="btn btn-outline-success" value="Generate Permission">
+        </div>
+
+    </form>
 
     <div class="card-body">
         <table class="table">
@@ -29,9 +38,11 @@
                 <tr>
                     <td>{{$permission->id}}</td>
                     <td>{{$permission->name}}</td>
-                    <td class="float-left"><a href="{{route('permission.edit',[app()->getLocale(),$permission->id])}}" class="btn btn-info">Edit</a></td>
+                    <td class="float-left"><a href="{{route('permission.edit',[app()->getLocale(),$permission->id])}}"
+                                              class="btn btn-info">Edit</a></td>
                     <td class="float-left">
-                        <a href="{{route('permission.destroy',[app()->getLocale(),$permission->id])}}" class="btn btn-danger removePermission">Delete</a>
+                        <a href="{{route('permission.destroy',[app()->getLocale(),$permission->id])}}"
+                           class="btn btn-danger removePermission">Delete</a>
                     </td>
                 </tr>
 

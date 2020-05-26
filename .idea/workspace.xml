@@ -18,15 +18,9 @@
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PermissionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Tag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/TagPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/TagPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/PoliciesCallMethod.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/PoliciesCallMethod.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/tags/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tags/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/ziggy.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/ziggy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/permissions/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/permissions/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +254,7 @@
       <workItem from="1590045779831" duration="9930000" />
       <workItem from="1590392329754" duration="14293000" />
       <workItem from="1590413223011" duration="6765000" />
-      <workItem from="1590474184445" duration="10275000" />
+      <workItem from="1590474184445" duration="11139000" />
     </task>
     <servers />
   </component>
@@ -365,14 +359,14 @@
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1587711777834" />
     <state x="399" y="280" key="com.intellij.ide.util.TipDialog/0.23.1440.816@0.23.1440.816" timestamp="1582544980241" />
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.23.1440.825@0.23.1440.825" timestamp="1584521793055" />
-    <state x="305" y="122" width="978" height="540" key="find.popup" timestamp="1590482627009">
-      <screen x="0" y="23" width="1440" height="814" />
+    <state x="97" y="231" width="978" height="548" key="find.popup" timestamp="1590485136790">
+      <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1589880254905" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1589811685141" />
     <state x="305" y="122" width="978" height="540" key="find.popup/0.23.1440.814@0.23.1440.814" timestamp="1590482627009" />
     <state x="97" y="232" width="978" height="497" key="find.popup/0.23.1440.816/-247.-1057.1920.1057@0.23.1440.816" timestamp="1589884758563" />
-    <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1588933222560" />
+    <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1590485136790" />
     <state x="97" y="233" width="978" height="501" key="find.popup/0.23.1440.821/-247.-1057.1920.1057@0.23.1440.821" timestamp="1590053837998" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1590398695220" />
     <state x="97" y="247" width="978" height="536" key="find.popup/0.23.1440.877/-247.-1057.1920.992@0.23.1440.877" timestamp="1590055063368" />
