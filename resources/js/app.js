@@ -39,6 +39,9 @@ Vue.component('reset-password-component', require('./components/ResetPasswordCom
 Vue.component('block-user-component', require('./components/BlockUserComponent.vue').default);
 Vue.component('users-component', require('./components/UsersComponent.vue').default);
 // Vue.component('user-component', require('./components/UserComponent.vue').default);
+Vue.component('permissions-component', require('./components/PermissionsComponent.vue').default);
+Vue.component('permission-component', require('./components/PermissionComponent.vue').default);
+
 Vue.component(
     'passport-clients',
     require('./components/passport/Clients.vue').default
