@@ -125,6 +125,7 @@ Route::group([
         //Tag
         Route::resource('tag', 'TagController')->except('show');
 
+
         //Users
 
         Route::resource('user', 'UserController')->except('show');
@@ -145,7 +146,9 @@ Route::group([
 
         //Permission
 
-        Route::resource('permission','PermissionController')->except('show');;
+        Route::resource('permission','PermissionController')->except('show');
+
+        Route::post('permission-generate','PermissionController@generate')->name('generatePermission');
 
     });
 

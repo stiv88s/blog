@@ -202,6 +202,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\WheatherServiceProvider::class,
+        App\Providers\PermissionsServiceProvider::class,
 
     ],
 
@@ -255,6 +256,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
         'Wheather' => App\Service\Wheathers\WheatherFacade::class,
+        'Permission'=>App\Service\Permissions\PermissionsFacade::class
 
     ],
 

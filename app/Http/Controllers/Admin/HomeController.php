@@ -4,14 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use App\Model\Admin;
 use App\Http\Controllers\Controller;
+use App\Model\Contracts\GenerableInterface;
 use App\ModelRepository\AdminRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
 
     public $c;
+
     /**
      * Create a new controller instance.
      *
@@ -30,7 +33,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        dd(Auth::user());
         return view('admin.home');
     }
 }

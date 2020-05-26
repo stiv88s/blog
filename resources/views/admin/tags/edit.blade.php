@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>
-       Edit Category
+       Edit Tag
     </h1>
 
     <div class="card-body">

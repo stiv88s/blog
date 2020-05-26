@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Permission as GPermission;
 
 class PermissionController extends Controller
 {
@@ -43,7 +44,7 @@ class PermissionController extends Controller
             'name' => $request->name
         ]);
 
-       Session::flash('status', 'Permission is stored');
+        Session::flash('status', 'Permission is stored');
 
         return redirect()->route('permission.index', app()->getLocale());
     }
@@ -90,5 +91,10 @@ class PermissionController extends Controller
     {
         $permission->delete();
 
+    }
+
+    public function generate()
+    {
+        return GPermission::generate();
     }
 }

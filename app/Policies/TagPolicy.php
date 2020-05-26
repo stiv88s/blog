@@ -44,26 +44,7 @@ class TagPolicy
      */
     public function create(Admin $admin)
     {
-//        $arr = explode('::',__METHOD__);
-//        $callingMethod = $arr[1];
-//        $classNameArray= explode('\\',self::class);
-//        $class = end( $classNameArray);
-//        $classNamePieces =  preg_split('/(?=[A-Z])/', $class );
-//        $className = strtolower($classNamePieces[1]);
-//
-//        $callingFunction  = $className.'_'.  $callingMethod;
-//        dd( $callingFunction);
-
-
-
-//        if (Auth::user()->isSuperAdmin()) {
-//            return true;
-//        } else {
-//            return $this->checkRoles($admin, $this->getCalling());
-//
-//        }
        return $this->checkRoles($admin);
-
     }
 
     /**
@@ -75,7 +56,7 @@ class TagPolicy
      */
     public function update(Admin $admin, Tag $tag)
     {;
-        return false;
+        return $this->checkRoles($admin);
     }
 
     /**
@@ -87,7 +68,7 @@ class TagPolicy
      */
     public function delete(Admin $admin, Tag $tag)
     {
-        return true;
+        return $this->checkRoles($admin);
     }
 
     /**
@@ -113,20 +94,5 @@ class TagPolicy
     {
         return false;
     }
-
-//    public function checkRoles(Admin $admin, $info)
-//    {
-//        foreach ($admin->roles as $roles) {
-//            foreach ($roles->permissions as $permission) {
-//                if ($permission->name == $info) {
-//                    return true;
-//                }
-//            }
-//        }
-//
-//        return false;
-//
-//    }
-
 
 }

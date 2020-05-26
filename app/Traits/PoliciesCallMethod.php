@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Traits;
-
 
 use App\Model\Admin;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +21,6 @@ trait PoliciesCallMethod
             }
 
             return false;
-//            return $this->checkRoles($admin, $this->getCalling());
         }
 
     }
