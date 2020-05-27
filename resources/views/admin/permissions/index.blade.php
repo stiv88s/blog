@@ -12,6 +12,14 @@
         </div>
     @endif
 
+{{--        <form action="{{route('generatePermission',app()->getLocale())}}" method="post" class="mt-2">--}}
+{{--            @csrf--}}
+
+{{--            <div class="input-group-append">--}}
+{{--                <input type="submit" class="btn btn-danger" value="Generate Permission">--}}
+{{--            </div>--}}
+
+{{--        </form>--}}
     <div id="app" class="text-center">
         <permissions-component
             applocale="{{app()->getLocale()}}"

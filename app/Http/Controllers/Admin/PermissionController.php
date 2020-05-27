@@ -17,6 +17,8 @@ class PermissionController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Permission::class);
+
         $permissions = Permission::all();
 
         return view('admin.permissions.index', compact('permissions'));
@@ -29,6 +31,8 @@ class PermissionController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Permission::class);
+
         return view('admin.permissions.create');
     }
 
@@ -40,6 +44,8 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Permission::class);
+
         $permission = Permission::create([
             'name' => $request->name
         ]);
@@ -58,6 +64,8 @@ class PermissionController extends Controller
      */
     public function edit(Permission $permission)
     {
+        $this->authorize('update', $permission);
+
         return view('admin.permissions.edit', compact('permission'));
     }
 
@@ -70,6 +78,8 @@ class PermissionController extends Controller
      */
     public function update(Request $request, Permission $permission)
     {
+        $this->authorize('update', $permission);
+
         $permission->fill([
             'name' => $request->name
         ]);
@@ -89,17 +99,20 @@ class PermissionController extends Controller
      */
     public function destroy(Permission $permission)
     {
+        $this->authorize('delete', $permission);
+
         $permission->delete();
 
     }
 
     public function generate(Request $request)
     {
+        $this->authorize('create', Permission::class);
         $permission = GPermission::generate();
 
         Session::flash('status', 'Permission is Generated');
 
-        if($request->wantsJson()){
+        if ($request->wantsJson()) {
             return $permission;
         }
 

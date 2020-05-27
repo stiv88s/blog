@@ -18,6 +18,8 @@ class RoleController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Role::class);
+
         $roles = Role::all();
 
         return view('admin.roles.index', compact('roles'));
@@ -30,6 +32,8 @@ class RoleController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Role::class);
+
         $permissions = Permission::all()->pluck('name', 'id');
 
         return view('admin.roles.create', compact('permissions'));
@@ -43,6 +47,8 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Role::class);
+
         DB::beginTransaction();
 
         try {
@@ -72,6 +78,8 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
+        $this->authorize('update', $role);
+
         $permissions = Permission::all()->pluck('name', 'id');
 
         return view('admin.roles.edit', compact('role', 'permissions'));
@@ -86,6 +94,8 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
+        $this->authorize('update', $role);
+
         DB::beginTransaction();
         try {
             $role->fill([
@@ -116,6 +126,8 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
+        $this->authorize('delete', $role);
+
         $role->delete();
     }
 }

@@ -9,12 +9,15 @@ trait PoliciesCallMethod
 {
     protected function checkRoles(Admin $admin)
     {
+
         if (Auth::user()->isSuperAdmin()) {
+
             return true;
         } else {
             foreach ($admin->roles as $roles) {
                 foreach ($roles->permissions as $permission) {
-                    if ($permission->name == $this->getCalling()) {
+                    if (strtolower($permission->name) == strtolower($this->getCalling())) {
+
                         return true;
                     }
                 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Model\Admin;
 use App\Model\BlockedUsers;
+use App\Model\Tag;
 use App\Model\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -18,6 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', User::class);
         $users = User::all();
 
         return view('admin.users.index', compact('users'));
@@ -30,6 +32,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', User::class);
         return view('admin.users.create');
     }
 
@@ -41,6 +44,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', User::class);
         User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -61,6 +65,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $this->authorize('update', $user);
         return view('admin.users.edit', compact('user'));
     }
 
@@ -73,11 +78,16 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $this->authorize('update', $user);
+
         $user->fill([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'password' => bcrypt($request->input('password'))
         ]);
+
+        if ($request->input('password')) {
+            $user->password = bcrypt($request->input('password'));
+        }
 
         $user->save();
 
@@ -93,12 +103,12 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        $user = User::findOrFail($id);
+        $this->authorize('delete', $user);
 
-        $userBlocked = BlockedUsers::where('user_id',$id)->first();
-        if($userBlocked){
+        $userBlocked = BlockedUsers::where('user_id', $user->id)->first();
+        if ($userBlocked) {
             $userBlocked->delete();
 
         }

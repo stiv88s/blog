@@ -12,6 +12,7 @@ class BlockedUsersController extends Controller
 {
     public function index()
     {
+        $this->authorize('viewAny', BlockedUsers::class);
         $blockedUsers = BlockedUsers::all();
 
         return view('admin.blockedUsers.index', compact('blockedUsers'));
@@ -20,28 +21,32 @@ class BlockedUsersController extends Controller
 
     public function unblock(User $user)
     {
+        $this->authorize('unblock_user', $user);
+
         $user->is_blocked = 0;
         $user->save();
 
         $blockedUser = BlockedUsers::where('user_id', $user->id)->first();
 
         $blockedUser->delete();
-        return ['user'=>$user];
+        return ['user' => $user];
     }
 
-    public function block(Request $request,User $user)
+    public function block(Request $request, User $user)
     {
+        $this->authorize('block_user', $user);
+
         $user->is_blocked = 1;
         $user->save();
 
         $user = BlockedUsers::updateOrCreate(
-            ['user_id'=>$user->id],
+            ['user_id' => $user->id],
             [
-            'user_id'=> $user->id,
-            'admin_id'=> Auth::id(),
-            'reason'=> $request->reason
+                'user_id' => $user->id,
+                'admin_id' => Auth::id(),
+                'reason' => $request->reason
             ]
         );
-        return ['user'=>$user];
+        return ['user' => $user];
     }
 }

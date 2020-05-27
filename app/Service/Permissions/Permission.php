@@ -62,12 +62,19 @@ class Permission
         }
 
         foreach ($models as $key => $value) {
-            if ($value === true) {
-                $methods[] = strtolower($key) . '_create';
-                $methods[] = strtolower($key) . '_update';
-                $methods[] = strtolower($key) . '_delete';
-            }
 
+            if ($value === true) {
+                if (strtolower($key) == 'blockedusers') {
+                    $methods[] = 'blocked_unblock';
+                    $methods[] = 'blocked_block';
+                    $methods[] = 'blocked_viewAny';
+                } else {
+                    $methods[] = strtolower($key) . '_create';
+                    $methods[] = strtolower($key) . '_update';
+                    $methods[] = strtolower($key) . '_delete';
+                    $methods[] = strtolower($key) . '_viewAny';
+                }
+            }
         }
 
         return $methods;

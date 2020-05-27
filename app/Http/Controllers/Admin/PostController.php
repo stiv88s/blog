@@ -22,6 +22,8 @@ class PostController extends Controller
 
     public function create()
     {
+        $this->authorize('create', Post::class);
+
         $post = new Post();
         $tags = Tag::all()->pluck('name', 'id');
         $categorys = Category::all()->pluck('name', 'id');
@@ -31,21 +33,17 @@ class PostController extends Controller
 
     public function index()
     {
+        $this->authorize('viewAny', Post::class);
         $posts = Post::all();
 
         return view('admin.posts.index', compact('posts'));
-//        $post = Posts::find(1);
-//
-//        dd($post->category);
-//        $post1 = Category::find(13);
-//
-//        dd($post1->posts);
-//        $posts = $this->prepo->active()->get();
-//        dd($posts);
+
     }
 
     public function edit(Post $post)
     {
+        $this->authorize('update', $post);
+
         $tags = Tag::all()->pluck('name', 'id');
         $categorys = Category::all()->pluck('name', 'id');
         return view('admin.posts.edit', compact('post', 'tags', 'categorys'));
@@ -53,6 +51,7 @@ class PostController extends Controller
 
     public function store(CreatePostRequest $request)
     {
+        $this->authorize('create', Post::class);
         $active = $request->input('is_active', 0);
         $user = Auth::user();
         $post = Post::create([
@@ -81,6 +80,8 @@ class PostController extends Controller
 
     public function update(UpdatePostRequest $request, Post $post)
     {
+        $this->authorize('update', $post);
+
         $active = $request->input('is_active', 0);
         $post->fill([
             'title' => $request->input('title'),
@@ -108,20 +109,17 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
+
         return view('admin.posts.show', compact('post'));
     }
 //    public function show($uuid){
 //        dd(Posts::where('uuid',$uuid)->first());
 //    }
 
-    public function test(Post $post, $d)
-    {
-        dd($post, $d);
-
-    }
-
     public function destroy(Post $post)
     {
+        $this->authorize('delete', $post);
+
         if ($post->attachment('post_header_image')) {
 
             $post->attachment('post_header_image')->delete();

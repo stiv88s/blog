@@ -18,6 +18,8 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Admin::class);
+
         $admins = Admin::all();
 
         return view('admin.admins.index', compact('admins'));
@@ -30,6 +32,8 @@ class AdminController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Admin::class);
+
         $roles = Role::all()->pluck('rolename', 'id');
 
         return view('admin.admins.create', compact('roles'));
@@ -43,6 +47,8 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Admin::class);
+
         DB::beginTransaction();
 
         try {
@@ -77,6 +83,7 @@ class AdminController extends Controller
      */
     public function edit(Admin $admin)
     {
+        $this->authorize('update', $admin);
 
         $roles = Role::all()->pluck('rolename', 'id');
 
@@ -92,6 +99,8 @@ class AdminController extends Controller
      */
     public function update(Request $request, Admin $admin)
     {
+        $this->authorize('update', $admin);
+
         $admin->fill([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -119,6 +128,8 @@ class AdminController extends Controller
      */
     public function destroy(Admin $admin)
     {
+        $this->authorize('delete', $admin);
+
         if (!$admin->posts->isEmpty()) {
             foreach ($admin->posts as $post) {
                 $post->delete();

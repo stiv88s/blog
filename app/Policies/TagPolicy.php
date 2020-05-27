@@ -21,7 +21,7 @@ class TagPolicy
      */
     public function viewAny(Admin $admin)
     {
-        return false;
+        return $this->checkRoles($admin);
     }
 
     /**
