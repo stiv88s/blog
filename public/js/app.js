@@ -2613,6 +2613,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['users', 'applocale'],
@@ -2625,7 +2631,11 @@ __webpack_require__.r(__webpack_exports__);
       reason: '',
       blockreasonform: false,
       display: 'none',
-      user: ''
+      user: '',
+      err: {
+        show: false,
+        message: ''
+      }
     };
   },
   mounted: function mounted() {
@@ -2650,13 +2660,19 @@ __webpack_require__.r(__webpack_exports__);
         });
 
         user.is_blocked = 0;
+      })["catch"](function (error) {
+        _this.err.show = true;
+        _this.err.message = error.response.data.message;
       });
     },
     openModal: function openModal(user) {
       this.user = user;
       this.username = user.name;
+      this.reason = '';
       this.blockreasonform = true;
       this.display = 'block';
+      this.err.show = false;
+      this.err.message = '';
     },
     blockUser: function blockUser() {
       var _this2 = this;
@@ -2674,6 +2690,9 @@ __webpack_require__.r(__webpack_exports__);
           });
 
           user.is_blocked = 1;
+        })["catch"](function (error) {
+          _this2.err.show = true;
+          _this2.err.message = error.response.data.message;
         });
       } else {
         return false;
@@ -2682,6 +2701,8 @@ __webpack_require__.r(__webpack_exports__);
     cancelModal: function cancelModal() {
       this.display = 'none';
       this.blockreasonform = false;
+      this.err.show = false;
+      this.err.message = '';
     }
   },
   components: {
@@ -41070,6 +41091,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _vm.err.show
+      ? _c("div", { staticClass: "alert-info text-center" }, [
+          _vm._v("\n        " + _vm._s(_vm.err.message) + "\n    ")
+        ])
+      : _vm._e(),
+    _vm._v(" "),
     _c(
       "div",
       {
@@ -41113,6 +41140,16 @@ var render = function() {
                 }
               })
             ]),
+            _vm._v(" "),
+            _vm.err.show
+              ? _c("div", { staticClass: "alert-info text-center" }, [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.err.message) +
+                      "\n                "
+                  )
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c("div", { staticClass: "modal-footer justify-content-between" }, [
               _c(

@@ -1,5 +1,8 @@
 <template>
     <div>
+        <div v-if="err.show" class="alert-info text-center">
+            {{err.message}}
+        </div>
         <div class="modal fade show" style="color:red;" :style="dynamic" aria-modal="true">
             <div class="modal-dialog">
                 <div class="modal-content bg-danger">
@@ -13,6 +16,9 @@
                         <textarea v-model="reason" style="width: 100%">
 
                                                 </textarea>
+                    </div>
+                    <div v-if="err.show" class="alert-info text-center">
+                        {{err.message}}
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-outline-light" data-dismiss="modal"
@@ -67,7 +73,12 @@
                 reason: '',
                 blockreasonform: false,
                 display: 'none',
-                user: ''
+                user: '',
+                err : {
+                    show:false,
+                    message:''
+                }
+
 
             }
         },
@@ -92,13 +103,19 @@
                             user.is_blocked = 0;
 
                         }
-                    )
+                    ).catch(error => {
+                    this.err.show = true
+                    this.err.message = error.response.data.message
+                });
             },
             openModal(user) {
                 this.user = user
                 this.username = user.name
+                this.reason = ''
                 this.blockreasonform = true
                 this.display = 'block'
+                this.err.show = false
+                this.err.message = ''
 
             },
             blockUser() {
@@ -112,7 +129,11 @@
                             this.blockreasonform = false
                             var user = this.userslocal.find(u => u.id == response.data.user.user_id)
                             user.is_blocked = 1;
-                        })
+                        }).catch(error => {
+                            this.err.show = true
+                            this.err.message = error.response.data.message
+                    });
+
 
 
                 } else {
@@ -122,8 +143,11 @@
             }
             ,
             cancelModal() {
+
                 this.display = 'none'
                 this.blockreasonform = false
+                this.err.show = false
+                this.err.message = ''
             },
 
         },
