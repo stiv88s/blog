@@ -4,6 +4,7 @@ namespace App\Model;
 
 use App\Model\Contracts\GenerableInterface;
 use App\Notifications\User\ResetPasswordNotification;
+use App\Traits\GenerableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -11,9 +12,9 @@ use Illuminate\Support\Facades\Auth;
 
 class Admin extends Authenticatable implements GenerableInterface
 {
-    use Notifiable;
+    use Notifiable,GenerableTrait;
 
-    const IS_GENERABLE = true;
+    private $generable = true;
 
     protected $table = 'admins';
 
@@ -56,16 +57,6 @@ class Admin extends Authenticatable implements GenerableInterface
     public function isSuperAdmin()
     {
         return (bool)Auth()->user()->roles->where('rolename', 'superadmin')->first();
-    }
-
-    public static function isGenerable()
-    {
-        if ((new static)::IS_GENERABLE) {
-            return (new static)::IS_GENERABLE;
-        } else {
-            return false;
-        }
-
     }
 
 }

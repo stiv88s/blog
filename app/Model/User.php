@@ -2,17 +2,21 @@
 
 namespace App\Model;
 
+use App\Model\Contracts\GenerableInterface;
 use App\Notifications\ResetPasswordNotification2;
 use App\Notifications\User\ResetPasswordNotification;
+use App\Traits\GenerableTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Passport\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements GenerableInterface
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, Notifiable,GenerableTrait;
+
+    private $generable = true;
 
     /**
      * The attributes that are mass assignable.

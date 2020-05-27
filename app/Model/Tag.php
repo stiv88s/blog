@@ -3,14 +3,16 @@
 namespace App\Model;
 
 use App\Model\Contracts\GenerableInterface;
+use App\Traits\GenerableTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model implements GenerableInterface
 {
+    use GenerableTrait;
+
     protected $fillable = ['name', 'slug'];
 
-    const IS_GENERABLE = true;
-
+    private $generable = true;
 
     public function posts()
     {
@@ -23,13 +25,5 @@ class Tag extends Model implements GenerableInterface
         return $this->posts()->where('is_active', '=', 1);
     }
 
-    public static function isGenerable()
-    {
-        if ((new static)::IS_GENERABLE) {
-            return (new static)::IS_GENERABLE;
-        } else {
-            return false;
-        }
 
-    }
 }

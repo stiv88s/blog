@@ -2,11 +2,17 @@
 
 namespace App\Model;
 
+use App\Model\Contracts\GenerableInterface;
+use App\Traits\GenerableTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class BlockedUsers extends Model
+class BlockedUsers extends Model implements GenerableInterface
 {
+    use GenerableTrait;
+
     protected $fillable = ['user_id', 'admin_id', 'reason'];
+
+    private $generable = true;
 
     public function admin()
     {
@@ -17,4 +23,5 @@ class BlockedUsers extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
 }

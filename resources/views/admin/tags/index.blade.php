@@ -18,7 +18,7 @@
         <table class="table">
             <thead>
             <tr>
-                <td>Id</td>
+                <td>N</td>
                 <td>Name</td>
                 <td>Slug</td>
                 <td>Actions</td>
@@ -27,7 +27,7 @@
             <tbody>
             @foreach($tags as $tag)
                 <tr>
-                    <td>{{$tag->id}}</td>
+                    <td>{{$loop->index+1}}</td>
                     <td>{{$tag->name}}</td>
                     <td>{{$tag->slug}}</td>
                     <td class="float-left"><a href="{{route('tag.edit',[app()->getLocale(),$tag->id])}}" class="btn btn-info">Edit</a></td>

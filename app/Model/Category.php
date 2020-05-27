@@ -2,12 +2,17 @@
 
 namespace App\Model;
 
+use App\Model\Contracts\GenerableInterface;
+use App\Traits\GenerableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
-class Category extends Model
+class Category extends Model implements GenerableInterface
 {
+    use GenerableTrait;
     protected $fillable = ['name', 'slug'];
+
+    private $generable = true;
 //    public $order;
 //
 //    public function __construct(){

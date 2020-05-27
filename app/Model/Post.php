@@ -2,16 +2,20 @@
 
 namespace App\Model;
 
+use App\Model\Contracts\GenerableInterface;
+use App\Traits\GenerableTrait;
 use App\Traits\UuidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Bnb\Laravel\Attachments\HasAttachment;
 use Illuminate\Support\Facades\Auth;
 
-class Post extends Model
+class Post extends Model implements GenerableInterface
 {
-    use UuidTrait, HasAttachment;
+    use UuidTrait, HasAttachment,GenerableTrait;
 
     protected $fillable = ['title', 'subtitle', 'is_active', 'slug', 'body', 'user_id'];
+
+    private $generable= true;
 
 //    protected $virtualCount = [
 //        'people' => 0
@@ -106,5 +110,6 @@ class Post extends Model
 //    {
 //        return 'uuid';
 //    }
+
 
 }
