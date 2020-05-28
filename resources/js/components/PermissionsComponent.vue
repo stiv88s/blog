@@ -6,6 +6,10 @@
             <img src="/admin/Load.svg" alt="loading">
 
         </div>
+
+        <input type="text" class="form-control mb-4 col-4" placeholder="Search permission" v-model="searchPermissions" aria-label="Search"
+               aria-describedby="basic-addon1">
+
         <a :href="route('permission.create',this.applocale)" class="btn btn-danger float-left">Create Permission</a>
         <button class="btn btn-outline-success" @click="generatePermissions">Generate Permissions</button>
 
@@ -19,7 +23,8 @@
                 </tr>
                 </thead>
 
-                <tbody is="permission-component" @loadpermission="loading" class="text-center" v-for="(permission,index) in permissions"
+                <tbody is="permission-component" @loadpermission="loading" class="text-center"
+                       v-for="(permission,index) in permissions"
                        :key="index"
                        :permission="permission"
                 ></tbody>
@@ -38,9 +43,19 @@
         props: ['applocale', 'permiss'],
         data() {
             return {
-                loading:false,
+                loading: false,
                 permissions: [],
+                permissionsForFilter: [],
+                searchPermissions: '',
 
+
+            }
+        },
+        watch:{
+            searchPermissions(value){
+                this.permissions = this.permissionsForFilter.filter(perm=>{
+                    return perm.name.indexOf(value)>=0
+                })
             }
         },
         methods: {
@@ -51,15 +66,17 @@
                     .then(response => {
                         if (response.data.length > 0) {
                             this.permissions = this.permissions.concat(response.data)
+                            this.permissionsForFilter = this.permissionsForFilter.concat(response.data)
                         }
                         this.loading = false
                     }).catch(error => {
-                           this.loading = false
-                       })
+                    this.loading = false
+                })
             }
         },
         mounted() {
             this.permissions = this.permiss
+            this.permissionsForFilter = this.permiss
         },
         name: "PermissionsComponent"
     }

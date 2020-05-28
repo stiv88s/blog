@@ -19,7 +19,13 @@
         methods: {
             destroyPermission() {
                 axios.delete(route('permission.destroy', [this.$parent.applocale, this.permission.id]).url())
-                    .then((response) => this.$el.parentNode.removeChild(this.$el))
+                    .then((response) => {
+                        this.$el.parentNode.removeChild(this.$el)
+                        this.$parent.permissionsForFilter.splice(this.$parent.permiss.indexOf(this.$el), 1)
+                        this.$parent.permissions.splice(this.$parent.permiss.indexOf(this.$el), 1)
+                    })
+
+
             }
         },
 

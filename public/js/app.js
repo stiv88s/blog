@@ -2195,7 +2195,11 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios["delete"](route('permission.destroy', [this.$parent.applocale, this.permission.id]).url()).then(function (response) {
-        return _this.$el.parentNode.removeChild(_this.$el);
+        _this.$el.parentNode.removeChild(_this.$el);
+
+        _this.$parent.permissionsForFilter.splice(_this.$parent.permiss.indexOf(_this.$el), 1);
+
+        _this.$parent.permissions.splice(_this.$parent.permiss.indexOf(_this.$el), 1);
       });
     }
   },
@@ -2247,13 +2251,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['applocale', 'permiss'],
   data: function data() {
     return {
       loading: false,
-      permissions: []
+      permissions: [],
+      permissionsForFilter: [],
+      searchPermissions: ''
     };
+  },
+  watch: {
+    searchPermissions: function searchPermissions(value) {
+      this.permissions = this.permissionsForFilter.filter(function (perm) {
+        return perm.name.indexOf(value) >= 0;
+      });
+    }
   },
   methods: {
     generatePermissions: function generatePermissions() {
@@ -2263,6 +2281,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(route('generatePermission', [this.applocale]).url()).then(function (response) {
         if (response.data.length > 0) {
           _this.permissions = _this.permissions.concat(response.data);
+          _this.permissionsForFilter = _this.permissionsForFilter.concat(response.data);
         }
 
         _this.loading = false;
@@ -2273,6 +2292,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.permissions = this.permiss;
+    this.permissionsForFilter = this.permiss;
   },
   name: "PermissionsComponent"
 });
@@ -40637,6 +40657,33 @@ var render = function() {
           ]
         )
       : _vm._e(),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.searchPermissions,
+          expression: "searchPermissions"
+        }
+      ],
+      staticClass: "form-control mb-4 col-4",
+      attrs: {
+        type: "text",
+        placeholder: "Search permission",
+        "aria-label": "Search",
+        "aria-describedby": "basic-addon1"
+      },
+      domProps: { value: _vm.searchPermissions },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.searchPermissions = $event.target.value
+        }
+      }
+    }),
     _vm._v(" "),
     _c(
       "a",
