@@ -11,9 +11,9 @@
             {{ session('status') }}
         </div>
     @endif
-
+    @can('create',\App\Model\Category::class)
     <a href="{{route('category.create',app()->getLocale())}}" class="btn btn-danger">Create Category</a>
-
+    @endcan
     <div class="card-body">
         <table class="table">
             <thead>
@@ -30,10 +30,15 @@
                     <td>{{$cat->id}}</td>
                     <td>{{$cat->name}}</td>
                     <td>{{$cat->tag}}</td>
+                    @can('update',$cat)
                     <td class="float-left"><a href="{{route('category.edit',[app()->getLocale(),$cat->id])}}" class="btn btn-info">Edit</a></td>
+                    @endcan
+                    @can('delete',$cat)
+
                     <td class="float-left">
                         <a href="{{route('category.destroy',[app()->getLocale(),$cat->id])}}" class="btn btn-danger removeCat">Delete</a>
                     </td>
+                    @endcan
                 </tr>
 
 

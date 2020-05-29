@@ -20,9 +20,7 @@ class CategoryPolicy
      */
     public function viewAny(Admin $admin)
     {
-        return true;
         return $this->checkRoles($admin);
-
     }
 
     /**

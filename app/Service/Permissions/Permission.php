@@ -65,9 +65,9 @@ class Permission
 
             if ($value === true) {
                 if (strtolower($key) == 'blockedusers') {
-                    $methods[] = 'blocked_unblock';
-                    $methods[] = 'blocked_block';
-                    $methods[] = 'blocked_viewAny';
+                    $methods[] = strtolower($key).'_unblock';
+                    $methods[] = strtolower($key).'_block';
+                    $methods[] = strtolower($key).'_viewAny';
                 } else {
                     $methods[] = strtolower($key) . '_create';
                     $methods[] = strtolower($key) . '_update';

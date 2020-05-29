@@ -10,9 +10,9 @@
             {{ session('status') }}
         </div>
     @endif
-
-    <a href="{{route('role.create',app()->getLocale())}}" class="btn btn-danger">Create Role</a>
-
+    @can('create',\App\Model\Role::class)
+        <a href="{{route('role.create',app()->getLocale())}}" class="btn btn-danger">Create Role</a>
+    @endcan
     <div class="card-body">
         <table class="table">
             <thead>
@@ -36,12 +36,16 @@
                         @endforeach
 
                     </td>
-                    <td class="float-left"><a href="{{route('role.edit',[app()->getLocale(),$role->id])}}"
-                                              class="btn btn-info">Edit</a></td>
-                    <td class="float-left">
-                        <a href="{{route('role.destroy',[app()->getLocale(),$role->id])}}"
-                           class="btn btn-danger removeTag">Delete</a>
-                    </td>
+                    @can('update',$role)
+                        <td class="float-left"><a href="{{route('role.edit',[app()->getLocale(),$role->id])}}"
+                                                  class="btn btn-info">Edit</a></td>
+                    @endcan
+                    @can('delete',$role)
+                        <td class="float-left">
+                            <a href="{{route('role.destroy',[app()->getLocale(),$role->id])}}"
+                               class="btn btn-danger removeTag">Delete</a>
+                        </td>
+                    @endcan
                 </tr>
 
 

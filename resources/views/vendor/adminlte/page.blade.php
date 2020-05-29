@@ -207,73 +207,95 @@
                                         Welcome: {{\Auth::user()->name}}</a></li>
                                 {{--                            ADMIN MENU--}}
                                 {{--                        @each('adminlte::partials.menu-item', $adminlte->menu(), 'item')--}}
-                                <li class="nav-item">
-                                    <a href="{{route('post.index',app()->getLocale())}}" class="nav-link">
-                                        <i class="{{ $item['icon'] ?? 'far fa-fw fa-circle' }} {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
-                                        <p>
-                                            Posts
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('category.index',app()->getLocale())}}" class="nav-link">
-                                        <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
-                                        <p>
-                                            Categories
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('tag.index',app()->getLocale())}}" class="nav-link">
-                                        <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
-                                        <p>
-                                            Tags
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('role.index',app()->getLocale())}}" class="nav-link">
-                                        <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
-                                        <p>
-                                            Roles
-                                        </p>
-                                    </a>
-                                </li>
+                                @can('viewAny',\App\Model\Post::class)
 
+                                    <li class="nav-item">
+                                        <a href="{{route('post.index',app()->getLocale())}}" class="nav-link">
+                                            <i class="{{ $item['icon'] ?? 'far fa-fw fa-circle' }} {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
+                                            <p>
+                                                Posts
+                                            </p>
+                                        </a>
+                                    </li>
+                                @endcan
 
+                                @can('viewAny',\App\Model\Category::class)
 
-                                <li class="nav-item">
-                                    <a href="{{route('user.index',app()->getLocale())}}" class="nav-link">
-                                        <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
-                                        <p>
-                                            Users
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('blocked.users',app()->getLocale())}}" class="nav-link">
-                                        <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
-                                        <p>
-                                            Blocked Users
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('admin.index',app()->getLocale())}}" class="nav-link">
-                                        <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
-                                        <p>
-                                            Admins
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('permission.index',app()->getLocale())}}" class="nav-link">
-                                        <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
-                                        <p>
-                                            Permissions
-                                        </p>
-                                    </a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a href="{{route('category.index',app()->getLocale())}}" class="nav-link">
+                                            <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
+                                            <p>
+                                                Categories
+                                            </p>
+                                        </a>
+                                    </li>
+                                @endcan
+
+                                @can('viewAny',\App\Model\Tag::class)
+
+                                    <li class="nav-item">
+                                        <a href="{{route('tag.index',app()->getLocale())}}" class="nav-link">
+                                            <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
+                                            <p>
+                                                Tags
+                                            </p>
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('viewAny',\App\Model\Role::class)
+
+                                    <li class="nav-item">
+                                        <a href="{{route('role.index',app()->getLocale())}}" class="nav-link">
+                                            <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
+                                            <p>
+                                                Roles
+                                            </p>
+                                        </a>
+                                    </li>
+
+                                @endcan
+
+                                @can('viewAny',\App\Model\User::class)
+                                    <li class="nav-item">
+                                        <a href="{{route('user.index',app()->getLocale())}}" class="nav-link">
+                                            <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
+                                            <p>
+                                                Users
+                                            </p>
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('viewAny',\App\Model\User::class)
+
+                                    <li class="nav-item">
+                                        <a href="{{route('blocked.users',app()->getLocale())}}" class="nav-link">
+                                            <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
+                                            <p>
+                                                Blocked Users
+                                            </p>
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('viewAny',\App\Model\Admin::class)
+                                    <li class="nav-item">
+                                        <a href="{{route('admin.index',app()->getLocale())}}" class="nav-link">
+                                            <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
+                                            <p>
+                                                Admins
+                                            </p>
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('viewAny',\App\Model\Permission::class)
+                                    <li class="nav-item">
+                                        <a href="{{route('permission.index',app()->getLocale())}}" class="nav-link">
+                                            <i class="fas fa-fw fa-user {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
+                                            <p>
+                                                Permissions
+                                            </p>
+                                        </a>
+                                    </li>
+                                @endcan
                                 <li class="nav-item has-treeview">
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-fw fa-chart-pie"></i>
@@ -359,7 +381,7 @@
 
 @section('adminlte_js')
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
-{{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
+    {{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
     @stack('js')
     @yield('js')
 @stop

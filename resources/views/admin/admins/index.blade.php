@@ -50,14 +50,18 @@
                         @endforeach
                     </td>
                     <td>{{$admin->status}}</td>
+                    @can('update',$admin)
                     <td class="float-left"><a href="{{route('admin.edit',[app()->getLocale(),$admin->id])}}"
                                               class="btn btn-info"><i class="fa fa-fw fa-wrench"></i></a></td>
+                    @endcan
+                    @can('delete',$admin)
                     <td class="float-left">
 
                         <a href="{{route('admin.destroy',[app()->getLocale(),$admin->id])}}"
                            class="btn btn-danger removePost"><i class="fa fa-fw fa-trash"></i></a>
 
                     </td>
+                     @endcan
                 </tr>
 
             @endforeach

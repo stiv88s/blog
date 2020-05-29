@@ -10,8 +10,8 @@
         <input type="text" class="form-control mb-4 col-4" placeholder="Search permission" v-model="searchPermissions" aria-label="Search"
                aria-describedby="basic-addon1">
 
-        <a :href="route('permission.create',this.applocale)" class="btn btn-danger float-left">Create Permission</a>
-        <button class="btn btn-outline-success" @click="generatePermissions">Generate Permissions</button>
+        <a :href="route('permission.create',this.applocale)"  v-if="this.checkPermission('permission_create')" class="btn btn-danger float-left">Create Permission</a>
+        <button class="btn btn-outline-success" v-if="this.checkPermission('permission_create')" @click="generatePermissions">Generate Permissions</button>
 
         <div class="card-body">
             <table class="table">
@@ -40,7 +40,7 @@
 <script>
 
     export default {
-        props: ['applocale', 'permiss'],
+        props: ['applocale', 'permiss','userpermis'],
         data() {
             return {
                 loading: false,
@@ -59,6 +59,15 @@
             }
         },
         methods: {
+            checkPermission(name) {
+                if (this.userpermis[0] == 'superadmin') {
+                    return true;
+                }
+                return this.userpermis.indexOf(name) >= 1
+            },
+
+
+
             generatePermissions() {
                 this.loading = true
                 axios.post(route('generatePermission', [this.applocale]).url())

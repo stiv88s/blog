@@ -2,12 +2,12 @@
     <tr>
         <td>{{permission.id}}</td>
         <td>{{permission.name}}</td>
-        <td class="float-left">
+        <td class="float-left" v-if="this.$parent.checkPermission('permission_update')">
             <a :href="route('permission.edit',[this.$parent.applocale,permission.id])"
                class="btn btn-info">Edit
             </a>
         </td>
-        <td class="float-left">
+        <td class="float-left" v-if="this.$parent.checkPermission('permission_delete')">
             <button class="btn btn-danger" @click="destroyPermission">Delete</button>
         </td>
     </tr>

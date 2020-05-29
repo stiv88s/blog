@@ -22,6 +22,7 @@
 {{--        </form>--}}
     <div id="app" class="text-center">
         <permissions-component
+            :userpermis ="{{json_encode(\Illuminate\Support\Facades\Auth::user()->permissions)}}"
             applocale="{{app()->getLocale()}}"
             :permiss = "{{json_encode($permissions)}}"
         ></permissions-component>

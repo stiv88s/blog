@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Admin extends Authenticatable implements GenerableInterface
 {
-    use Notifiable,GenerableTrait;
+    use Notifiable, GenerableTrait;
 
     private $generable = true;
 
@@ -57,6 +57,22 @@ class Admin extends Authenticatable implements GenerableInterface
     public function isSuperAdmin()
     {
         return (bool)Auth()->user()->roles->where('rolename', 'superadmin')->first();
+    }
+
+    public function getPermissionsAttribute()
+    {
+        if ($this->isSuperAdmin() == true) {
+            return ['superadmin'];
+        }
+        
+        $permissions = [];
+        foreach ($this->roles as $role) {
+            foreach ($role->permissions as $perm) {
+                $permissions[] = $perm->name;
+            }
+        }
+        return $permissions;
+
     }
 
 }

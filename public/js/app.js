@@ -2257,7 +2257,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['applocale', 'permiss'],
+  props: ['applocale', 'permiss', 'userpermis'],
   data: function data() {
     return {
       loading: false,
@@ -2274,6 +2274,13 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    checkPermission: function checkPermission(name) {
+      if (this.userpermis[0] == 'superadmin') {
+        return true;
+      }
+
+      return this.userpermis.indexOf(name) >= 1;
+    },
     generatePermissions: function generatePermissions() {
       var _this = this;
 
@@ -2641,7 +2648,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['users', 'applocale'],
+  props: ['users', 'applocale', 'permissions'],
   data: function data() {
     return {
       applocal: '',
@@ -2670,6 +2677,13 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    checkPermission: function checkPermission(name) {
+      if (this.permissions[0] == 'superadmin') {
+        return true;
+      }
+
+      return this.permissions.indexOf(name) >= 1;
+    },
     unblockUser: function unblockUser(user) {
       var _this = this;
 
@@ -40591,29 +40605,36 @@ var render = function() {
     _vm._v(" "),
     _c("td", [_vm._v(_vm._s(_vm.permission.name))]),
     _vm._v(" "),
-    _c("td", { staticClass: "float-left" }, [
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-info",
-          attrs: {
-            href: _vm.route("permission.edit", [
-              this.$parent.applocale,
-              _vm.permission.id
-            ])
-          }
-        },
-        [_vm._v("Edit\n        ")]
-      )
-    ]),
+    this.$parent.checkPermission("permission_update")
+      ? _c("td", { staticClass: "float-left" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-info",
+              attrs: {
+                href: _vm.route("permission.edit", [
+                  this.$parent.applocale,
+                  _vm.permission.id
+                ])
+              }
+            },
+            [_vm._v("Edit\n        ")]
+          )
+        ])
+      : _vm._e(),
     _vm._v(" "),
-    _c("td", { staticClass: "float-left" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-danger", on: { click: _vm.destroyPermission } },
-        [_vm._v("Delete")]
-      )
-    ])
+    this.$parent.checkPermission("permission_delete")
+      ? _c("td", { staticClass: "float-left" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-danger",
+              on: { click: _vm.destroyPermission }
+            },
+            [_vm._v("Delete")]
+          )
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -40685,23 +40706,27 @@ var render = function() {
       }
     }),
     _vm._v(" "),
-    _c(
-      "a",
-      {
-        staticClass: "btn btn-danger float-left",
-        attrs: { href: _vm.route("permission.create", this.applocale) }
-      },
-      [_vm._v("Create Permission")]
-    ),
+    this.checkPermission("permission_create")
+      ? _c(
+          "a",
+          {
+            staticClass: "btn btn-danger float-left",
+            attrs: { href: _vm.route("permission.create", this.applocale) }
+          },
+          [_vm._v("Create Permission")]
+        )
+      : _vm._e(),
     _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass: "btn btn-outline-success",
-        on: { click: _vm.generatePermissions }
-      },
-      [_vm._v("Generate Permissions")]
-    ),
+    this.checkPermission("permission_create")
+      ? _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-success",
+            on: { click: _vm.generatePermissions }
+          },
+          [_vm._v("Generate Permissions")]
+        )
+      : _vm._e(),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
       _c(
@@ -41048,71 +41073,79 @@ var render = function() {
     _vm._v(" "),
     _c("td", [_vm._v(_vm._s(_vm.userMain.is_blocked))]),
     _vm._v(" "),
-    _c("td", { staticClass: "float-left" }, [
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-danger",
-          class: { disabled: !_vm.user.is_blocked },
-          on: {
-            click: function($event) {
-              $event.stopPropagation()
-              $event.preventDefault()
-              return _vm.unblockUser()
-            }
-          }
-        },
-        [_c("i", { staticClass: "fa fa-unlock-alt" })]
-      )
-    ]),
+    this.$parent.checkPermission("blockedusers_unblock")
+      ? _c("td", { staticClass: "float-left" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-danger",
+              class: { disabled: !_vm.user.is_blocked },
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  $event.preventDefault()
+                  return _vm.unblockUser()
+                }
+              }
+            },
+            [_c("i", { staticClass: "fa fa-unlock-alt" })]
+          )
+        ])
+      : _vm._e(),
     _vm._v(" "),
-    _c("td", { staticClass: "float-left" }, [
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-danger",
-          class: { disabled: _vm.user.is_blocked == 1 },
-          on: {
-            click: function($event) {
-              $event.stopPropagation()
-              $event.preventDefault()
-              return _vm.blockUserModal(_vm.user)
-            }
-          }
-        },
-        [_c("i", { staticClass: "fa fa-fw fa-lock" })]
-      )
-    ]),
+    this.$parent.checkPermission("blockedusers_block")
+      ? _c("td", { staticClass: "float-left" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-danger",
+              class: { disabled: _vm.user.is_blocked == 1 },
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  $event.preventDefault()
+                  return _vm.blockUserModal(_vm.user)
+                }
+              }
+            },
+            [_c("i", { staticClass: "fa fa-fw fa-lock" })]
+          )
+        ])
+      : _vm._e(),
     _vm._v(" "),
-    _c("td", { staticClass: "float-left" }, [
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-info",
-          attrs: {
-            href: _vm.route("user.edit", [_vm.applocale, _vm.user.id]).url()
-          }
-        },
-        [_c("i", { staticClass: "fa fa-fw fa-wrench" })]
-      )
-    ]),
+    this.$parent.checkPermission("user_update")
+      ? _c("td", { staticClass: "float-left" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-info",
+              attrs: {
+                href: _vm.route("user.edit", [_vm.applocale, _vm.user.id]).url()
+              }
+            },
+            [_c("i", { staticClass: "fa fa-fw fa-wrench" })]
+          )
+        ])
+      : _vm._e(),
     _vm._v(" "),
-    _c("td", { staticClass: "float-left" }, [
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-danger removePost",
-          attrs: { href: "#" },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.destroyUser(_vm.user)
-            }
-          }
-        },
-        [_c("i", { staticClass: "fa fa-fw fa-trash" })]
-      )
-    ])
+    this.$parent.checkPermission("user_delete")
+      ? _c("td", { staticClass: "float-left" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-danger removePost",
+              attrs: { href: "#" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.destroyUser(_vm.user)
+                }
+              }
+            },
+            [_c("i", { staticClass: "fa fa-fw fa-trash" })]
+          )
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = []

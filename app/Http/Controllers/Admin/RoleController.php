@@ -80,7 +80,7 @@ class RoleController extends Controller
     {
         $this->authorize('update', $role);
 
-        $permissions = Permission::all()->pluck('name', 'id');
+        $permissions = Permission::orderBy('name')->pluck('name', 'id');
 
         return view('admin.roles.edit', compact('role', 'permissions'));
     }

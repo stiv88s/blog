@@ -10,9 +10,9 @@
             {{ session('status') }}
         </div>
     @endif
-
+@can('create',\App\Model\Post::class)
     <a href="{{route('post.create',app()->getLocale())}}" class="btn btn-danger">Create Post</a>
-
+@endcan
     <div class="card-body">
         <table class="table">
             <thead>
@@ -32,13 +32,18 @@
                     <td>{{$post->title}}</td>
                     <td>{{$post->slug}}</td>
                     <td>{{$post->is_active}}</td>
+
                     <td class="float-left"><a href="{{route('post.show',[app()->getLocale(),$post])}}" class="btn btn-success">Show</a></td>
+                    @can('update',$post)
                     <td class="float-left"><a href="{{route('post.edit',[app()->getLocale(),$post->id])}}" class="btn btn-info"><i class="fa fa-fw fa-wrench"></i></a></td>
+                    @endcan
+                    @can('delete',$post)
                     <td class="float-left">
 
                         <a href="{{route('post.destroy',[app()->getLocale(),$post->id])}}" class="btn btn-danger removePost"><i class="fa fa-fw fa-trash"></i></a>
 
                     </td>
+                    @endcan
                 </tr>
 
 

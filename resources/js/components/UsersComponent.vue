@@ -63,7 +63,7 @@
     import UserComponent from '../components/UserComponent.vue';
 
     export default {
-        props: ['users', 'applocale'],
+        props: ['users', 'applocale', 'permissions'],
         data() {
             return {
                 applocal: '',
@@ -74,9 +74,9 @@
                 blockreasonform: false,
                 display: 'none',
                 user: '',
-                err : {
-                    show:false,
-                    message:''
+                err: {
+                    show: false,
+                    message: ''
                 }
 
 
@@ -85,6 +85,7 @@
         mounted() {
             this.applocal = this.applocale
             this.userslocal = this.users
+
         },
         computed: {
             dynamic() {
@@ -95,6 +96,14 @@
         },
 
         methods: {
+            checkPermission(name) {
+                if (this.permissions[0] == 'superadmin') {
+                    return true;
+                }
+
+                return this.permissions.indexOf(name) >= 1
+
+            },
             unblockUser(user) {
                 this.user = user
                 axios.post(route('unblockUser', [this.applocal, this.user.id]).url())
@@ -130,10 +139,9 @@
                             var user = this.userslocal.find(u => u.id == response.data.user.user_id)
                             user.is_blocked = 1;
                         }).catch(error => {
-                            this.err.show = true
-                            this.err.message = error.response.data.message
+                        this.err.show = true
+                        this.err.message = error.response.data.message
                     });
-
 
 
                 } else {

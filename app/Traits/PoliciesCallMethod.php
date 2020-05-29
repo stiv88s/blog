@@ -36,7 +36,8 @@ trait PoliciesCallMethod
         $classNameArray = explode('\\', self::class);
         $class = end($classNameArray);
         $classNamePieces = preg_split('/(?=[A-Z])/', $class);
-        $className = strtolower($classNamePieces[1]);
+        unset($classNamePieces[0], $classNamePieces[array_key_last($classNamePieces)]);
+        $className = strtolower(implode('', $classNamePieces));
         $callingFunction = $className . '_' . $callingMethod;
 
         return $callingFunction;
