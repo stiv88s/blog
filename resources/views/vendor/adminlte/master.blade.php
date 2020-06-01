@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title_prefix', config('adminlte.title_prefix', ''))
+
         @yield('title', config('adminlte.title', 'AdminLTE 3'))
         @yield('title_postfix', config('adminlte.title_postfix', ''))</title>
     @if(! config('adminlte.enabled_laravel_mix'))
@@ -56,6 +57,8 @@
     @else
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @endif
+    <link rel="stylesheet" type="text/css" href="{{asset('css/jquery.datetimepicker.css')}}" >
+
     @routes
 </head>
 <body class="@yield('classes_body')" @yield('body_data')>
@@ -100,6 +103,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.16/js/bootstrap-select.min.js"></script>
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>--}}
 {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
+<script src="{{asset('js/jquery.datetimepicker.js')}}"></script>
+
 
 </body>
 </html>

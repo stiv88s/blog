@@ -1,4 +1,3 @@
-
 <div class="row">
     <div class="col-6">
 
@@ -59,6 +58,11 @@
 
 
         <br>
+
+        {{Form::label('active_to', 'Active to:',['class'=>'pt-3'])}}
+        {!! Form::text('active_to',null,['class'=>'form-control datetimepicker col-3 mb-3'])!!}
+
+
     </div>
 
 
@@ -68,7 +72,20 @@
 {!! Form::submit('Save Admin',['class'=>'btn btn-block btn-round btn-bold btn-primary']); !!}
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#summernote').summernote();
     })
 </script>
+
+@push('scripts')
+    <script>
+        $(function () {
+            //Date picker
+
+            $('.datetimepicker').datetimepicker({
+                format: 'Y-m-d H:i',
+                lang: 'en'
+            });
+        })
+    </script>
+@endpush

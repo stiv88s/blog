@@ -24,7 +24,7 @@ class Admin extends Authenticatable implements GenerableInterface
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone', 'status'
+        'name', 'email', 'password', 'phone', 'status','active_to'
     ];
 
     /**
@@ -64,7 +64,7 @@ class Admin extends Authenticatable implements GenerableInterface
         if ($this->isSuperAdmin() == true) {
             return ['superadmin'];
         }
-        
+
         $permissions = [];
         foreach ($this->roles as $role) {
             foreach ($role->permissions as $perm) {

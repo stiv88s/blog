@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\ActivatedMiddleware;
 use App\Http\Middleware\PostMiddleware;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -65,6 +66,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'postsAuth'=> PostMiddleware::class,
         'locale' => SetLocale::class,
+        'activated' =>ActivatedMiddleware::class
     ];
 
     /**

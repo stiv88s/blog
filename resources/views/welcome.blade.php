@@ -4,6 +4,12 @@
 @section('content')
 <!-- Page Content -->
 <div class="container">
+    @if (session('status'))
+
+        <div class="alert alert-danger">
+            {{ session('status') }}
+        </div>
+    @endif
 
     <div class="row">
 

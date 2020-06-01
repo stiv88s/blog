@@ -28,6 +28,7 @@
                 <td>Role</td>
                 <td>Permission</td>
                 <td>Status</td>
+                <td>Active to</td>
                 <td>Actions</td>
             </tr>
             </thead>
@@ -49,7 +50,8 @@
                             @endforeach
                         @endforeach
                     </td>
-                    <td>{{$admin->status}}</td>
+                    <td>{{$admin->status == 0 ? 'disabled' : 'active'}}</td>
+                    <td>{{$admin->active_to ? $admin->active_to : ''}}</td>
                     @can('update',$admin)
                     <td class="float-left"><a href="{{route('admin.edit',[app()->getLocale(),$admin->id])}}"
                                               class="btn btn-info"><i class="fa fa-fw fa-wrench"></i></a></td>

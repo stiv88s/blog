@@ -51,14 +51,24 @@ class AdminController extends Controller
 
         DB::beginTransaction();
 
+
+
         try {
             $admin = Admin::create([
                 'name' => $request->input('name'),
                 'email' => $request->input('email'),
                 'phone' => $request->input('phone'),
                 'status' => $request->input('status', 0),
-                'password' => bcrypt($request->input('password'))
+                'password' => bcrypt($request->input('password')),
+                'active_to' => $request->input('active_to',null)
+
             ]);
+
+            if($request->active_to){
+                $admin->active_to = $request->active_to;
+            }
+
+            $admin->save();
 
             $admin->roles()->sync($request->roles);
 
@@ -99,17 +109,27 @@ class AdminController extends Controller
      */
     public function update(Request $request, Admin $admin)
     {
+        $activeTo = $request->input('active_to');
+
+        if(!$activeTo ){
+           $status = 1;
+        }else{
+            $status = $request->input('status');
+        }
+
         $this->authorize('update', $admin);
 
         $admin->fill([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'phone' => $request->input('phone'),
-            'status' => $request->input('status', 0),
+            'status' => $status,
+            'active_to' => $request->input('active_to',null)
         ]);
         if ($request->input('password')) {
             $admin->password = bcrypt($request->input('password'));
         }
+
         $admin->save();
 
         $admin->roles()->sync($request->roles);

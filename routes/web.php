@@ -111,7 +111,7 @@ Route::group([
     Route::group([
         'prefix' => 'admin',
         'namespace' => 'Admin',
-        'middleware' => ['web', 'auth:admin'],
+        'middleware' => ['web', 'auth:admin','activated'],
     ], function () {
         Route::get('/home', 'HomeController@index')->name('admin.home');
 

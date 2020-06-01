@@ -48,20 +48,21 @@ class CreateAdmin extends Command
             $role = Role::where('rolename', 'superadmin')->first();
 
             if (!$role) {
-             $role =    Role::create([
+                $role = Role::create([
                     'rolename' => 'superadmin'
                 ]);
             } else {
                 $admin = Admin::where('email', $this->email)->first();
 
                 if (!$admin) {
-                   $admin = Admin::create([
+                    $admin = Admin::create([
                         'name' => $this->name,
                         'email' => $this->email,
                         'password' => bcrypt($this->password),
+                        'status' => 1
 
                     ]);
-                }else{
+                } else {
                     $this->info("Email Exist, please Create new admin");
                     $this->asking();
                 }
@@ -80,10 +81,10 @@ class CreateAdmin extends Command
         $this->name = $name = $this->ask('what is the name ?');
         $this->email = $this->ask('What is email ?');
 
-        $this->password = $password = $this->ask('what is the password ?, Minimun 8 numbers' );
+        $this->password = $password = $this->ask('what is the password ?, Minimun 8 numbers');
 
-        while(trim(strlen($this->password)<8)){
-           $this->password = $this->ask('what is the password ?, Minimun 8 numbers' );
+        while (trim(strlen($this->password) < 8)) {
+            $this->password = $this->ask('what is the password ?, Minimun 8 numbers');
         }
 
         $this->info("name: " . $this->name . "\n");

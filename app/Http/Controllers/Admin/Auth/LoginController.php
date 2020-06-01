@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -55,19 +56,19 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        return route('admin.home',app()->getLocale());
+        return route('admin.home', app()->getLocale());
     }
 
     /**
      * The user has logged out of the application.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
      *
      * @return mixed
      */
     protected function loggedOut(Request $request)
     {
-        return redirect()->route('admin.home',app()->getLocale());
+        return redirect()->route('admin.home', app()->getLocale());
     }
 
     /**
@@ -78,6 +79,22 @@ class LoginController extends Controller
     protected function guard()
     {
         return Auth::guard('admin');
+    }
+
+    /**
+     * The user has been authenticated.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $user
+     * @return mixed
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->status == 0) {
+            $this->guard()->logout();
+            Session::flash('status', 'You have been disabled, please contact administrator');
+            return redirect('/');
+        }
     }
 
 
