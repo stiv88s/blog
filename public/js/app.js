@@ -2195,11 +2195,22 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios["delete"](route('permission.destroy', [this.$parent.applocale, this.permission.id]).url()).then(function (response) {
-        _this.$el.parentNode.removeChild(_this.$el);
+        // console.log(this.$parent.permiss)
+        // this.$el.parentNode.removeChild(this.$el)
+        // console.log(this.$el);
+        // console.log(this.permission)
+        // console.log(this.$parent.permiss.indexOf(this));
+        // console.log(this.$parent.permissions)
+        // console.log(this.$parent.permissionsForFilter);
+        // console.log(this.$parent.permissionsForFilter.indexOf(this.permission))
+        _this.$parent.permissionsForFilter.splice(_this.$parent.permissionsForFilter.indexOf(_this.permission), 1);
 
-        _this.$parent.permissionsForFilter.splice(_this.$parent.permiss.indexOf(_this.$el), 1);
+        _this.$parent.permissions.splice(_this.$parent.permissions.indexOf(_this.permission), 1); // this.$parent.p.splice(this.$parent.p.indexOf(this.permission), 1)
+        // this.$parent.permissions.splice(this.$parent.permiss.indexOf(this.permission), 1)
+        // console.log(this.$parent.permissionsForFilter.indexOf(this.$el))
+        // this.$parent.permissionsForFilter.splice(this.$parent.permissionsForFilter.indexOf(this.$el), 1)
+        // this.$parent.permissions.splice(this.$parent.permiss.indexOf(this.$el), 1)
 
-        _this.$parent.permissions.splice(_this.$parent.permiss.indexOf(_this.$el), 1);
       });
     }
   },
@@ -2263,7 +2274,8 @@ __webpack_require__.r(__webpack_exports__);
       loading: false,
       permissions: [],
       permissionsForFilter: [],
-      searchPermissions: ''
+      searchPermissions: '' // p:[]
+
     };
   },
   watch: {
@@ -2287,6 +2299,7 @@ __webpack_require__.r(__webpack_exports__);
       this.loading = true;
       axios.post(route('generatePermission', [this.applocale]).url()).then(function (response) {
         if (response.data.length > 0) {
+          // this.p = this.p.concat(response.data)
           _this.permissions = _this.permissions.concat(response.data);
           _this.permissionsForFilter = _this.permissionsForFilter.concat(response.data);
         }
@@ -2298,6 +2311,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
+    // this.p = this.permiss
     this.permissions = this.permiss;
     this.permissionsForFilter = this.permiss;
   },

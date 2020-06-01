@@ -47,6 +47,7 @@
                 permissions: [],
                 permissionsForFilter: [],
                 searchPermissions: '',
+                // p:[]
 
 
             }
@@ -74,8 +75,10 @@
 
                     .then(response => {
                         if (response.data.length > 0) {
+                            // this.p = this.p.concat(response.data)
                             this.permissions = this.permissions.concat(response.data)
                             this.permissionsForFilter = this.permissionsForFilter.concat(response.data)
+
                         }
                         this.loading = false
                     }).catch(error => {
@@ -84,8 +87,9 @@
             }
         },
         mounted() {
+            // this.p = this.permiss
             this.permissions = this.permiss
-            this.permissionsForFilter = this.permiss
+            this.permissionsForFilter =  this.permiss
         },
         name: "PermissionsComponent"
     }

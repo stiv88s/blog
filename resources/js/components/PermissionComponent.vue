@@ -20,9 +20,22 @@
             destroyPermission() {
                 axios.delete(route('permission.destroy', [this.$parent.applocale, this.permission.id]).url())
                     .then((response) => {
-                        this.$el.parentNode.removeChild(this.$el)
-                        this.$parent.permissionsForFilter.splice(this.$parent.permiss.indexOf(this.$el), 1)
-                        this.$parent.permissions.splice(this.$parent.permiss.indexOf(this.$el), 1)
+                        // console.log(this.$parent.permiss)
+                        // this.$el.parentNode.removeChild(this.$el)
+                        // console.log(this.$el);
+                        // console.log(this.permission)
+                        // console.log(this.$parent.permiss.indexOf(this));
+                        // console.log(this.$parent.permissions)
+                        // console.log(this.$parent.permissionsForFilter);
+                        // console.log(this.$parent.permissionsForFilter.indexOf(this.permission))
+                        this.$parent.permissionsForFilter.splice(this.$parent.permissionsForFilter.indexOf(this.permission), 1)
+                        this.$parent.permissions.splice(this.$parent.permissions.indexOf(this.permission), 1)
+                        // this.$parent.p.splice(this.$parent.p.indexOf(this.permission), 1)
+
+                        // this.$parent.permissions.splice(this.$parent.permiss.indexOf(this.permission), 1)
+                        // console.log(this.$parent.permissionsForFilter.indexOf(this.$el))
+                        // this.$parent.permissionsForFilter.splice(this.$parent.permissionsForFilter.indexOf(this.$el), 1)
+                        // this.$parent.permissions.splice(this.$parent.permiss.indexOf(this.$el), 1)
                     })
 
 
