@@ -38,7 +38,7 @@
             <tr>
                 <td>Name</td>
                 <td>Email</td>
-
+                <td>Is blocked</td>
                 <td>Actions</td>
 
             </tr>

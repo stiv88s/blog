@@ -41304,6 +41304,8 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", [_vm._v("Email")]),
         _vm._v(" "),
+        _c("td", [_vm._v("Is blocked")]),
+        _vm._v(" "),
         _c("td", [_vm._v("Actions")])
       ])
     ])

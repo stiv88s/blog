@@ -18,24 +18,8 @@
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/CategoryPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/CategoryPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Service/Permissions/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Service/Permissions/Permission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/PoliciesCallMethod.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/PoliciesCallMethod.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/PermissionComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/PermissionComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/PermissionsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/PermissionsComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/UserComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/UserComponent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/UsersComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/UsersComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/admins/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/admins/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/categorys/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categorys/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/permissions/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/permissions/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/roles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/roles/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/tags/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tags/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/adminlte/page.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,7 +265,7 @@
       <workItem from="1590679282591" duration="19000" />
       <workItem from="1590679309341" duration="7843000" />
       <workItem from="1590689020486" duration="56000" />
-      <workItem from="1590739531911" duration="10992000" />
+      <workItem from="1590739531911" duration="11412000" />
     </task>
     <servers />
   </component>
