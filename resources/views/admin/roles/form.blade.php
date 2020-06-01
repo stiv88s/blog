@@ -6,6 +6,14 @@
 
         <h4 class="text-center">Permissions</h4>
 
+        <div class="custom-control custom-checkbox">
+            <label class="text-feader">Check/Uncheck permissions</label>
+
+            {!! Form::checkbox('check-all-permissions',null,  null,['class'=>'form-check-inputs','id'=>'checkall'])!!}
+
+        </div>
+
+
         @if($errors->has('rolename'))
             <div class="alert alert-danger">
                 {{$errors->first('rolename')}}
@@ -51,3 +59,11 @@
 
 {!! Form::submit('Save Role',['class'=>'btn btn-block btn-round btn-bold btn-primary']); !!}
 
+@push('scripts')
+    <script>
+        $("#checkall").click(function(){
+
+            $('input:checkbox').prop('checked', this.checked);
+        });
+    </script>
+@endpush

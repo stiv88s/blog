@@ -18,9 +18,7 @@
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/PermissionComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/PermissionComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/PermissionsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/PermissionsComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/roles/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/roles/form.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -372,14 +370,14 @@
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1587711777834" />
     <state x="399" y="280" key="com.intellij.ide.util.TipDialog/0.23.1440.816@0.23.1440.816" timestamp="1582544980241" />
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.23.1440.825@0.23.1440.825" timestamp="1584521793055" />
-    <state x="97" y="231" width="978" height="548" key="find.popup" timestamp="1590998797465">
+    <state x="97" y="231" width="978" height="548" key="find.popup" timestamp="1591002757476">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1589880254905" />
-    <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1590998797465" />
+    <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1591002757476" />
     <state x="305" y="122" width="978" height="540" key="find.popup/0.23.1440.814@0.23.1440.814" timestamp="1590482627009" />
     <state x="97" y="232" width="978" height="497" key="find.popup/0.23.1440.816/-247.-1057.1920.1057@0.23.1440.816" timestamp="1589884758563" />
-    <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1590585676178" />
+    <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1591002744706" />
     <state x="97" y="233" width="978" height="501" key="find.popup/0.23.1440.821/-247.-1057.1920.1057@0.23.1440.821" timestamp="1590053837998" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1590398695220" />
     <state x="97" y="247" width="978" height="536" key="find.popup/0.23.1440.877/-247.-1057.1920.992@0.23.1440.877" timestamp="1590055063368" />
