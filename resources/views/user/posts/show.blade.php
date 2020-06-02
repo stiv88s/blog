@@ -201,12 +201,12 @@
                         </div>
 
                     </form>
-                    <div class="card-body text-center">
-                        <p><img src="http://openweathermap.org/img/wn/{{$wheather['weather'][0]['icon']}}.png" width="50px" height="50px" alt="image"></p>
-                        <p><strong>City: </strong> {{$wheather['name']}}</p>
-                        <p><strong>Wind: </strong>{{$wheather['wind']['speed']}} m/s</p>
-                        <p><strong>Temp: </strong>{{$wheather['main']['temp'] -273.15 . ' C'}} </p>
-                    </div>
+{{--                    <div class="card-body text-center">--}}
+{{--                        <p><img src="http://openweathermap.org/img/wn/{{$wheather['weather'][0]['icon']}}.png" width="50px" height="50px" alt="image"></p>--}}
+{{--                        <p><strong>City: </strong> {{$wheather['name']}}</p>--}}
+{{--                        <p><strong>Wind: </strong>{{$wheather['wind']['speed']}} m/s</p>--}}
+{{--                        <p><strong>Temp: </strong>{{$wheather['main']['temp'] -273.15 . ' C'}} </p>--}}
+{{--                    </div>--}}
                 </div>
             </div>
 

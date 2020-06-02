@@ -11,11 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class Post extends Model implements GenerableInterface
 {
-    use UuidTrait, HasAttachment,GenerableTrait;
+    use UuidTrait, HasAttachment, GenerableTrait;
 
-    protected $fillable = ['title', 'subtitle', 'is_active', 'slug', 'body', 'user_id'];
+    protected $fillable = ['title', 'subtitle', 'is_active', 'slug', 'body', 'user_id', 'all_showed_count'];
 
-    private $generable= true;
+    private $generable = true;
 
 //    protected $virtualCount = [
 //        'people' => 0
@@ -83,6 +83,11 @@ class Post extends Model implements GenerableInterface
     public function getDislikesCountAttribute()
     {
         return $this->dislikes()->count();
+    }
+
+    public function postShowAnalytic()
+    {
+        return $this->hasMany(PostAnalytic::class, 'post_id');
     }
 
 //    public function getPeopleCountAttribute()

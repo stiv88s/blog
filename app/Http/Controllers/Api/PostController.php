@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\PostShowEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\PostsIndexResource;
 use App\Http\Resources\Api\PostShowResource;
@@ -112,7 +113,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        event(new PostShowEvent($post));
         return new PostShowResource($post);
-
     }
 }
