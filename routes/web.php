@@ -150,6 +150,8 @@ Route::group([
 
         Route::post('permission-generate','PermissionController@generate')->name('generatePermission');
 
+        Route::get('post-analytic','Analytics\AnalyticController@postAnalytic')->name('post.analytic');
+
     });
 
 });

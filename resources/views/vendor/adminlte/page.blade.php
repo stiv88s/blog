@@ -300,6 +300,23 @@
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-fw fa-chart-pie"></i>
                                         <p>
+                                            Analytic
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview" style="display: none;">
+                                        <li class="nav-item">
+                                            <a href="{{route('post.analytic',app()->getLocale())}}" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Post Analytic</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item has-treeview">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-fw fa-chart-pie"></i>
+                                        <p>
                                             Doc
                                             <i class="right fas fa-angle-left"></i>
                                         </p>

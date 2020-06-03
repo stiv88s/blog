@@ -104,6 +104,8 @@
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>--}}
 {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
 <script src="{{asset('js/jquery.datetimepicker.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
 
 
 </body>
