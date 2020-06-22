@@ -1963,10 +1963,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['analyticdatarange', 'startdateformat', 'enddateformat', 'applocale', 'posturl', 'topposts', 'postsanalytic'],
   data: function data() {
     return {
+      analyticFor: 'all',
       start: '',
       startDate: '',
       endDate: '',
@@ -1977,20 +1979,11 @@ __webpack_require__.r(__webpack_exports__);
       maxViewCount: 0,
       colors: [],
       datasets: [{
-        backgroundColor: '#f87979',
+        backgroundColor: 'rgba(255, 84, 76, 0.4)',
         label: 'all',
+        id: 0,
         data: [],
         show: true
-      }, {
-        backgroundColor: '#f32161',
-        label: 'test',
-        data: [1, 2, 4, 5],
-        show: false
-      }, {
-        backgroundColor: '#f32161',
-        label: 'test2',
-        data: [1, 2, 4, 5, 6, 7],
-        show: false
       }]
     };
   },
@@ -1999,88 +1992,173 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     fillColor: function fillColor() {
-      console.log(this.generateColor());
-
-      for (var i in this.postsanalytic) {// this.colors.push(`sss+dsvsdvsd`)
+      for (var i in this.postsanalytic) {
+        this.colors.push(this.generateColor());
       }
-
-      console.log(this.colors);
     },
     forceRerender: function forceRerender() {
       this.componentKey += 1;
     },
     calculateData: function calculateData() {
+      var _this = this;
+
       this.resetDatasets();
 
-      for (var i in this.range.data) {
-        this.datasets[0].data.push(0);
+      for (var i in this.postsanalytic) {
+        var searched = this.datasets.find(function (e) {
+          return e.id == _this.postsanalytic[i].post_id;
+        });
 
-        for (var b in this.postsanalytic) {
-          if (this.range.data[i] == this.postsanalytic[b].date) {
-            this.datasets[0].data[i] += parseInt(this.postsanalytic[b].not_unique);
-            this.tot += parseInt(this.postsanalytic[b].not_unique);
-            this.unq += 1;
-          }
+        if (!searched) {
+          this.datasets.push({
+            backgroundColor: this.colors[i],
+            label: this.postsanalytic[i].title,
+            id: this.postsanalytic[i].post_id,
+            show: false,
+            data: []
+          });
         }
       }
 
-      this.maxViewCount = Math.max.apply(Math, this.datasets[0].data.map(function (o) {
-        return o;
-      })); // this.forceRerender()
+      for (var i in this.range.data) {
+        // this.datasets[0].data.push(0)
+        for (var b in this.datasets) {
+          this.datasets[b].data.push(0);
+        }
+      } // for (var i in this.range.data) {
+      //     // this.datasets[0].data.push(0) // data 0 if data != range.data
+      //
+      //     for (var b in this.postsanalytic) {
+      //
+      //         if (this.range.data[i] == this.postsanalytic[b].date) {
+      //
+      //             this.datasets[0].data[i] += parseInt(this.postsanalytic[b].not_unique)
+      //
+      //
+      //
+      //
+      //
+      //             this.tot += parseInt(this.postsanalytic[b].not_unique);
+      //             this.unq += 1;
+      //
+      //         }
+      //
+      //     }
+      //
+      // }
+      // console.log(this.range.data)
+
+
+      for (var b in this.postsanalytic) {
+        // console.log(x)
+        var date = this.postsanalytic[b].date;
+        var index = this.range.data.indexOf(date);
+
+        if (index === -1) {
+          continue;
+        }
+
+        this.datasets[0].data[index] += parseInt(this.postsanalytic[b].not_unique);
+        this.datasets.find(function (e) {
+          if (_this.postsanalytic[b].post_id == e.id) {
+            e.data[index] += parseInt(_this.postsanalytic[b].not_unique); // this.tot += parseInt(this.postsanalytic[b].not_unique);
+            //             this.unq += 1;
+          }
+        });
+      } // this.maxViewCount = Math.max.apply(Math, this.datasets[0].data.map(function (o) {
+      //     return o;
+      // }))
+      // this.forceRerender()
+
+    },
+    calculateViewsCount: function calculateViewsCount(type) {
+      var _this2 = this;
+
+      var index = 0;
+      this.unq = 0;
+      this.tot = 0;
+      this.maxViewCount = 0;
+
+      if (this.datasets[0].show == true) {
+        this.analyticFor = 'all';
+        this.maxViewCount = Math.max.apply(Math, this.datasets[index].data.map(function (o) {
+          return o;
+        }));
+        this.postsanalytic.forEach(function (p) {
+          _this2.tot += parseInt(p.not_unique);
+        });
+      } else {
+        var selected = [];
+        var selectedCountViews = this.datasets.forEach(function (d) {
+          if (d.show == true) {
+            selected = selected.concat(d.data);
+
+            _this2.postsanalytic.find(function (p) {
+              if (d.id == p.post_id) {
+                _this2.tot += parseInt(p.not_unique);
+              }
+            });
+
+            _this2.maxViewCount = Math.max.apply(Math, selected.map(function (o) {
+              return o;
+            }));
+          }
+        }); // this.maxViewCount = Math.max.apply(Math, this.datasets[index].data.map(function (o) {
+        //     return o;
+        // }))
+      } // this.maxViewCount = Math.max.apply(Math, this.datasets[index].data.map(function (o) {
+      //     return o;
+      // }))
+
     },
     selectType: function selectType(type) {
-      // this.datasets.map(e=>e.show = true)
-      // if(type == 'all'){
-      //    this.datasets[0].show =!this.datasets[0].show
-      //     // this.datasets[0].show != this.this.datasets[0].show
-      // }else{
       this.datasets[type].show = !this.datasets[type].show; // this.$forceUpdate();
 
-      console.log(this.datasets);
-      this.forceRerender(); // }
-      //  this.analytic = []
-      // var dataset = this.datasets.map(e=>{
-      //     console.log(type)
-      //     if(e.label == type){
-      //         console.log(yes)
-      //     }
-      // })
+      this.forceRerender();
+      this.calculateViewsCount(type);
     },
     generateColor: function generateColor(index) {
-      var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-      this.datasets[index].backgroundColor = randomColor;
+      // var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+      var o = Math.round,
+          r = Math.random,
+          s = 255;
+      var randomColor = 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + 0.4 + ')'; // this.datasets[index].backgroundColor = randomColor;
+
       return randomColor;
     },
     resetDatasets: function resetDatasets() {
-      this.datasets[0].data = [];
+      this.datasets.forEach(function (e) {
+        e.data = [];
+      }); // this.datasets[0].data = [];
+
       this.unq = 0;
       this.tot = 0;
     },
     loadPostData: function loadPostData() {
-      var _this = this;
+      var _this3 = this;
 
       if (this.startDate.length == 10 && this.endDate.length == 10) {
         axios.get(this.posturl + "/?startDate=" + this.startDate + "&endDate=" + this.endDate).then(function (response) {
-          _this.range = response.data.datarange;
+          _this3.range = response.data.datarange;
 
-          _this.calculateData();
+          _this3.calculateData();
         });
       }
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this4 = this;
 
     this.range = this.analyticdatarange;
     this.startDate = this.startdateformat;
     this.endDate = this.enddateformat;
     this.analyticData = this.analyticdatarange;
     this.fillColor();
-    this.calculateData(); // console.log(this.datasets)
-    // this.analyticData.labels = this.analyticdatarange
+    this.calculateData();
+    this.calculateViewsCount('all'); // this.analyticData.labels = this.analyticdatarange
 
     $(function () {
-      var self = _this2;
+      var self = _this4;
       $('#date_timepicker_start').datetimepicker({
         format: 'Y/m/d',
         timepicker: false
@@ -40605,7 +40683,7 @@ var render = function() {
                   }
                 }
               }),
-              _vm._v("\n                        End "),
+              _vm._v("\n                    End "),
               _c("input", {
                 directives: [
                   {
@@ -40647,17 +40725,17 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "float-right" }, [
       _c("h3", [
-        _vm._v("Max Day Views : "),
+        _vm._v("Max Day Views for " + _vm._s(_vm.analyticFor) + ": "),
         _c("span", [_vm._v(_vm._s(_vm.maxViewCount))])
       ]),
       _vm._v(" "),
       _c("h3", [
-        _vm._v("Unique Views : "),
+        _vm._v("Unique Views for " + _vm._s(_vm.analyticFor) + ": "),
         _c("span", [_vm._v(_vm._s(_vm.unq))])
       ]),
       _vm._v(" "),
       _c("h3", [
-        _vm._v("Total Views : "),
+        _vm._v("Total Views for " + _vm._s(_vm.analyticFor) + ": "),
         _c("span", [_vm._v(_vm._s(_vm.tot))])
       ])
     ]),
@@ -40699,16 +40777,16 @@ var render = function() {
               { staticClass: "form-check-label", attrs: { for: "index" } },
               [
                 _vm._v(
-                  "\n                    " +
+                  "\n                " +
                     _vm._s(post.title) +
-                    "\n                    "
+                    "\n                "
                 ),
                 _c("div", {
                   staticStyle: { display: "inline-block" },
                   style: {
                     width: 10 + "px",
                     height: 10 + "px",
-                    backgroundColor: _vm.generateColor(index + 1)
+                    backgroundColor: _vm.colors[index]
                   }
                 })
               ]
@@ -40729,7 +40807,7 @@ var staticRenderFns = [
       "label",
       { staticClass: "form-check-label", attrs: { for: "index" } },
       [
-        _vm._v("\n                    all\n                    "),
+        _vm._v("\n                all\n                "),
         _c("div", {
           staticStyle: {
             display: "inline-block",

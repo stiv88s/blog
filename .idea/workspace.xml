@@ -18,15 +18,9 @@
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Analytics/AnalyticController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Analytics/AnalyticController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ModelRepository/PostRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ModelRepository/PostRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/ziggy.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/ziggy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/GraphicComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/analytics/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/analytics/post.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/AnalyticsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/AnalyticsComponent.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +274,7 @@
       <workItem from="1591961069038" duration="11282000" />
       <workItem from="1592465971780" duration="17470000" />
       <workItem from="1592549483495" duration="16067000" />
-      <workItem from="1592809953405" duration="805000" />
+      <workItem from="1592809953405" duration="13300000" />
     </task>
     <servers />
   </component>
@@ -383,16 +377,16 @@
     </state>
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1587711777834" />
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.23.1440.825@0.23.1440.825" timestamp="1584521793055" />
-    <state x="97" y="231" width="978" height="548" key="find.popup" timestamp="1592810638605">
+    <state x="97" y="231" width="978" height="548" key="find.popup" timestamp="1592821309090">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1589880254905" />
-    <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1592810638605" />
+    <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1592821309090" />
     <state x="305" y="122" width="978" height="540" key="find.popup/0.23.1440.814@0.23.1440.814" timestamp="1590482627009" />
     <state x="97" y="232" width="978" height="497" key="find.popup/0.23.1440.816/-247.-1057.1920.1057@0.23.1440.816" timestamp="1589884758563" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1591968817764" />
     <state x="97" y="233" width="978" height="501" key="find.popup/0.23.1440.821/-247.-1057.1920.1057@0.23.1440.821" timestamp="1590053837998" />
-    <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1590398695220" />
+    <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1592814945417" />
     <state x="97" y="247" width="978" height="536" key="find.popup/0.23.1440.877/-247.-1057.1920.992@0.23.1440.877" timestamp="1590055063368" />
     <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1592561926198">
       <screen x="0" y="0" width="1440" height="900" />

@@ -70,6 +70,7 @@ class PostRepository extends Repository
         INNER JOIN posts ON posts.id = post_analytic.post_id
         WHERE post_analytic.updated_at >= :startedAt
         AND post_analytic.updated_at <= :finishAt
+        AND posts.is_active = 1
         GROUP BY post_analytic.post_id
         ORDER BY COUNT(*) DESC
         LIMIT :n
@@ -96,6 +97,7 @@ class PostRepository extends Repository
         INNER JOIN posts ON posts.id = post_analytic.post_id
         WHERE post_analytic.updated_at >= :startedAt
         AND post_analytic.updated_at <= :finishAt
+        AND posts.is_active = 1
         GROUP BY post_analytic.post_id,post_analytic.date,post_analytic.updated_at
         ORDER BY post_analytic.date ASC, post_analytic.updated_at ASC
         ", [
