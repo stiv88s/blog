@@ -18,9 +18,13 @@
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Analytics/AnalyticController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Analytics/AnalyticController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ModelRepository/PostRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ModelRepository/PostRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/ziggy.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/ziggy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/GraphicComponent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/analytics/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/analytics/post.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/adminlte/master.blade.php" afterDir="false" />
     </list>
@@ -174,23 +178,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/js/components" />
-      <recent name="$PROJECT_DIR$/public/admin" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/permissions" />
-      <recent name="$PROJECT_DIR$/resources/lang/ru" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Http/Resources/Api" />
       <recent name="$PROJECT_DIR$/resources/views/layouts/admin" />
       <recent name="$PROJECT_DIR$/resources/views/layouts" />
       <recent name="$PROJECT_DIR$/resources/views/admin" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/User" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/js/components" />
+      <recent name="$PROJECT_DIR$/public/admin" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/permissions" />
+      <recent name="$PROJECT_DIR$/resources/lang/ru" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -272,6 +276,11 @@
       <workItem from="1590995496157" duration="4147000" />
       <workItem from="1591004985640" duration="15209000" />
       <workItem from="1591190873392" duration="3554000" />
+      <workItem from="1591955290791" duration="5603000" />
+      <workItem from="1591961069038" duration="11282000" />
+      <workItem from="1592465971780" duration="17470000" />
+      <workItem from="1592549483495" duration="16067000" />
+      <workItem from="1592809953405" duration="805000" />
     </task>
     <servers />
   </component>
@@ -331,42 +340,42 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1591094203861" />
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1591092629844">
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592479292230">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1591092629844" />
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1592479292230" />
     <state x="458" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.814@0.23.1440.814" timestamp="1590482056617" />
     <state x="458" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816@0.23.1440.816" timestamp="1590747809321" />
     <state x="458" y="216" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/-247.-1057.1920.1057@0.23.1440.821" timestamp="1590060229921" />
     <state x="458" y="216" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821@0.23.1440.821" timestamp="1590402838081" />
-    <state x="378" y="111" key="#phpunit.xml" timestamp="1589452446121">
+    <state x="378" y="111" key="#phpunit.xml" timestamp="1592480166261">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="378" y="111" key="#phpunit.xml/0.0.1440.900@0.0.1440.900" timestamp="1589452446121" />
+    <state x="378" y="111" key="#phpunit.xml/0.0.1440.900@0.0.1440.900" timestamp="1592480166261" />
     <state x="378" y="123" key="#phpunit.xml/0.23.1440.814@0.23.1440.814" timestamp="1588672214092" />
     <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1585047765328">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585047765328" />
-    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog" timestamp="1591012004261">
+    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog" timestamp="1591197142077">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1589876180328" />
-    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1591012004261" />
+    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1591197142077" />
     <state x="135" y="59" width="1240" height="634" key="DiffContextDialog/0.23.1440.814@0.23.1440.814" timestamp="1590416066501" />
     <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.23.1440.816@0.23.1440.816" timestamp="1590580556770" />
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.23.1440.821@0.23.1440.821" timestamp="1587038738100" />
     <state x="135" y="59" width="1240" height="641" key="DiffContextDialog/0.23.1440.823@0.23.1440.823" timestamp="1590407113934" />
-    <state x="461" y="271" key="NewPhpClassDialog" timestamp="1590567182613">
-      <screen x="0" y="23" width="1440" height="816" />
+    <state x="461" y="273" key="NewPhpClassDialog" timestamp="1591957406386">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="461" y="273" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1589798668582" />
+    <state x="461" y="273" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1591957406386" />
     <state x="461" y="270" key="NewPhpClassDialog/0.23.1440.814@0.23.1440.814" timestamp="1590476753165" />
     <state x="461" y="271" key="NewPhpClassDialog/0.23.1440.816@0.23.1440.816" timestamp="1590567182613" />
-    <state x="541" y="358" key="NewPhpFileDialog" timestamp="1590481921197">
-      <screen x="0" y="23" width="1440" height="814" />
+    <state x="541" y="370" key="NewPhpFileDialog" timestamp="1591957433915">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="541" y="370" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1589796016117" />
+    <state x="541" y="370" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1591957433915" />
     <state x="541" y="358" key="NewPhpFileDialog/0.23.1440.814@0.23.1440.814" timestamp="1590481921197" />
     <state x="541" y="361" key="NewPhpFileDialog/0.23.1440.821@0.23.1440.821" timestamp="1590400590756" />
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1587711777834">
@@ -374,22 +383,22 @@
     </state>
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1587711777834" />
     <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.23.1440.825@0.23.1440.825" timestamp="1584521793055" />
-    <state x="97" y="232" width="978" height="548" key="find.popup" timestamp="1591100192920">
+    <state x="97" y="231" width="978" height="548" key="find.popup" timestamp="1592810638605">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1589880254905" />
-    <state x="97" y="232" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1591100192920" />
+    <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1592810638605" />
     <state x="305" y="122" width="978" height="540" key="find.popup/0.23.1440.814@0.23.1440.814" timestamp="1590482627009" />
     <state x="97" y="232" width="978" height="497" key="find.popup/0.23.1440.816/-247.-1057.1920.1057@0.23.1440.816" timestamp="1589884758563" />
-    <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1591002744706" />
+    <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1591968817764" />
     <state x="97" y="233" width="978" height="501" key="find.popup/0.23.1440.821/-247.-1057.1920.1057@0.23.1440.821" timestamp="1590053837998" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1590398695220" />
     <state x="97" y="247" width="978" height="536" key="find.popup/0.23.1440.877/-247.-1057.1920.992@0.23.1440.877" timestamp="1590055063368" />
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1591191606355">
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1592561926198">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1589879357157" />
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1591191606355" />
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1592561926198" />
     <state x="385" y="206" width="670" height="561" key="search.everywhere.popup/0.23.1440.814@0.23.1440.814" timestamp="1590419637987" />
     <state x="385" y="206" width="670" height="563" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1590750604632" />
     <state x="385" y="207" width="670" height="564" key="search.everywhere.popup/0.23.1440.821/-247.-1057.1920.1057@0.23.1440.821" timestamp="1590052169028" />
