@@ -39,11 +39,12 @@
 
             </div>
             <div class="form-check" v-for="(post,index) in topposts" :key="index+1">
-                <input class="form-check-input" type="checkbox" value="" id="index" @change="selectType(index+1)">
+                <input class="form-check-input" type="checkbox" value="" id="index"
+                       @change="selectType(index+1,post.post_id)">
                 <label class="form-check-label" for="index">
                     {{post.title}}
-                    <div style="display: inline-block;" :style="{width: 10+ 'px',
-                            height: 10+ 'px', backgroundColor:colors[index]}">
+                    <div style="display: inline-block;" v-if="datasets[1]" :style="{width: 10+ 'px',
+                            height: 10+ 'px', backgroundColor:getColors(post.post_id)}">
 
                     </div>
                 </label>
@@ -59,7 +60,7 @@
         props: ['analyticdatarange', 'startdateformat', 'enddateformat', 'applocale', 'posturl', 'topposts', 'postsanalytic'],
         data() {
             return {
-                analyticFor : 'all',
+                analyticFor: 'all',
                 start: '',
                 startDate: '',
                 endDate: '',
@@ -96,6 +97,17 @@
             },
             forceRerender() {
                 this.componentKey += 1;
+            },
+            getColors(postId = 0) {
+
+                return this.datasets.find(e => {
+                    if (e.id == postId) {
+
+                        return e
+                    }
+
+                }).backgroundColor
+
             },
             calculateData() {
                 this.resetDatasets()
@@ -161,8 +173,6 @@
                     this.datasets.find(e => {
                         if (this.postsanalytic[b].post_id == e.id) {
                             e.data[index] += parseInt(this.postsanalytic[b].not_unique)
-                            // this.tot += parseInt(this.postsanalytic[b].not_unique);
-                            //             this.unq += 1;
 
                         }
 
@@ -170,72 +180,111 @@
 
                 }
 
-                // this.maxViewCount = Math.max.apply(Math, this.datasets[0].data.map(function (o) {
-                //     return o;
-                // }))
                 // this.forceRerender()
+                this.calculateViewsCount()
             },
-            calculateViewsCount(type){
+            calculateViewsCount(type=null,dataset=null) {
 
                 var index = 0;
                 this.unq = 0;
                 this.tot = 0;
                 this.maxViewCount = 0;
-                if(this.datasets[0].show == true){
+                var postIdSet = new Set()
+                if (this.datasets[0].show == true) {
                     this.analyticFor = 'all'
                     this.maxViewCount = Math.max.apply(Math, this.datasets[index].data.map(function (o) {
                         return o;
                     }))
 
-                    this.postsanalytic.forEach((p)=>{
+                    this.postsanalytic.forEach((p) => {
                         this.tot += parseInt(p.not_unique);
+                        postIdSet.add(p.user_id)
                     })
 
-                }else{
-                    var selected = [];
-                    var selectedCountViews = this.datasets.forEach((d)=>{
 
-                        if(d.show == true ){
-                          selected =  selected.concat(d.data)
+                } else {
+console.log('here')
+                    var count = 0;
+                    var selectedArray = [];
+                    var label;
+                    var selectedCountViews = this.datasets.forEach((d) => {
+
+                        if (d.show == true) {
+                            console.log(d)
+
+                            count++;
+                            selectedArray = selectedArray.concat(d.data)
+                            label = d.label
 
 
-                         this.postsanalytic.find(p => {
-                               if(d.id == p.post_id){
-                                   this.tot += parseInt(p.not_unique);
-                               }
+                            this.postsanalytic.find(p => {
+
+                                if (d.id == p.post_id) {
+                                    postIdSet.add(p.user_id)
+                                    this.tot += parseInt(p.not_unique);
+                                }
                             })
-                            this.maxViewCount = Math.max.apply(Math, selected.map(function (o) {
+                            this.maxViewCount = Math.max.apply(Math, selectedArray.map(function (o) {
                                 return o;
                             }))
 
                         }
+                        // console.log(count)
+
 
 
                     })
 
+                    if (count == 1) {
+                        this.analyticFor = label
 
-                    // this.maxViewCount = Math.max.apply(Math, this.datasets[index].data.map(function (o) {
-                    //     return o;
-                    // }))
 
+                        // console.log(this.datasets)
+                        // if(dataset){
+                        //     this.analyticFor = dataset.label
+                        // }else{
+                        //     console.log('noooooo')
+                        //     console.log(type)
+                        //     // console.log(type)
+                        //     // console.log(this.topposts)
+                        //     // this.analyticFor = this.topposts[type-1].title
+                        // }
+
+                    }else{
+                        this.analyticFor = 'all'
+                    }
+
+                }
+                this.unq = postIdSet.size
+
+            },
+            selectType(type, id = null) {
+                this.analyticFor = 'all'
+                // console.log(type)
+                // console.log(this.datasets)
+                if (type == 0) {
+                    this.datasets[type].show = !this.datasets[type].show
+                    this.calculateViewsCount(type)
+                } else {
+                    this.datasets.find(d => {
+                        if (d.id == id) {
+                            d.show = !d.show
+                            this.calculateViewsCount(type,d)
+                        }
+                    })
                 }
 
 
-                // this.maxViewCount = Math.max.apply(Math, this.datasets[index].data.map(function (o) {
-                //     return o;
-                // }))
-            },
-            selectType(type) {
-                this.datasets[type].show = !this.datasets[type].show
+                // this.datasets[type].show = !this.datasets[type].show
                 // this.$forceUpdate();
                 this.forceRerender()
-                this.calculateViewsCount(type)
+
 
             },
             generateColor(index) {
                 // var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
                 var o = Math.round, r = Math.random, s = 255;
-                var randomColor ='rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ','+ 0.4 + ')';
+                var randomColor = 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + 0.4 + ')';
                 // this.datasets[index].backgroundColor = randomColor;
                 return randomColor;
             },

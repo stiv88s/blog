@@ -1964,6 +1964,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['analyticdatarange', 'startdateformat', 'enddateformat', 'applocale', 'posturl', 'topposts', 'postsanalytic'],
   data: function data() {
@@ -1998,6 +1999,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     forceRerender: function forceRerender() {
       this.componentKey += 1;
+    },
+    getColors: function getColors() {
+      var postId = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      return this.datasets.find(function (e) {
+        if (e.id == postId) {
+          return e;
+        }
+      }).backgroundColor;
     },
     calculateData: function calculateData() {
       var _this = this;
@@ -2061,23 +2070,24 @@ __webpack_require__.r(__webpack_exports__);
         this.datasets[0].data[index] += parseInt(this.postsanalytic[b].not_unique);
         this.datasets.find(function (e) {
           if (_this.postsanalytic[b].post_id == e.id) {
-            e.data[index] += parseInt(_this.postsanalytic[b].not_unique); // this.tot += parseInt(this.postsanalytic[b].not_unique);
-            //             this.unq += 1;
+            e.data[index] += parseInt(_this.postsanalytic[b].not_unique);
           }
         });
-      } // this.maxViewCount = Math.max.apply(Math, this.datasets[0].data.map(function (o) {
-      //     return o;
-      // }))
-      // this.forceRerender()
+      } // this.forceRerender()
 
+
+      this.calculateViewsCount();
     },
-    calculateViewsCount: function calculateViewsCount(type) {
+    calculateViewsCount: function calculateViewsCount() {
       var _this2 = this;
 
+      var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var dataset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
       var index = 0;
       this.unq = 0;
       this.tot = 0;
       this.maxViewCount = 0;
+      var postIdSet = new Set();
 
       if (this.datasets[0].show == true) {
         this.analyticFor = 'all';
@@ -2086,36 +2096,75 @@ __webpack_require__.r(__webpack_exports__);
         }));
         this.postsanalytic.forEach(function (p) {
           _this2.tot += parseInt(p.not_unique);
+          postIdSet.add(p.user_id);
         });
       } else {
-        var selected = [];
+        console.log('here');
+        var count = 0;
+        var selectedArray = [];
+        var label;
         var selectedCountViews = this.datasets.forEach(function (d) {
           if (d.show == true) {
-            selected = selected.concat(d.data);
+            console.log(d);
+            count++;
+            selectedArray = selectedArray.concat(d.data);
+            label = d.label;
 
             _this2.postsanalytic.find(function (p) {
               if (d.id == p.post_id) {
+                postIdSet.add(p.user_id);
                 _this2.tot += parseInt(p.not_unique);
               }
             });
 
-            _this2.maxViewCount = Math.max.apply(Math, selected.map(function (o) {
+            _this2.maxViewCount = Math.max.apply(Math, selectedArray.map(function (o) {
               return o;
             }));
-          }
-        }); // this.maxViewCount = Math.max.apply(Math, this.datasets[index].data.map(function (o) {
-        //     return o;
-        // }))
-      } // this.maxViewCount = Math.max.apply(Math, this.datasets[index].data.map(function (o) {
-      //     return o;
-      // }))
+          } // console.log(count)
 
+        });
+
+        if (count == 1) {
+          this.analyticFor = label; // console.log(this.datasets)
+          // if(dataset){
+          //     this.analyticFor = dataset.label
+          // }else{
+          //     console.log('noooooo')
+          //     console.log(type)
+          //     // console.log(type)
+          //     // console.log(this.topposts)
+          //     // this.analyticFor = this.topposts[type-1].title
+          // }
+        } else {
+          this.analyticFor = 'all';
+        }
+      }
+
+      this.unq = postIdSet.size;
     },
     selectType: function selectType(type) {
-      this.datasets[type].show = !this.datasets[type].show; // this.$forceUpdate();
+      var _this3 = this;
+
+      var id = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      this.analyticFor = 'all'; // console.log(type)
+      // console.log(this.datasets)
+
+      if (type == 0) {
+        this.datasets[type].show = !this.datasets[type].show;
+        this.calculateViewsCount(type);
+      } else {
+        this.datasets.find(function (d) {
+          if (d.id == id) {
+            d.show = !d.show;
+
+            _this3.calculateViewsCount(type, d);
+          }
+        });
+      } // this.datasets[type].show = !this.datasets[type].show
+      // this.$forceUpdate();
+
 
       this.forceRerender();
-      this.calculateViewsCount(type);
     },
     generateColor: function generateColor(index) {
       // var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
@@ -2135,19 +2184,19 @@ __webpack_require__.r(__webpack_exports__);
       this.tot = 0;
     },
     loadPostData: function loadPostData() {
-      var _this3 = this;
+      var _this4 = this;
 
       if (this.startDate.length == 10 && this.endDate.length == 10) {
         axios.get(this.posturl + "/?startDate=" + this.startDate + "&endDate=" + this.endDate).then(function (response) {
-          _this3.range = response.data.datarange;
+          _this4.range = response.data.datarange;
 
-          _this3.calculateData();
+          _this4.calculateData();
         });
       }
     }
   },
   mounted: function mounted() {
-    var _this4 = this;
+    var _this5 = this;
 
     this.range = this.analyticdatarange;
     this.startDate = this.startdateformat;
@@ -2158,7 +2207,7 @@ __webpack_require__.r(__webpack_exports__);
     this.calculateViewsCount('all'); // this.analyticData.labels = this.analyticdatarange
 
     $(function () {
-      var self = _this4;
+      var self = _this5;
       $('#date_timepicker_start').datetimepicker({
         format: 'Y/m/d',
         timepicker: false
@@ -40767,7 +40816,7 @@ var render = function() {
               attrs: { type: "checkbox", value: "", id: "index" },
               on: {
                 change: function($event) {
-                  return _vm.selectType(index + 1)
+                  return _vm.selectType(index + 1, post.post_id)
                 }
               }
             }),
@@ -40781,14 +40830,16 @@ var render = function() {
                     _vm._s(post.title) +
                     "\n                "
                 ),
-                _c("div", {
-                  staticStyle: { display: "inline-block" },
-                  style: {
-                    width: 10 + "px",
-                    height: 10 + "px",
-                    backgroundColor: _vm.colors[index]
-                  }
-                })
+                _vm.datasets[1]
+                  ? _c("div", {
+                      staticStyle: { display: "inline-block" },
+                      style: {
+                        width: 10 + "px",
+                        height: 10 + "px",
+                        backgroundColor: _vm.getColors(post.post_id)
+                      }
+                    })
+                  : _vm._e()
               ]
             )
           ])

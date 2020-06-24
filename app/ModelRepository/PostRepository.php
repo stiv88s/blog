@@ -92,19 +92,21 @@ class PostRepository extends Repository
         SUM(post_analytic.showed_count) as not_unique,
         post_analytic.post_id,
         post_analytic.date,
+        post_analytic.user_id,
         posts.title
         FROM post_analytic
         INNER JOIN posts ON posts.id = post_analytic.post_id
         WHERE post_analytic.updated_at >= :startedAt
         AND post_analytic.updated_at <= :finishAt
         AND posts.is_active = 1
-        GROUP BY post_analytic.post_id,post_analytic.date,post_analytic.updated_at
+        GROUP BY post_analytic.post_id,post_analytic.date,post_analytic.updated_at,post_analytic.user_id
         ORDER BY post_analytic.date ASC, post_analytic.updated_at ASC
         ", [
             'startedAt' => $startDate,
             'finishAt' => $endDate,
 
         ]);
+
 
         return $postAnalytic;
 
