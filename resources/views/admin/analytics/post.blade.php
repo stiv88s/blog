@@ -15,12 +15,9 @@
 
         ></analytics-component>
         <br>
-
-        <h1>News all views</h1>
-
+        
     </div>
 
-    <p>Analytic</p>
 @endsection
 
 @push('scripts')
