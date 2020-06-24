@@ -2034,32 +2034,9 @@ __webpack_require__.r(__webpack_exports__);
         for (var b in this.datasets) {
           this.datasets[b].data.push(0);
         }
-      } // for (var i in this.range.data) {
-      //     // this.datasets[0].data.push(0) // data 0 if data != range.data
-      //
-      //     for (var b in this.postsanalytic) {
-      //
-      //         if (this.range.data[i] == this.postsanalytic[b].date) {
-      //
-      //             this.datasets[0].data[i] += parseInt(this.postsanalytic[b].not_unique)
-      //
-      //
-      //
-      //
-      //
-      //             this.tot += parseInt(this.postsanalytic[b].not_unique);
-      //             this.unq += 1;
-      //
-      //         }
-      //
-      //     }
-      //
-      // }
-      // console.log(this.range.data)
-
+      }
 
       for (var b in this.postsanalytic) {
-        // console.log(x)
         var date = this.postsanalytic[b].date;
         var index = this.range.data.indexOf(date);
 
@@ -2099,7 +2076,6 @@ __webpack_require__.r(__webpack_exports__);
           postIdSet.add(p.user_id);
         });
       } else {
-        console.log('here');
         var count = 0;
         var selectedArray = [];
         var label;
@@ -2120,21 +2096,11 @@ __webpack_require__.r(__webpack_exports__);
             _this2.maxViewCount = Math.max.apply(Math, selectedArray.map(function (o) {
               return o;
             }));
-          } // console.log(count)
-
+          }
         });
 
         if (count == 1) {
-          this.analyticFor = label; // console.log(this.datasets)
-          // if(dataset){
-          //     this.analyticFor = dataset.label
-          // }else{
-          //     console.log('noooooo')
-          //     console.log(type)
-          //     // console.log(type)
-          //     // console.log(this.topposts)
-          //     // this.analyticFor = this.topposts[type-1].title
-          // }
+          this.analyticFor = label;
         } else {
           this.analyticFor = 'all';
         }
@@ -2146,8 +2112,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       var id = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-      this.analyticFor = 'all'; // console.log(type)
-      // console.log(this.datasets)
+      this.analyticFor = 'all';
 
       if (type == 0) {
         this.datasets[type].show = !this.datasets[type].show;
@@ -2161,7 +2126,6 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       } // this.datasets[type].show = !this.datasets[type].show
-      // this.$forceUpdate();
 
 
       this.forceRerender();
@@ -2171,8 +2135,7 @@ __webpack_require__.r(__webpack_exports__);
       var o = Math.round,
           r = Math.random,
           s = 255;
-      var randomColor = 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + 0.4 + ')'; // this.datasets[index].backgroundColor = randomColor;
-
+      var randomColor = 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + 0.4 + ')';
       return randomColor;
     },
     resetDatasets: function resetDatasets() {

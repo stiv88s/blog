@@ -18,9 +18,9 @@
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ModelRepository/PostRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ModelRepository/PostRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/AnalyticsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/AnalyticsComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/analytics/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/analytics/post.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +275,7 @@
       <workItem from="1592465971780" duration="17470000" />
       <workItem from="1592549483495" duration="16067000" />
       <workItem from="1592809953405" duration="21328000" />
-      <workItem from="1592979235896" duration="738000" />
+      <workItem from="1592979235896" duration="2034000" />
     </task>
     <servers />
   </component>

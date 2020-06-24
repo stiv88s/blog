@@ -15,39 +15,14 @@
 
         ></analytics-component>
         <br>
-        {{--        <analytics-component></analytics-component>--}}
+
         <h1>News all views</h1>
-        {{--        <canvas id="myChart"></canvas>--}}
+
     </div>
 
-    <p>ANalytic</p>
+    <p>Analytic</p>
 @endsection
 
 @push('scripts')
-
-    {{--    <script>--}}
-
-    {{--         $(function(){--}}
-    {{--             $('#date_timepicker_start').datetimepicker({--}}
-    {{--                 format:'Y/m/d',--}}
-    {{--                 onShow:function( ct ){--}}
-    {{--                     this.setOptions({--}}
-    {{--                         maxDate:$('#date_timepicker_end').val()?$('#date_timepicker_end').val():false--}}
-    {{--                     })--}}
-    {{--                 },--}}
-    {{--                 timepicker:false--}}
-    {{--             });--}}
-    {{--             $('#date_timepicker_end').datetimepicker({--}}
-    {{--                 format:'Y/m/d',--}}
-    {{--                 onShow:function( ct ){--}}
-    {{--                     this.setOptions({--}}
-    {{--                         minDate:$('#date_timepicker_start').val()?$('#date_timepicker_start').val():false--}}
-    {{--                     })--}}
-    {{--                     console.log(ct);--}}
-    {{--                 },--}}
-    {{--                 timepicker:false--}}
-    {{--             });--}}
-    {{--         });--}}
-    {{--    </script>--}}
 
 @endpush

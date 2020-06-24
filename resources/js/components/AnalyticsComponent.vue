@@ -134,32 +134,8 @@
                         this.datasets[b].data.push(0)
                     }
                 }
-                // for (var i in this.range.data) {
-                //     // this.datasets[0].data.push(0) // data 0 if data != range.data
-                //
-                //     for (var b in this.postsanalytic) {
-                //
-                //         if (this.range.data[i] == this.postsanalytic[b].date) {
-                //
-                //             this.datasets[0].data[i] += parseInt(this.postsanalytic[b].not_unique)
-                //
-                //
-                //
-                //
-                //
-                //             this.tot += parseInt(this.postsanalytic[b].not_unique);
-                //             this.unq += 1;
-                //
-                //         }
-                //
-                //     }
-                //
-                // }
-                // console.log(this.range.data)
 
                 for (var b in this.postsanalytic) {
-
-                    // console.log(x)
 
                     var date = this.postsanalytic[b].date
                     var index = this.range.data.indexOf(date)
@@ -169,7 +145,6 @@
                     }
 
                     this.datasets[0].data[index] += parseInt(this.postsanalytic[b].not_unique)
-
                     this.datasets.find(e => {
                         if (this.postsanalytic[b].post_id == e.id) {
                             e.data[index] += parseInt(this.postsanalytic[b].not_unique)
@@ -179,7 +154,6 @@
                     })
 
                 }
-
                 // this.forceRerender()
                 this.calculateViewsCount()
             },
@@ -203,7 +177,6 @@
 
 
                 } else {
-console.log('here')
                     var count = 0;
                     var selectedArray = [];
                     var label;
@@ -215,8 +188,6 @@ console.log('here')
                             count++;
                             selectedArray = selectedArray.concat(d.data)
                             label = d.label
-
-
                             this.postsanalytic.find(p => {
 
                                 if (d.id == p.post_id) {
@@ -229,26 +200,11 @@ console.log('here')
                             }))
 
                         }
-                        // console.log(count)
-
-
 
                     })
 
                     if (count == 1) {
                         this.analyticFor = label
-
-
-                        // console.log(this.datasets)
-                        // if(dataset){
-                        //     this.analyticFor = dataset.label
-                        // }else{
-                        //     console.log('noooooo')
-                        //     console.log(type)
-                        //     // console.log(type)
-                        //     // console.log(this.topposts)
-                        //     // this.analyticFor = this.topposts[type-1].title
-                        // }
 
                     }else{
                         this.analyticFor = 'all'
@@ -260,8 +216,6 @@ console.log('here')
             },
             selectType(type, id = null) {
                 this.analyticFor = 'all'
-                // console.log(type)
-                // console.log(this.datasets)
                 if (type == 0) {
                     this.datasets[type].show = !this.datasets[type].show
                     this.calculateViewsCount(type)
@@ -276,16 +230,14 @@ console.log('here')
 
 
                 // this.datasets[type].show = !this.datasets[type].show
-                // this.$forceUpdate();
                 this.forceRerender()
-
 
             },
             generateColor(index) {
                 // var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
                 var o = Math.round, r = Math.random, s = 255;
                 var randomColor = 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + 0.4 + ')';
-                // this.datasets[index].backgroundColor = randomColor;
+
                 return randomColor;
             },
             resetDatasets() {
