@@ -101,7 +101,31 @@
     </div>
 
 
+<div class="col-12 bg-danger pt-2 pb-2">
 
+    <h2 class="text-center">Dont miss any posts updates</h2>
+    <div class="row justify-content-center">
+        <div class="col-12 m-2">
+            @if($errors->has('email'))
+                <div class="alert alert-danger">
+                    {{$errors->first('email')}}
+                </div>
+            @endif
+            <form class="form-inline justify-content-center" method="post" action="{{route('subscribe',app()->getLocale())}}">
+                @csrf
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="inputPassword2" class="sr-only">Email</label>
+
+                    <input type="text" class="form-control" name="email" placeholder="Your email">
+                </div>
+
+                <button type="submit" class="btn btn-primary mb-2">Subscribe</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
 <!-- Footer -->
 <footer class="py-5 bg-dark">
     <div class="container">
@@ -112,6 +136,7 @@
 
 <!-- Bootstrap core JavaScript -->
 <script src="{{asset('/user/externalfiles/boottem/vendor/jquery/jquery.min.js')}}"></script>
+<script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
 {{--<script src="{{asset('/user/externalfiles/boottem/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>--}}
 <script src="{{asset('js/app.js')}}"></script>
 @stack('custom-scripts')

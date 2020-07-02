@@ -20,6 +20,8 @@ Route::redirect('/admin/home', '/' . app()->getLocale() . '/admin/login/', 301);
 
 Route::get('/', 'User\WelcomeController@index')->middleware(['web', 'locale'])->prefix('{locale?}')->name('welcome');
 Route::get('/set-locale', 'ChangeLocaleController@setLocale')->middleware(['web', 'locale'])->prefix('{user?}/{locale}')->name('setLocale');
+Route::post('/subscribe','SubscribersController@subscribe')->middleware(['web', 'locale'])->prefix('{locale}')->name('subscribe');
+Route::get('/unsubscribe/{token}','SubscribersController@unsubscribe')->middleware(['web', 'locale'])->prefix('{locale}')->name('unsubscribe');
 //Route::get('/admin/login','Admin\Auth\LoginController@showLoginForm')->middleware(['web','locale'])->prefix('{locale}')->name('admin.login');
 //Route::get('/set-locale','ChangeLocaleController@setLocale')->middleware(['web','locale'])->prefix(\App\Locale::getUrlSegment((string)Request::segment(1)))->name('setLocale');
 
