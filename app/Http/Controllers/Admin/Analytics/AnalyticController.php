@@ -25,7 +25,7 @@ class AnalyticController extends Controller
         $dateRange = $this->generateDateRange(Carbon::parse($startDate), Carbon::parse($endDate));
         $startDateFormat = $startDate->format('Y/m/d');
         $endDateFormat = $endDate->format('Y/m/d');
-//dd( $postsAnalytic);
+//dd( 'here',$postsAnalytic,$startDate,$endDate);
         if ($request->wantsJson()) {
 
             return [

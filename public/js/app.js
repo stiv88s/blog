@@ -1975,6 +1975,8 @@ __webpack_require__.r(__webpack_exports__);
       endDate: '',
       range: '',
       componentKey: 0,
+      postsanalyticCopy: [],
+      toppostsCopy: [],
       unq: 0,
       tot: 0,
       maxViewCount: 0,
@@ -1993,7 +1995,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     fillColor: function fillColor() {
-      for (var i in this.postsanalytic) {
+      for (var i in this.postsanalyticCopy) {
         this.colors.push(this.generateColor());
       }
     },
@@ -2013,16 +2015,16 @@ __webpack_require__.r(__webpack_exports__);
 
       this.resetDatasets();
 
-      for (var i in this.postsanalytic) {
+      for (var i in this.postsanalyticCopy) {
         var searched = this.datasets.find(function (e) {
-          return e.id == _this.postsanalytic[i].post_id;
+          return e.id == _this.postsanalyticCopy[i].post_id;
         });
 
         if (!searched) {
           this.datasets.push({
             backgroundColor: this.colors[i],
-            label: this.postsanalytic[i].title,
-            id: this.postsanalytic[i].post_id,
+            label: this.postsanalyticCopy[i].title,
+            id: this.postsanalyticCopy[i].post_id,
             show: false,
             data: []
           });
@@ -2036,18 +2038,18 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
 
-      for (var b in this.postsanalytic) {
-        var date = this.postsanalytic[b].date;
+      for (var b in this.postsanalyticCopy) {
+        var date = this.postsanalyticCopy[b].date;
         var index = this.range.data.indexOf(date);
 
         if (index === -1) {
           continue;
         }
 
-        this.datasets[0].data[index] += parseInt(this.postsanalytic[b].not_unique);
+        this.datasets[0].data[index] += parseInt(this.postsanalyticCopy[b].not_unique);
         this.datasets.find(function (e) {
-          if (_this.postsanalytic[b].post_id == e.id) {
-            e.data[index] += parseInt(_this.postsanalytic[b].not_unique);
+          if (_this.postsanalyticCopy[b].post_id == e.id) {
+            e.data[index] += parseInt(_this.postsanalyticCopy[b].not_unique);
           }
         });
       } // this.forceRerender()
@@ -2071,7 +2073,7 @@ __webpack_require__.r(__webpack_exports__);
         this.maxViewCount = Math.max.apply(Math, this.datasets[index].data.map(function (o) {
           return o;
         }));
-        this.postsanalytic.forEach(function (p) {
+        this.postsanalyticCopy.forEach(function (p) {
           _this2.tot += parseInt(p.not_unique);
           postIdSet.add(p.user_id);
         });
@@ -2086,7 +2088,7 @@ __webpack_require__.r(__webpack_exports__);
             selectedArray = selectedArray.concat(d.data);
             label = d.label;
 
-            _this2.postsanalytic.find(function (p) {
+            _this2.postsanalyticCopy.find(function (p) {
               if (d.id == p.post_id) {
                 postIdSet.add(p.user_id);
                 _this2.tot += parseInt(p.not_unique);
@@ -2152,6 +2154,12 @@ __webpack_require__.r(__webpack_exports__);
       if (this.startDate.length == 10 && this.endDate.length == 10) {
         axios.get(this.posturl + "/?startDate=" + this.startDate + "&endDate=" + this.endDate).then(function (response) {
           _this4.range = response.data.datarange;
+          _this4.postsanalyticCopy = response.data.postAnalytic;
+          _this4.toppostsCopy = response.data.topPosts;
+
+          _this4.fillColor();
+
+          console.log(response);
 
           _this4.calculateData();
         });
@@ -2165,6 +2173,8 @@ __webpack_require__.r(__webpack_exports__);
     this.startDate = this.startdateformat;
     this.endDate = this.enddateformat;
     this.analyticData = this.analyticdatarange;
+    this.postsanalyticCopy = this.postsanalytic;
+    this.toppostsCopy = this.topposts;
     this.fillColor();
     this.calculateData();
     this.calculateViewsCount('all'); // this.analyticData.labels = this.analyticdatarange
@@ -40772,7 +40782,7 @@ var render = function() {
           _vm._m(0)
         ]),
         _vm._v(" "),
-        _vm._l(_vm.topposts, function(post, index) {
+        _vm._l(_vm.toppostsCopy, function(post, index) {
           return _c("div", { key: index + 1, staticClass: "form-check" }, [
             _c("input", {
               staticClass: "form-check-input",

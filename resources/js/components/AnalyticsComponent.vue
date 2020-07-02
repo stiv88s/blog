@@ -38,7 +38,7 @@
                 </label>
 
             </div>
-            <div class="form-check" v-for="(post,index) in topposts" :key="index+1">
+            <div class="form-check" v-for="(post,index) in toppostsCopy" :key="index+1">
                 <input class="form-check-input" type="checkbox" value="" id="index"
                        @change="selectType(index+1,post.post_id)">
                 <label class="form-check-label" for="index">
@@ -66,6 +66,8 @@
                 endDate: '',
                 range: '',
                 componentKey: 0,
+                postsanalyticCopy: [],
+                toppostsCopy:[],
                 unq: 0,
                 tot: 0,
                 maxViewCount: 0,
@@ -90,7 +92,7 @@
         methods: {
             fillColor() {
 
-                for (var i in this.postsanalytic) {
+                for (var i in this.postsanalyticCopy) {
 
                     this.colors.push(this.generateColor())
                 }
@@ -112,15 +114,15 @@
             calculateData() {
                 this.resetDatasets()
 
-                for (var i in this.postsanalytic) {
+                for (var i in this.postsanalyticCopy) {
                     var searched = this.datasets.find(e => {
-                        return e.id == this.postsanalytic[i].post_id
+                        return e.id == this.postsanalyticCopy[i].post_id
                     })
                     if (!searched) {
                         this.datasets.push({
                             backgroundColor: this.colors[i],
-                            label: this.postsanalytic[i].title,
-                            id: this.postsanalytic[i].post_id,
+                            label: this.postsanalyticCopy[i].title,
+                            id: this.postsanalyticCopy[i].post_id,
                             show: false,
                             data: []
 
@@ -135,19 +137,19 @@
                     }
                 }
 
-                for (var b in this.postsanalytic) {
+                for (var b in this.postsanalyticCopy) {
 
-                    var date = this.postsanalytic[b].date
+                    var date = this.postsanalyticCopy[b].date
                     var index = this.range.data.indexOf(date)
 
                     if (index === -1) {
                         continue;
                     }
 
-                    this.datasets[0].data[index] += parseInt(this.postsanalytic[b].not_unique)
+                    this.datasets[0].data[index] += parseInt(this.postsanalyticCopy[b].not_unique)
                     this.datasets.find(e => {
-                        if (this.postsanalytic[b].post_id == e.id) {
-                            e.data[index] += parseInt(this.postsanalytic[b].not_unique)
+                        if (this.postsanalyticCopy[b].post_id == e.id) {
+                            e.data[index] += parseInt(this.postsanalyticCopy[b].not_unique)
 
                         }
 
@@ -170,7 +172,7 @@
                         return o;
                     }))
 
-                    this.postsanalytic.forEach((p) => {
+                    this.postsanalyticCopy.forEach((p) => {
                         this.tot += parseInt(p.not_unique);
                         postIdSet.add(p.user_id)
                     })
@@ -188,7 +190,7 @@
                             count++;
                             selectedArray = selectedArray.concat(d.data)
                             label = d.label
-                            this.postsanalytic.find(p => {
+                            this.postsanalyticCopy.find(p => {
 
                                 if (d.id == p.post_id) {
                                     postIdSet.add(p.user_id)
@@ -254,6 +256,10 @@
 
                     axios.get(this.posturl + "/?startDate=" + this.startDate + "&endDate=" + this.endDate).then((response) => {
                         this.range = response.data.datarange
+                        this.postsanalyticCopy = response.data.postAnalytic
+                        this.toppostsCopy = response.data.topPosts
+                        this.fillColor()
+                        console.log(response)
 
                         this.calculateData()
 
@@ -269,6 +275,8 @@
             this.startDate = this.startdateformat
             this.endDate = this.enddateformat
             this.analyticData = this.analyticdatarange
+            this.postsanalyticCopy = this.postsanalytic
+            this.toppostsCopy = this.topposts
             this.fillColor();
             this.calculateData()
             this.calculateViewsCount('all')
