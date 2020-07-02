@@ -11,4 +11,6 @@ class PostConstants
      */
     const POST = 'post';
 
+    const ACTIVE = 1;
+
 }
