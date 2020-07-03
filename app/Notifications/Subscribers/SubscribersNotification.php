@@ -2,6 +2,7 @@
 
 namespace App\Notifications\Subscribers;
 
+use App\Model\Post;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -11,14 +12,19 @@ class SubscribersNotification extends Notification
 {
     use Queueable;
 
+    public $post;
+    public $url;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Post $post)
     {
-        //
+        $this->post = $post;
+        $this->url = $post->header_image;
+
     }
 
     /**
@@ -40,11 +46,8 @@ class SubscribersNotification extends Notification
      */
     public function toMail($notifiable)
     {
-//        return (new MailMessage)
-//                    ->line('The introduction to the notification.')
-//                    ->action('Notification Action', url('/'))
-//                    ->line('Thank you for using our application!');
-        return $this->markdown('emails.verify_email')->with(['email_token' => $this->token]);
+        return (new MailMessage)
+        ->markdown('emails.new_post', ['token' => $notifiable->token,'post'=>$this->post ]);
 
     }
 

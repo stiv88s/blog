@@ -15,29 +15,18 @@ class PostsObserver
     public function created(Post $post)
     {
 
-        if ($post->is_active == PostConstants::ACTIVE) {
-
-            $subscribers = Subscribers::all();
-            foreach ($subscribers as $subscriber) {
-                $subscriber->notify(new SubscribersNotification());
-            }
-
-        }
+//        $p = Post::findOrFail($post->id);
+//        dd($p);
+//
+//        if ($post->is_active == PostConstants::ACTIVE) {
+//
+//            $subscribers = Subscribers::all();
+//            foreach ($subscribers as $subscriber) {
+//                $subscriber->notify(new SubscribersNotification($post));
+//            }
+//
+//        }
 
     }
 
-//    public function retrieved(Post $post)
-//    {
-//        if (Cache::has('post_' . $post->id)) {
-//
-//            $post->setVirtualCountPeople();
-//
-////            dd($post,$post1);
-////            $post = $post1;
-//
-//        } else {
-//            Cache::put('post_' . $post->id, $post, 300);
-//        }
-//
-//    }
 }

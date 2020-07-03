@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\PostCreatedEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatePostRequest;
 use App\Http\Requests\UpdatePostRequest;
@@ -11,6 +12,7 @@ use App\Model\Tag;
 use App\ModelRepository\PostRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Session;
 
 class PostController extends Controller
@@ -73,6 +75,8 @@ class PostController extends Controller
         $post->categorys()->sync($request->categorys);
 
         Session::flash('status', 'Post is created');
+
+        event( new PostCreatedEvent(Post::find($post->id)));
 
         return redirect()->route('post.index',app()->getLocale());
 

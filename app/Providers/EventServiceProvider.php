@@ -21,6 +21,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\PostShowEvent'=>[
             'App\Listeners\PostShowListener',
+        ],
+        'App\Events\PostCreatedEvent'=>[
+            'App\Listeners\PostCreatedListener',
         ]
 
     ];
