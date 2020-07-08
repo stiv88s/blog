@@ -18,7 +18,6 @@
         props: ['permission'],
         methods: {
             destroyPermission() {
-                console.log(this.$parent.gen)
                 axios.delete(route('permission.destroy', [this.$parent.applocale, this.permission.id]).url())
                     .then((response) => {
                         this.$parent.generalPermissions = response.data

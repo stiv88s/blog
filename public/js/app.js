@@ -2568,7 +2568,6 @@ __webpack_require__.r(__webpack_exports__);
     destroyPermission: function destroyPermission() {
       var _this = this;
 
-      console.log(this.$parent.gen);
       axios["delete"](route('permission.destroy', [this.$parent.applocale, this.permission.id]).url()).then(function (response) {
         _this.$parent.generalPermissions = response.data;
       });
