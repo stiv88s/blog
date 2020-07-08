@@ -103,6 +103,9 @@ class PermissionController extends Controller
 
         $permission->delete();
 
+        $permissions = Permission::all();
+        return $permissions;
+
     }
 
     public function generate(Request $request)

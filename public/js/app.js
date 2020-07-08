@@ -2568,15 +2568,35 @@ __webpack_require__.r(__webpack_exports__);
     destroyPermission: function destroyPermission() {
       var _this = this;
 
+      console.log(this.$parent.gen);
       axios["delete"](route('permission.destroy', [this.$parent.applocale, this.permission.id]).url()).then(function (response) {
+        // console.log(response)
+        _this.$parent.generalPermissions = response.data; // this.$parent.permissions = response.data
+        // this.$parent.permissionsForFilter = response.data
         // this.$el.parentNode.removeChild(this.$el)
-        _this.$parent.permissionsForFilter.splice(_this.$parent.permissionsForFilter.indexOf(_this.permission), 1);
-
-        _this.$parent.permissions.splice(_this.$parent.permissions.indexOf(_this.permission), 1); // this.$parent.p.splice(this.$parent.p.indexOf(this.permission), 1)
+        // if(this.$parent.searchPermissions.length>=1){
+        //     console.log('here')
+        //     this.$parent.gen.splice(this.$parent.gen.indexOf(this.permission), 1)
+        //     this.$el.parentNode.removeChild(this.$el)
+        // }else{
+        //
+        //     console.log(this.permission)
+        //     console.log(this.$parent.gen.indexOf(this.permission))
+        //
+        //     this.$parent.gen.splice(this.$parent.gen.indexOf(this.permission), 1)
+        // }
+        // this.$parent.permissions.splice(this.$parent.permissions.indexOf(this.permission), 1)
+        // this.$parent.gen.splice(this.$parent.gen.indexOf(this.permission), 1)
+        // this.$el.parentNode.removeChild(this.$el)
+        // this.$parent.researchPermission();
+        // this.$parent.permissionsForFilter.splice(this.$parent.permissionsForFilter.indexOf(this.permission), 1)
+        // this.$parent.permissions = this.$parent.permissionsForFilter
+        // this.$parent.permissionsForFilter.splice(this.$parent.permissionsForFilter.indexOf(this.permission), 1)
+        // this.$parent.permissions.splice(this.$parent.permissions.indexOf(this.permission), 1)
+        // this.$parent.p.splice(this.$parent.p.indexOf(this.permission), 1)
         // this.$parent.permissions.splice(this.$parent.permiss.indexOf(this.permission), 1)
         // this.$parent.permissionsForFilter.splice(this.$parent.permissionsForFilter.indexOf(this.$el), 1)
         // this.$parent.permissions.splice(this.$parent.permiss.indexOf(this.$el), 1)
-
       });
     }
   },
@@ -2638,20 +2658,45 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       loading: false,
-      permissions: [],
+      // permissions: [],
       permissionsForFilter: [],
-      searchPermissions: '' // p:[]
+      search: '',
+      generalPermissions: [] // p:[]
 
     };
   },
-  watch: {
-    searchPermissions: function searchPermissions(value) {
-      this.permissions = this.permissionsForFilter.filter(function (perm) {
-        return perm.name.indexOf(value) >= 0;
-      });
+  // watch:{
+  //     permissions(value){
+  //         return this.gen.filter(perm => {
+  //
+  //             return perm.name.includes(this.search.toLowerCase())
+  //         })
+  //
+  //         // this.permissions = this.permissionsForFilter.filter(perm=>{
+  //         //     console.log(this.permissions)
+  //         //     return perm.name.indexOf(value)>=0
+  //         // })
+  //
+  //     }
+  // },
+  computed: {
+    permissions: function permissions(value) {
+      var _this = this;
+
+      return this.generalPermissions.filter(function (perm) {
+        return perm.name.includes(_this.search.toLowerCase());
+      }); // this.permissions = this.permissionsForFilter.filter(perm=>{
+      //     console.log(this.permissions)
+      //     return perm.name.indexOf(value)>=0
+      // })
     }
   },
   methods: {
+    // researchPermission(){
+    //     this.permissions = this.permissionsForFilter.filter(perm=>{
+    //         return perm.name.indexOf(value)>=0
+    //     })
+    // },
     checkPermission: function checkPermission(name) {
       if (this.userpermis[0] == 'superadmin') {
         return true;
@@ -2660,26 +2705,29 @@ __webpack_require__.r(__webpack_exports__);
       return this.userpermis.indexOf(name) >= 1;
     },
     generatePermissions: function generatePermissions() {
-      var _this = this;
+      var _this2 = this;
 
       this.loading = true;
       axios.post(route('generatePermission', [this.applocale]).url()).then(function (response) {
         if (response.data.length > 0) {
           // this.p = this.p.concat(response.data)
-          _this.permissions = _this.permissions.concat(response.data);
-          _this.permissionsForFilter = _this.permissionsForFilter.concat(response.data);
+          // this.permissions = this.permissions.concat(response.data)
+          // this.permissionsForFilter = this.permissionsForFilter.concat(response.data)
+          _this2.generalPermissions = _this2.generalPermissions.concat(response.data);
         }
 
-        _this.loading = false;
+        _this2.loading = false;
       })["catch"](function (error) {
-        _this.loading = false;
+        _this2.loading = false;
       });
     }
   },
   mounted: function mounted() {
     // this.p = this.permiss
-    this.permissions = this.permiss;
-    this.permissionsForFilter = this.permiss;
+    // this.permissions = this.permiss
+    // this.permissionsForFilter =  this.permiss
+    this.generalPermissions = this.permiss; // this.permissions =  this.gen
+    // this.permissionsForFilter = this.gen
   },
   name: "PermissionsComponent"
 });
@@ -41262,8 +41310,8 @@ var render = function() {
         {
           name: "model",
           rawName: "v-model",
-          value: _vm.searchPermissions,
-          expression: "searchPermissions"
+          value: _vm.search,
+          expression: "search"
         }
       ],
       staticClass: "form-control mb-4 col-4",
@@ -41273,13 +41321,13 @@ var render = function() {
         "aria-label": "Search",
         "aria-describedby": "basic-addon1"
       },
-      domProps: { value: _vm.searchPermissions },
+      domProps: { value: _vm.search },
       on: {
         input: function($event) {
           if ($event.target.composing) {
             return
           }
-          _vm.searchPermissions = $event.target.value
+          _vm.search = $event.target.value
         }
       }
     }),
