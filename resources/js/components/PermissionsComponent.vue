@@ -45,48 +45,21 @@
             return {
                 loading: false,
                 // permissions: [],
-                permissionsForFilter: [],
                 search: '',
                 generalPermissions:[],
-                // p:[]
-
-
             }
         },
-        // watch:{
-        //     permissions(value){
-        //         return this.gen.filter(perm => {
-        //
-        //             return perm.name.includes(this.search.toLowerCase())
-        //         })
-        //
-        //         // this.permissions = this.permissionsForFilter.filter(perm=>{
-        //         //     console.log(this.permissions)
-        //         //     return perm.name.indexOf(value)>=0
-        //         // })
-        //
-        //     }
-        // },
+
         computed:{
             permissions(value){
                 return this.generalPermissions.filter(perm => {
                     return perm.name.includes(this.search.toLowerCase())
                 })
 
-                // this.permissions = this.permissionsForFilter.filter(perm=>{
-                //     console.log(this.permissions)
-                //     return perm.name.indexOf(value)>=0
-                // })
-
             }
 
         },
         methods: {
-            // researchPermission(){
-            //     this.permissions = this.permissionsForFilter.filter(perm=>{
-            //         return perm.name.indexOf(value)>=0
-            //     })
-            // },
             checkPermission(name) {
                 if (this.userpermis[0] == 'superadmin') {
                     return true;
@@ -102,9 +75,6 @@
 
                     .then(response => {
                         if (response.data.length > 0) {
-                            // this.p = this.p.concat(response.data)
-                            // this.permissions = this.permissions.concat(response.data)
-                            // this.permissionsForFilter = this.permissionsForFilter.concat(response.data)
                             this.generalPermissions = this.generalPermissions.concat(response.data)
 
                         }
@@ -115,13 +85,10 @@
             }
         },
         mounted() {
-            // this.p = this.permiss
-            // this.permissions = this.permiss
-            // this.permissionsForFilter =  this.permiss
+
 
             this.generalPermissions = this.permiss
-            // this.permissions =  this.gen
-            // this.permissionsForFilter = this.gen
+
         },
         name: "PermissionsComponent"
     }

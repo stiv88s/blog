@@ -2570,33 +2570,7 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log(this.$parent.gen);
       axios["delete"](route('permission.destroy', [this.$parent.applocale, this.permission.id]).url()).then(function (response) {
-        // console.log(response)
-        _this.$parent.generalPermissions = response.data; // this.$parent.permissions = response.data
-        // this.$parent.permissionsForFilter = response.data
-        // this.$el.parentNode.removeChild(this.$el)
-        // if(this.$parent.searchPermissions.length>=1){
-        //     console.log('here')
-        //     this.$parent.gen.splice(this.$parent.gen.indexOf(this.permission), 1)
-        //     this.$el.parentNode.removeChild(this.$el)
-        // }else{
-        //
-        //     console.log(this.permission)
-        //     console.log(this.$parent.gen.indexOf(this.permission))
-        //
-        //     this.$parent.gen.splice(this.$parent.gen.indexOf(this.permission), 1)
-        // }
-        // this.$parent.permissions.splice(this.$parent.permissions.indexOf(this.permission), 1)
-        // this.$parent.gen.splice(this.$parent.gen.indexOf(this.permission), 1)
-        // this.$el.parentNode.removeChild(this.$el)
-        // this.$parent.researchPermission();
-        // this.$parent.permissionsForFilter.splice(this.$parent.permissionsForFilter.indexOf(this.permission), 1)
-        // this.$parent.permissions = this.$parent.permissionsForFilter
-        // this.$parent.permissionsForFilter.splice(this.$parent.permissionsForFilter.indexOf(this.permission), 1)
-        // this.$parent.permissions.splice(this.$parent.permissions.indexOf(this.permission), 1)
-        // this.$parent.p.splice(this.$parent.p.indexOf(this.permission), 1)
-        // this.$parent.permissions.splice(this.$parent.permiss.indexOf(this.permission), 1)
-        // this.$parent.permissionsForFilter.splice(this.$parent.permissionsForFilter.indexOf(this.$el), 1)
-        // this.$parent.permissions.splice(this.$parent.permiss.indexOf(this.$el), 1)
+        _this.$parent.generalPermissions = response.data;
       });
     }
   },
@@ -2659,44 +2633,20 @@ __webpack_require__.r(__webpack_exports__);
     return {
       loading: false,
       // permissions: [],
-      permissionsForFilter: [],
       search: '',
-      generalPermissions: [] // p:[]
-
+      generalPermissions: []
     };
   },
-  // watch:{
-  //     permissions(value){
-  //         return this.gen.filter(perm => {
-  //
-  //             return perm.name.includes(this.search.toLowerCase())
-  //         })
-  //
-  //         // this.permissions = this.permissionsForFilter.filter(perm=>{
-  //         //     console.log(this.permissions)
-  //         //     return perm.name.indexOf(value)>=0
-  //         // })
-  //
-  //     }
-  // },
   computed: {
     permissions: function permissions(value) {
       var _this = this;
 
       return this.generalPermissions.filter(function (perm) {
         return perm.name.includes(_this.search.toLowerCase());
-      }); // this.permissions = this.permissionsForFilter.filter(perm=>{
-      //     console.log(this.permissions)
-      //     return perm.name.indexOf(value)>=0
-      // })
+      });
     }
   },
   methods: {
-    // researchPermission(){
-    //     this.permissions = this.permissionsForFilter.filter(perm=>{
-    //         return perm.name.indexOf(value)>=0
-    //     })
-    // },
     checkPermission: function checkPermission(name) {
       if (this.userpermis[0] == 'superadmin') {
         return true;
@@ -2710,9 +2660,6 @@ __webpack_require__.r(__webpack_exports__);
       this.loading = true;
       axios.post(route('generatePermission', [this.applocale]).url()).then(function (response) {
         if (response.data.length > 0) {
-          // this.p = this.p.concat(response.data)
-          // this.permissions = this.permissions.concat(response.data)
-          // this.permissionsForFilter = this.permissionsForFilter.concat(response.data)
           _this2.generalPermissions = _this2.generalPermissions.concat(response.data);
         }
 
@@ -2723,11 +2670,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    // this.p = this.permiss
-    // this.permissions = this.permiss
-    // this.permissionsForFilter =  this.permiss
-    this.generalPermissions = this.permiss; // this.permissions =  this.gen
-    // this.permissionsForFilter = this.gen
+    this.generalPermissions = this.permiss;
   },
   name: "PermissionsComponent"
 });
