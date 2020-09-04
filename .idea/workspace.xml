@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -17,9 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/PermissionComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/PermissionComponent.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,11 +170,14 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -196,6 +201,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -279,11 +285,33 @@
       <workItem from="1593699594081" duration="1467000" />
       <workItem from="1593759966722" duration="1917000" />
       <workItem from="1594193714321" duration="3939000" />
+      <workItem from="1594198516865" duration="30000" />
+      <workItem from="1594789238031" duration="147000" />
+      <workItem from="1594992921279" duration="146000" />
+      <workItem from="1596020349446" duration="584000" />
+      <workItem from="1596698347666" duration="196000" />
+      <workItem from="1596698755792" duration="457000" />
+      <workItem from="1596699297181" duration="43000" />
+      <workItem from="1596699432097" duration="234000" />
+      <workItem from="1596699750754" duration="50000" />
+      <workItem from="1596699815519" duration="181000" />
+      <workItem from="1598337149927" duration="39000" />
+      <workItem from="1598428717443" duration="283000" />
+      <workItem from="1598430844303" duration="3432000" />
+      <workItem from="1598546114810" duration="2266000" />
+      <workItem from="1598548669712" duration="858000" />
+      <workItem from="1598853596805" duration="33000" />
+      <workItem from="1599067113523" duration="777000" />
+      <workItem from="1599135317025" duration="35000" />
+      <workItem from="1599135372544" duration="776000" />
+      <workItem from="1599138148455" duration="47000" />
+      <workItem from="1599142323003" duration="186000" />
+      <workItem from="1599201596608" duration="1224000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -325,14 +353,18 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="455" y="281" key="#Notifications" timestamp="1596699153589">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="455" y="281" key="#Notifications/0.0.1440.900@0.0.1440.900" timestamp="1596699153589" />
     <state x="460" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593693854911">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="460" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1593693854911" />
-    <state x="408" y="168" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1587711806672">
+    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1596698712194">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="408" y="168" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900@0.0.1440.900" timestamp="1587711806672" />
+    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900@0.0.1440.900" timestamp="1596698712194" />
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591094203861">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -341,61 +373,40 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1593691553862" />
-    <state x="458" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.814@0.23.1440.814" timestamp="1590482056617" />
     <state x="458" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816@0.23.1440.816" timestamp="1590747809321" />
-    <state x="458" y="216" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/-247.-1057.1920.1057@0.23.1440.821" timestamp="1590060229921" />
-    <state x="458" y="216" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821@0.23.1440.821" timestamp="1590402838081" />
     <state x="378" y="111" key="#phpunit.xml" timestamp="1592480166261">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="378" y="111" key="#phpunit.xml/0.0.1440.900@0.0.1440.900" timestamp="1592480166261" />
-    <state x="378" y="123" key="#phpunit.xml/0.23.1440.814@0.23.1440.814" timestamp="1588672214092" />
     <state x="135" y="39" width="1240" height="700" key="DiffContextDialog" timestamp="1594194189879">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1589876180328" />
     <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1594194189879" />
-    <state x="135" y="59" width="1240" height="634" key="DiffContextDialog/0.23.1440.814@0.23.1440.814" timestamp="1590416066501" />
     <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.23.1440.816@0.23.1440.816" timestamp="1590580556770" />
-    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.23.1440.821@0.23.1440.821" timestamp="1587038738100" />
-    <state x="135" y="59" width="1240" height="641" key="DiffContextDialog/0.23.1440.823@0.23.1440.823" timestamp="1590407113934" />
-    <state x="461" y="273" key="NewPhpClassDialog" timestamp="1591957406386">
+    <state x="461" y="273" key="NewPhpClassDialog" timestamp="1599137866554">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="461" y="273" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1591957406386" />
-    <state x="461" y="270" key="NewPhpClassDialog/0.23.1440.814@0.23.1440.814" timestamp="1590476753165" />
+    <state x="461" y="273" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1599137866554" />
     <state x="461" y="271" key="NewPhpClassDialog/0.23.1440.816@0.23.1440.816" timestamp="1590567182613" />
-    <state x="541" y="370" key="NewPhpFileDialog" timestamp="1593693899991">
+    <state x="541" y="370" key="NewPhpFileDialog" timestamp="1599135641872">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="541" y="370" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1593693899991" />
-    <state x="541" y="358" key="NewPhpFileDialog/0.23.1440.814@0.23.1440.814" timestamp="1590481921197" />
-    <state x="541" y="361" key="NewPhpFileDialog/0.23.1440.821@0.23.1440.821" timestamp="1590400590756" />
-    <state x="399" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1587711777834">
+    <state x="541" y="370" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1599135641872" />
+    <state x="229" y="89" key="SettingsEditor" timestamp="1599137838153">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1587711777834" />
-    <state x="97" y="231" width="978" height="548" key="find.popup" timestamp="1594196112232">
+    <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1599137838153" />
+    <state x="97" y="231" width="978" height="548" key="find.popup" timestamp="1599202902836">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1589880254905" />
-    <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1594196112232" />
-    <state x="305" y="122" width="978" height="540" key="find.popup/0.23.1440.814@0.23.1440.814" timestamp="1590482627009" />
-    <state x="97" y="232" width="978" height="497" key="find.popup/0.23.1440.816/-247.-1057.1920.1057@0.23.1440.816" timestamp="1589884758563" />
-    <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1593767783995" />
-    <state x="97" y="233" width="978" height="501" key="find.popup/0.23.1440.821/-247.-1057.1920.1057@0.23.1440.821" timestamp="1590053837998" />
+    <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1599202902836" />
+    <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1598546940722" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1592814945417" />
-    <state x="97" y="247" width="978" height="536" key="find.popup/0.23.1440.877/-247.-1057.1920.992@0.23.1440.877" timestamp="1590055063368" />
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1593763612803">
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1599202774806">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1589879357157" />
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1593763612803" />
-    <state x="385" y="206" width="670" height="561" key="search.everywhere.popup/0.23.1440.814@0.23.1440.814" timestamp="1590419637987" />
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1599202774806" />
     <state x="385" y="206" width="670" height="563" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1590750604632" />
-    <state x="385" y="207" width="670" height="564" key="search.everywhere.popup/0.23.1440.821/-247.-1057.1920.1057@0.23.1440.821" timestamp="1590052169028" />
-    <state x="385" y="207" width="670" height="564" key="search.everywhere.popup/0.23.1440.821@0.23.1440.821" timestamp="1590402191977" />
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1590406168968" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
