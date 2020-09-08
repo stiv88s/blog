@@ -111,4 +111,34 @@ class PostRepository extends Repository
         return $postAnalytic;
 
     }
+
+    public function getWeeklyMostViewPosts()
+    {
+        $now = Carbon::now();
+        $weekStartDate = $now->startOfWeek()->format('Y-m-d');
+        $weekEndDate = $now->endOfWeek()->format('Y-m-d');
+        $postsId = DB::SELECT("SELECT
+         posts.id,
+         SUM(post_analytic.showed_count) as MOSTVIEWED
+         FROM posts
+         INNER JOIN post_analytic ON posts.id = post_analytic.post_id
+         WHERE posts.is_active = 1
+         AND posts.created_at >=:weekStartDate
+         AND posts.created_at <=:weekEndDate
+         AND post_analytic.date >= :weekStartDate1
+         AND post_analytic.date <= :weekEndDate2
+         GROUP BY posts.id
+         ORDER BY MOSTVIEWED DESC
+         LIMIT 5
+         ", [
+            'weekStartDate' => $weekStartDate,
+            'weekStartDate1' => $weekStartDate,
+            'weekEndDate' => $weekEndDate,
+            'weekEndDate2' => $weekEndDate,
+        ]);
+
+        $posts = Post::whereIn('id', array_column($postsId, 'id'))->get();
+
+        return $posts;
+    }
 }

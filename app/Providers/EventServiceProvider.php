@@ -24,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\PostCreatedEvent'=>[
             'App\Listeners\PostCreatedListener',
+        ],
+        'App\Events\WeeklyPostsNotificationEvent'=>[
+            'App\Listeners\WeeklyPostsNotificationListener',
         ]
 
     ];

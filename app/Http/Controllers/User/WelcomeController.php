@@ -24,7 +24,7 @@ class WelcomeController extends Controller
 
     public function index()
     {
-        $posts = $this->postR->paginate(5);
+        $posts = $this->postR->active()->orderBy('created_at','desc')->paginate(5);
         $categories = Category::all();
 
         return view('welcome', compact('posts', 'categories'));

@@ -20,8 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/WelcomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/WelcomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ModelRepository/PostRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ModelRepository/PostRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +44,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
@@ -195,11 +198,26 @@
       <recent name="$PROJECT_DIR$/app/Http/Controllers/User" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHPUnit.phpunit.xml">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="watch" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="watch" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.watch" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -307,6 +325,9 @@
       <workItem from="1599138148455" duration="47000" />
       <workItem from="1599142323003" duration="186000" />
       <workItem from="1599201596608" duration="1224000" />
+      <workItem from="1599230985840" duration="1841000" />
+      <workItem from="1599241274523" duration="80000" />
+      <workItem from="1599551842097" duration="1870000" />
     </task>
     <servers />
   </component>
@@ -373,40 +394,57 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1593691553862" />
-    <state x="458" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816@0.23.1440.816" timestamp="1590747809321" />
     <state x="378" y="111" key="#phpunit.xml" timestamp="1592480166261">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="378" y="111" key="#phpunit.xml/0.0.1440.900@0.0.1440.900" timestamp="1592480166261" />
-    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog" timestamp="1594194189879">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog" timestamp="1599213370499">
+      <screen x="0" y="23" width="1440" height="813" />
     </state>
     <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1594194189879" />
-    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.23.1440.816@0.23.1440.816" timestamp="1590580556770" />
+    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.23.1440.813@0.23.1440.813" timestamp="1599213370499" />
+    <state width="699" height="245" key="GridCell.Tab.0.bottom" timestamp="1599233140333">
+      <screen x="0" y="23" width="1440" height="813" />
+    </state>
+    <state width="699" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1599232016754" />
+    <state width="699" height="245" key="GridCell.Tab.0.bottom/0.23.1440.813@0.23.1440.813" timestamp="1599233140333" />
+    <state width="699" height="245" key="GridCell.Tab.0.center" timestamp="1599233140332">
+      <screen x="0" y="23" width="1440" height="813" />
+    </state>
+    <state width="699" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1599232016753" />
+    <state width="699" height="245" key="GridCell.Tab.0.center/0.23.1440.813@0.23.1440.813" timestamp="1599233140332" />
+    <state width="699" height="245" key="GridCell.Tab.0.left" timestamp="1599233140332">
+      <screen x="0" y="23" width="1440" height="813" />
+    </state>
+    <state width="699" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1599232016752" />
+    <state width="699" height="245" key="GridCell.Tab.0.left/0.23.1440.813@0.23.1440.813" timestamp="1599233140332" />
+    <state width="699" height="245" key="GridCell.Tab.0.right" timestamp="1599233140333">
+      <screen x="0" y="23" width="1440" height="813" />
+    </state>
+    <state width="699" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1599232016754" />
+    <state width="699" height="245" key="GridCell.Tab.0.right/0.23.1440.813@0.23.1440.813" timestamp="1599233140333" />
     <state x="461" y="273" key="NewPhpClassDialog" timestamp="1599137866554">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="461" y="273" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1599137866554" />
-    <state x="461" y="271" key="NewPhpClassDialog/0.23.1440.816@0.23.1440.816" timestamp="1590567182613" />
-    <state x="541" y="370" key="NewPhpFileDialog" timestamp="1599135641872">
+    <state x="541" y="370" key="NewPhpFileDialog" timestamp="1599222764803">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="541" y="370" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1599135641872" />
+    <state x="541" y="370" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1599222764803" />
     <state x="229" y="89" key="SettingsEditor" timestamp="1599137838153">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1599137838153" />
-    <state x="97" y="231" width="978" height="548" key="find.popup" timestamp="1599202902836">
+    <state x="97" y="231" width="978" height="548" key="find.popup" timestamp="1599232228444">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1599202902836" />
+    <state x="97" y="231" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1599232228444" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1598546940722" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1592814945417" />
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1599202774806">
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1599553822010">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1599202774806" />
-    <state x="385" y="206" width="670" height="563" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1590750604632" />
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1599553822010" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
