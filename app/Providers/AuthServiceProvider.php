@@ -10,6 +10,7 @@ use App\Policies\CategoryPolicy;
 use App\Policies\PermissionPolicy;
 use App\Policies\PostPolicy;
 use App\Policies\RolePolicy;
+use App\Policies\SettingsPolicy;
 use App\Policies\TagPolicy;
 use App\Policies\UserPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -31,7 +32,8 @@ class AuthServiceProvider extends ServiceProvider
         'App\Model\Permission' => PermissionPolicy::class,
         'App\Model\Category' => CategoryPolicy::class,
         'App\Model\BlockedUsers' => BlockedUsersPolicy::class,
-        'App\Model\Admin' => AdminPolicy::class
+        'App\Model\Admin' => AdminPolicy::class,
+        'App\Model\Settings' => SettingsPolicy::class
 
 
     ];

@@ -2,8 +2,11 @@
 
 namespace App\Console;
 
+use App\Console\Commands\WeeklySubscribersPosts;
+use App\Model\Settings;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Schema;
 
 class Kernel extends ConsoleKernel
 {
@@ -13,7 +16,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        WeeklySubscribersPosts::class
     ];
 
     /**
@@ -24,6 +27,18 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+//        $schedule->command('weekly:send_posts')->everyMinute();
+        if(Schema::hasTable('settings')) {
+
+            if(Settings::first()){
+                $weeklyPosts = Settings::where('type','weeklyPosts')->first();
+                if($weeklyPosts){
+                    $schedule->command('weekly:send_posts')
+                        ->weeklyOn(3, ($weeklyPosts->value));
+                }
+
+            }
+        }
         // $schedule->command('inspire')
         //          ->hourly();
     }

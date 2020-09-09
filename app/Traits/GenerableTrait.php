@@ -9,7 +9,7 @@ trait GenerableTrait
     public static function isGenerable()
     {
         if (isset((new self)->generable)) {
-            return (new static)->generable;
+            return (new self)->generable;
         } else {
             return false;
         }

@@ -154,6 +154,7 @@ Route::group([
 
         Route::get('post-analytic','Analytics\AnalyticController@postAnalytic')->name('post.analytic');
 
+        Route::resource('settings','SettingsController')->except('show');
     });
 
 });

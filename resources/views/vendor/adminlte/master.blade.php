@@ -58,6 +58,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @endif
     <link rel="stylesheet" type="text/css" href="{{asset('css/jquery.datetimepicker.css')}}" >
+    @stack('style')
 
     @routes
 </head>

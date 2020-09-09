@@ -313,6 +313,25 @@
                                         </li>
                                     </ul>
                                 </li>
+                                @can('viewAny',\App\Model\Settings::class)
+                                <li class="nav-item has-treeview">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-fw fa-chart-pie"></i>
+                                        <p>
+                                            Notification settings
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview" style="display: none;">
+                                        <li class="nav-item">
+                                            <a href="{{route('settings.index',app()->getLocale())}}" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Weekly notifications</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                @endcan
                                 <li class="nav-item has-treeview">
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-fw fa-chart-pie"></i>

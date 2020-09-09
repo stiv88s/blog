@@ -40,6 +40,7 @@ trait PoliciesCallMethod
         $className = strtolower(implode('', $classNamePieces));
         $callingFunction = $className . '_' . $callingMethod;
 
+//        dd($callingFunction);
         return $callingFunction;
     }
 
