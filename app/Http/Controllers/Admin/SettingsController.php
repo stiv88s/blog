@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\AdminWeeklyPostsNotificationEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SaveSettingRequest;
 use App\Model\Settings;
@@ -15,6 +16,7 @@ class SettingsController extends Controller
 {
     public function index()
     {
+        event(new AdminWeeklyPostsNotificationEvent('Hello here we are'));
         $this->authorize('viewAny', Settings::class);
         $settings = Settings::orderBy('created_at', 'desc')->get();
 

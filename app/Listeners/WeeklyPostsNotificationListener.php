@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Events\AdminWeeklyPostsNotificationEvent;
 use App\Events\WeeklyPostsNotificationEvent;
 use App\Notifications\Subscribers\WeeklyPostsNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -27,9 +28,17 @@ class WeeklyPostsNotificationListener
      */
     public function handle(WeeklyPostsNotificationEvent $event)
     {
+        $count = 0;
+        $message = "Weekly notifications are sent to $count subscribers";
         foreach ($event->subscribers as $subscriber) {
-
+            $count++;
             $subscriber->notify(new WeeklyPostsNotification($event->weeklyMostViewsPosts));
         }
+
+        event(new AdminWeeklyPostsNotificationEvent($message));
+
+
+
+
     }
 }

@@ -13,9 +13,9 @@
             :topPosts = "{{json_encode($topPosts)}}"
             :postsAnalytic ="{{json_encode($postsAnalytic)}}"
 
-        ></analytics-component>
+         ></analytics-component>
         <br>
-        
+
     </div>
 
 @endsection

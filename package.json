@@ -27,6 +27,8 @@
         "admin-lte": "^3.0.2",
         "apidoc": "^0.22.1",
         "bootstrap3-wysihtml5-bower": "^0.3.3",
-        "laravel-vue-pagination": "^2.3.1"
+        "laravel-echo": "^1.8.1",
+        "laravel-vue-pagination": "^2.3.1",
+        "pusher-js": "^7.0.0"
     }
 }

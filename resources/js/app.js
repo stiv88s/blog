@@ -43,6 +43,7 @@ Vue.component('users-component', require('./components/UsersComponent.vue').defa
 // Vue.component('user-component', require('./components/UserComponent.vue').default);
 Vue.component('permissions-component', require('./components/PermissionsComponent.vue').default);
 Vue.component('permission-component', require('./components/PermissionComponent.vue').default);
+Vue.component('admin-notifications-component', require('./components/AdminNotificationsComponent.vue').default);
 
 Vue.component(
     'passport-clients',
