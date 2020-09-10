@@ -82,3 +82,19 @@ if (document.getElementById("app")) {
     ;
 }
 
+if (document.getElementById("appint")) {
+    const app = new Vue({
+            el: '#appint',
+            data: {
+
+            },
+            methods: {
+
+            },
+            computed: {
+
+            }
+        })
+    ;
+}
+

@@ -52,7 +52,11 @@
 @endif
 
 @section('body')
-    <div class="wrapper">
+    <div class="wrapper" >
+        <div id="appint">
+            <admin-notifications-component/>
+
+        </div>
         @if(config('adminlte.layout_topnav') || View::getSection('layout_topnav'))
             <nav
                 class="main-header navbar {{config('adminlte.classes_topnav_nav', 'navbar-expand-md')}} {{config('adminlte.topnav_color', 'navbar-white navbar-light')}}">

@@ -1911,10 +1911,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {// alert('ok')
-  },
+  mounted: function mounted() {},
   methods: {},
   name: "AdminNotificationsComponent"
 });
@@ -46747,7 +46745,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("works")])
+  return _c("div")
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -61977,6 +61975,15 @@ Vue.component('passport-personal-access-tokens', __webpack_require__(/*! ./compo
 if (document.getElementById("app")) {
   var app = new Vue({
     el: '#app',
+    data: {},
+    methods: {},
+    computed: {}
+  });
+}
+
+if (document.getElementById("appint")) {
+  var _app = new Vue({
+    el: '#appint',
     data: {},
     methods: {},
     computed: {}
