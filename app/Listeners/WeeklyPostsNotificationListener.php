@@ -29,15 +29,14 @@ class WeeklyPostsNotificationListener
     public function handle(WeeklyPostsNotificationEvent $event)
     {
         $count = 0;
-        $message = "Weekly notifications are sent to $count subscribers";
+
         foreach ($event->subscribers as $subscriber) {
             $count++;
             $subscriber->notify(new WeeklyPostsNotification($event->weeklyMostViewsPosts));
         }
 
+        $message = "!!! Weekly notifications are sent to $count subscribers !!!";
         event(new AdminWeeklyPostsNotificationEvent($message));
-
-
 
 
     }

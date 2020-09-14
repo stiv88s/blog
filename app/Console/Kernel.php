@@ -34,7 +34,8 @@ class Kernel extends ConsoleKernel
                 $weeklyPosts = Settings::where('type','weeklyPosts')->first();
                 if($weeklyPosts){
                     $schedule->command('weekly:send_posts')
-                        ->weeklyOn(3, ($weeklyPosts->value));
+//                        ->everyMinute();
+                        ->weeklyOn(4, ($weeklyPosts->value));
                 }
 
             }

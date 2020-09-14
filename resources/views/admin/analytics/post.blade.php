@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="col-12" id="app">
+    <div class="col-12">
 
         <analytics-component
             :analyticDataRange="{{json_encode($dateRange)}}"

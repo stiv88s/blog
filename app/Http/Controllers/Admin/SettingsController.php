@@ -16,7 +16,7 @@ class SettingsController extends Controller
 {
     public function index()
     {
-        event(new AdminWeeklyPostsNotificationEvent('Hello here we are'));
+//        event(new AdminWeeklyPostsNotificationEvent('Hello here we are'));
         $this->authorize('viewAny', Settings::class);
         $settings = Settings::orderBy('created_at', 'desc')->get();
 

@@ -13,6 +13,11 @@ window.Vue = require('vue');
 import {Ziggy} from '../assets/js/ziggy.js';
 import route from 'ziggy';
 
+import Toaster from 'v-toaster'
+import 'v-toaster/dist/v-toaster.css'
+
+Vue.use(Toaster, {timeout: 10000})
+
 
 Vue.mixin({
     methods: {
@@ -77,22 +82,8 @@ if (document.getElementById("app")) {
             },
             computed: {
 
-            }
-        })
-    ;
-}
-
-if (document.getElementById("appint")) {
-    const app = new Vue({
-            el: '#appint',
-            data: {
-
             },
-            methods: {
-
-            },
-            computed: {
-
+            mounted() {
             }
         })
     ;

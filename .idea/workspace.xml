@@ -21,10 +21,22 @@
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listeners/WeeklyPostsNotificationListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/WeeklyPostsNotificationListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/AdminNotificationsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/AdminNotificationsComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/analytics/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/analytics/post.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/permissions/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/permissions/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/adminlte/page.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,19 +198,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/js/components" />
-      <recent name="$PROJECT_DIR$/public/admin" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/permissions" />
-      <recent name="$PROJECT_DIR$/resources/lang/ru" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Http/Resources/Api" />
       <recent name="$PROJECT_DIR$/resources/views/layouts/admin" />
       <recent name="$PROJECT_DIR$/resources/views/layouts" />
       <recent name="$PROJECT_DIR$/resources/views/admin" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/User" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/js/components" />
+      <recent name="$PROJECT_DIR$/public/admin" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/permissions" />
+      <recent name="$PROJECT_DIR$/resources/lang/ru" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.phpunit.xml">
@@ -334,6 +346,9 @@
       <workItem from="1599641333961" duration="8990000" />
       <workItem from="1599654216499" duration="72000" />
       <workItem from="1599731403636" duration="2724000" />
+      <workItem from="1599980294147" duration="66000" />
+      <workItem from="1599980490386" duration="73000" />
+      <workItem from="1600073312750" duration="108000" />
     </task>
     <servers />
   </component>
@@ -437,16 +452,16 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1599137838153" />
-    <state x="97" y="233" width="978" height="548" key="find.popup" timestamp="1599735697966">
+    <state x="97" y="233" width="978" height="548" key="find.popup" timestamp="1599980508018">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="97" y="233" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1599735697966" />
+    <state x="97" y="233" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1599980508018" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1598546940722" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1592814945417" />
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1599731829235">
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1600073404773">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1599731829235" />
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1600073404773" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

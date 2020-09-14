@@ -11,11 +11,12 @@
 |
 */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
-    return (int)$user->id === (int)$id;
-});
+//Broadcast::channel('App.User.{id}', function ($user, $id) {
+//    return (int)$user->id === (int)$id;
+//});
 
-Broadcast::channel('weeklyposts', function ($user) {
+Broadcast::channel('weeklyposts', function ($admin) {
 
-    return (int)$user->isAdmin();
+//    return (int)true;
+    return (int)$admin->isAdmin();
 });

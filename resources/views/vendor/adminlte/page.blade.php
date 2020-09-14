@@ -52,15 +52,15 @@
 @endif
 
 @section('body')
-    <div class="wrapper" >
-        <div id="appint">
-            <admin-notifications-component/>
+    <div class="wrapper" id="app">
 
-        </div>
+        <admin-notifications-component></admin-notifications-component>
+
         @if(config('adminlte.layout_topnav') || View::getSection('layout_topnav'))
             <nav
                 class="main-header navbar {{config('adminlte.classes_topnav_nav', 'navbar-expand-md')}} {{config('adminlte.topnav_color', 'navbar-white navbar-light')}}">
                 <div class="{{config('adminlte.classes_topnav_container', 'container')}}">
+
                     @if(config('adminlte.logo_img_xl'))
                         <a href="{{ $dashboard_url }}" class="navbar-brand logo-switch">
                             <img
@@ -410,11 +410,16 @@
                 </footer>
             @endif
 
+
             @if(config('adminlte.right_sidebar'))
                 <aside class="control-sidebar control-sidebar-{{config('adminlte.right_sidebar_theme')}}">
                     @yield('right-sidebar')
                 </aside>
             @endif
+{{--            <div id="notify">--}}
+{{--                <admin-notifications-component/>--}}
+
+{{--            </div>--}}
 
     </div>
 @stop
