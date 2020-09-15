@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Events\AdminWeeklyPostsNotificationEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SaveSettingRequest;
+use App\Model\Admin;
+use App\Model\Constants\SettingConstants;
 use App\Model\Settings;
 use Carbon\Carbon;
 use Hamcrest\Core\Set;
@@ -25,19 +27,21 @@ class SettingsController extends Controller
 
     public function create()
     {
-
         $this->authorize('create', Settings::class);
+        $days = SettingConstants::DAYS;
 
-        return view('admin.settings.create');
+        return view('admin.settings.create', compact('days'));
 
     }
 
     public function store(SaveSettingRequest $request, Settings $settings)
     {
+
         $this->authorize('create', Settings::class);
         Settings::create([
             'type' => $request->type,
-            'value' => $request->value_utc
+            'value' => $request->value_utc,
+            'days' => $request->days
         ]);
 
         Session::flash('status', 'Setting is Created');
@@ -50,7 +54,9 @@ class SettingsController extends Controller
     public function edit(Settings $setting)
     {
         $this->authorize('update', $setting);
-        return view('admin.settings.edit', compact('setting'));
+        $days = SettingConstants::DAYS;
+
+        return view('admin.settings.edit', compact('setting', 'days'));
 
     }
 
@@ -59,7 +65,8 @@ class SettingsController extends Controller
         $this->authorize('update', $setting);
         $setting = $setting->fill([
             'type' => $request->type,
-            'value' => $request->value_utc
+            'value' => $request->value_utc,
+            'days' => $request->days
         ]);
         $setting->save();
         Session::flash('status', 'Setting is Updated');

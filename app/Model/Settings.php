@@ -12,8 +12,10 @@ class Settings extends Model implements GenerableInterface
     use GenerableTrait;
 
     private $generable = true;
-    protected $fillable = ['type', 'value'];
-
+    protected $fillable = ['type', 'value', 'days'];
+    protected $casts = [
+        'days' => 'array'
+    ];
     protected $appends = ['value_utc'];
 
     public function setValueAttribute($value)
@@ -25,7 +27,7 @@ class Settings extends Model implements GenerableInterface
 
     public function getValueUtcAttribute()
     {
-        $timeB = new Carbon($this->attributes['value'] );
+        $timeB = new Carbon($this->attributes['value']);
         $timeZ = $timeB->setTimezone('+03:00');
 
         return $timeZ->format('H:i');

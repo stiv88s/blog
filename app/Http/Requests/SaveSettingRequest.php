@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Model\Constants\SettingConstants;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class SaveSettingRequest extends FormRequest
 {
@@ -25,6 +27,8 @@ class SaveSettingRequest extends FormRequest
     {
         return [
             'type' => 'required|string',
+            'days'=> "required|array|max:7",
+            "days.*"  =>["required","string","max:1",Rule::in(array_keys(SettingConstants::DAYS))],
             'value_utc' => [
                 'required',
                 function ($attribute, $value, $fail) {

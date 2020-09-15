@@ -4,8 +4,10 @@ namespace App\Console\Commands;
 
 use App\Events\WeeklyPostsNotificationEvent;
 use App\Model\Post;
+use App\Model\Settings;
 use App\Model\Subscribers;
 use App\ModelRepository\PostRepository;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class WeeklySubscribersPosts extends Command

@@ -1,8 +1,9 @@
 @extends('admin.layouts')
 
 @section('content')
+
     <h1>
-        Settings
+      Weekly Notification Settings
     </h1>
     @if (session('status'))
 
@@ -21,16 +22,30 @@
             <tr>
                 <td>Id</td>
                 <td>Type</td>
+                <td>Days</td>
                 <td>Value</td>
                 <td>Actions</td>
 
             </tr>
             </thead>
             <tbody>
+
             @foreach($settings as $setting)
                 <tr>
                     <td>{{$setting->id}}</td>
                     <td>{{$setting->type}}</td>
+
+                    @if($setting->days)
+                        <td>
+                        @foreach($setting->days as $day)
+                            {{ \App\Model\Constants\SettingConstants::DAYS[$day].', '}}
+                            @endforeach
+                        </td>
+                    @else
+                        <td>
+                            null
+                        </td>
+                    @endif
                     <td>{{$setting->value_utc}}</td>
 
                     @can('update',$setting)
