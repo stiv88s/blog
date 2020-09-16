@@ -47818,7 +47818,7 @@ var render = function() {
     _vm._v(" "),
     _c("td", [_vm._v(_vm._s(_vm.userMain.email))]),
     _vm._v(" "),
-    _c("td", [_vm._v(_vm._s(_vm.userMain.is_blocked))]),
+    _c("td", [_vm._v(_vm._s(_vm.userMain.is_blocked == 1 ? "yes" : "no"))]),
     _vm._v(" "),
     this.$parent.checkPermission("blockedusers_unblock")
       ? _c("td", { staticClass: "float-left" }, [
@@ -62056,21 +62056,7 @@ if (document.getElementById("app")) {
     computed: {},
     mounted: function mounted() {}
   });
-} // if (document.getElementById("notify")) {
-//     const app = new Vue({
-//             el: '#notify',
-//             data: {
-//
-//             },
-//             methods: {
-//
-//             },
-//             computed: {
-//
-//             }
-//         })
-//     ;
-// }
+}
 
 /***/ }),
 

@@ -2,10 +2,12 @@
 
 namespace App\Model;
 
+use App\Model\Constants\TimeZone;
 use App\Model\Contracts\GenerableInterface;
 use App\Traits\GenerableTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Settings extends Model implements GenerableInterface
 {
@@ -20,15 +22,17 @@ class Settings extends Model implements GenerableInterface
 
     public function setValueAttribute($value)
     {
-        $time = new Carbon($value);
-        $timeZ = $time->setTimezone('-03:00');
+        $timeZoneUser = Auth::user()->timezone ?? TimeZone::DEFAULT_TIME_ZONE;
+        $timeZ =  new Carbon( $value, $timeZoneUser);
+        $timeZ->setTimezone(Carbon::now()->getTimezone());
         $this->attributes['value'] = $timeZ->format('H:i');
     }
 
     public function getValueUtcAttribute()
     {
         $timeB = new Carbon($this->attributes['value']);
-        $timeZ = $timeB->setTimezone('+03:00');
+        $timeZoneUser = Auth::user()->timezone ?? TimeZone::DEFAULT_TIME_ZONE;
+        $timeZ = $timeB->setTimezone($timeZoneUser);
 
         return $timeZ->format('H:i');
 

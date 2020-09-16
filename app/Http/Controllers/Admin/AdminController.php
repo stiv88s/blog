@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TimeZoneSaveRequest;
 use App\Model\Admin;
 use App\Model\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
@@ -156,5 +158,12 @@ class AdminController extends Controller
             }
         }
         $admin->delete();
+    }
+
+    public function updateTimeZone(TimeZoneSaveRequest $request){
+        Auth::user()->fill([
+            'timezone'=>$request->timezone
+            ]);
+        Auth::user()->save();
     }
 }

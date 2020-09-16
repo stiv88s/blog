@@ -37,21 +37,24 @@
     </div>
 </div>
 
-@push('style')
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/css/bootstrap-material-datetimepicker.css">
-@endpush
+{{--@push('style')--}}
+{{--    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">--}}
+{{--    <link rel="stylesheet"--}}
+{{--          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/css/bootstrap-material-datetimepicker.css">--}}
+{{--@endpush--}}
 
 {!! Form::submit('Save Setting',['class'=>'btn btn-block btn-round btn-bold btn-primary']); !!}
 
-@push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/js/bootstrap-material-datetimepicker.js"></script>
+{{--@push('scripts')--}}
+{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>--}}
+{{--    <script--}}
+{{--        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/js/bootstrap-material-datetimepicker.js"></script>--}}
+{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.14/moment-timezone-with-data-2012-2022.min.js"></script>--}}
 
-    <script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.14/moment-timezone-with-data-2012-2022.min.js"></script>
-        $('#date').bootstrapMaterialDatePicker({format: 'HH:mm', date: false});
-    </script>
-@endpush
+{{--    <script>--}}
+{{--        // $( document ).ready(function() {--}}
+{{--        //    console.log( moment.tz.guess())--}}
+{{--        // });--}}
+{{--        $('#date').bootstrapMaterialDatePicker({format: 'HH:mm', date: false});--}}
+{{--    </script>--}}
+{{--@endpush--}}

@@ -4,7 +4,7 @@
 
         <td>{{userMain.name}}</td>
         <td>{{userMain .email}}</td>
-        <td>{{userMain .is_blocked}}</td>
+        <td>{{userMain .is_blocked == 1 ? 'yes' : 'no' }}</td>
         <td class="float-left" v-if="this.$parent.checkPermission('blockedusers_unblock')"><a @click.stop.prevent="unblockUser()"
                                   class="btn btn-danger" :class="{disabled:!user.is_blocked}">
             <i class="fa fa-unlock-alt"></i>

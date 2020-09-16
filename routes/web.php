@@ -155,6 +155,8 @@ Route::group([
         Route::get('post-analytic','Analytics\AnalyticController@postAnalytic')->name('post.analytic');
 
         Route::resource('settings','SettingsController')->except('show');
+
+        Route::post('timezone','AdminController@updateTimeZone')->name('timezone.update');
     });
 
 });

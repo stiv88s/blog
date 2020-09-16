@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SaveSettingRequest;
 use App\Model\Admin;
 use App\Model\Constants\SettingConstants;
+use App\Model\Constants\TimeZone;
 use App\Model\Settings;
 use Carbon\Carbon;
 use Hamcrest\Core\Set;
@@ -18,7 +19,6 @@ class SettingsController extends Controller
 {
     public function index()
     {
-//        event(new AdminWeeklyPostsNotificationEvent('Hello here we are'));
         $this->authorize('viewAny', Settings::class);
         $settings = Settings::orderBy('created_at', 'desc')->get();
 
