@@ -30,7 +30,12 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\AdminWeeklyPostsNotificationEvent'=>[
             'App\Listeners\AdminWeeklyPostsNotificationListener',
-        ]
+        ],
+
+        'App\Events\AdminPostUpdatedEvent'=>[
+            'App\Listeners\AdminPostUpdatedListener',
+        ],
+
 
     ];
 

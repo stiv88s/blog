@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Broadcast Channels
@@ -19,4 +20,15 @@ Broadcast::channel('weeklyposts', function ($admin) {
 
 //    return (int)true;
     return (int)$admin->isAdmin();
+});
+
+Broadcast::channel('post_updated.{id}', function ($admin,$id) {
+
+    return ['user' =>$admin,'id'=>$id];
+
+    if(!$admin->isAdmin()){
+        return false;
+    }
+
+    return (int)$admin->id == $id;
 });
