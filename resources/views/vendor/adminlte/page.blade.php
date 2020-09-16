@@ -322,7 +322,7 @@
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-fw fa-chart-pie"></i>
                                         <p>
-                                            Notification settings
+                                            Settings
                                             <i class="right fas fa-angle-left"></i>
                                         </p>
                                     </a>
