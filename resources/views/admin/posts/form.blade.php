@@ -90,9 +90,3 @@
 
 {!! Form::submit('Save Post',['class'=>'btn btn-block btn-round btn-bold btn-primary']); !!}
 
-<script>
-
-    $(document).ready(function() {
-                $('#summernote').summernote();
-       })
-</script>

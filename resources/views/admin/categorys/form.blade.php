@@ -27,8 +27,3 @@
 
 {!! Form::submit('Save Category',['class'=>'btn btn-block btn-round btn-bold btn-primary']); !!}
 
-<script>
-    $(document).ready(function() {
-                $('#summernote').summernote();
-       })
-</script>

@@ -12,18 +12,55 @@ use Illuminate\Support\Facades\Cache;
 
 class PostsObserver
 {
-    protected $pRepo;
 
-
-    public function updated(Post $post)
+    /**
+     * Handle the User "created" event.
+     *
+     * @param  \App\Models\Post  $user
+     * @return void
+     */
+    public function created(Post $user)
     {
-        $postAdminId = ((object)($post->getOriginal()))->id;
+        //
+    }
 
-
-        if (Auth::user()->id == $postAdminId) {
-            event(new AdminPostUpdatedEvent($post));
-        }
+    /**
+     * Handle the User "updated" event.
+     *
+     * @param  \App\Models\Post  $user
+     * @return void
+     */
+    public function updated(Post $user)
+    {
+//        if(Auth::guard('admin')->check()){
+//
+//        }
+        dd('yes');
 
     }
+
+    /**
+     * Handle the User "deleted" event.
+     *
+     * @param  \App\Models\Post  $user
+     * @return void
+     */
+    public function deleted(Post $user)
+    {
+        //
+    }
+
+    /**
+     * Handle the User "forceDeleted" event.
+     *
+     * @param  \App\Models\Post  $user
+     * @return void
+     */
+    public function forceDeleted(Post $user)
+    {
+        //
+    }
+
+
 
 }

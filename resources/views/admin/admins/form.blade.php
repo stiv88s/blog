@@ -71,12 +71,6 @@
 
 {!! Form::submit('Save Admin',['class'=>'btn btn-block btn-round btn-bold btn-primary']); !!}
 
-<script>
-    $(document).ready(function () {
-        $('#summernote').summernote();
-    })
-</script>
-
 @push('scripts')
     <script>
         $(function () {
