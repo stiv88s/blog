@@ -12,7 +12,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class AdminPostUpdatedEvent
+class AdminPostUpdatedEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -24,11 +24,13 @@ class AdminPostUpdatedEvent
 
     public $post;
     public $adminId;
+    public $adminPost;
 
     public function __construct(Post $post)
     {
         $this->post = $post;
-        $this->adminId = $post->admin()->id;
+        $this->adminId = $post->getOriginal('user_id');
+        $this->adminPost = $post->admin->name;
     }
 
     /**

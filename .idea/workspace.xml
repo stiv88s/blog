@@ -21,10 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ModelRepository/PostRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ModelRepository/PostRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Events/AdminPostUpdatedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Events/AdminPostUpdatedEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listeners/PostShowListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/PostShowListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Post.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Observers/PostsObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Observers/PostsObserver.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/AnalyticsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/AnalyticsComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/AdminNotificationsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/AdminNotificationsComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/adminlte/page.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +185,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/database" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -350,7 +355,7 @@
       <workItem from="1600407919669" duration="16898000" />
       <workItem from="1600431930554" duration="12494000" />
       <workItem from="1600446831332" duration="467000" />
-      <workItem from="1600670657761" duration="2672000" />
+      <workItem from="1600670657761" duration="8759000" />
     </task>
     <servers />
   </component>
@@ -418,14 +423,18 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="378" y="111" key="#phpunit.xml/0.0.1440.900@0.0.1440.900" timestamp="1592480166261" />
-    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog" timestamp="1600442208172">
+    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog" timestamp="1600681527463">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="135" y="18" width="1240" height="775" key="DiffContextDialog/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1600349562981" />
-    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1600442208172" />
+    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1600681527463" />
     <state x="135" y="39" width="1240" height="701" key="DiffContextDialog/0.23.1440.813/-247.-1057.1920.1057@0.23.1440.813" timestamp="1600254404213" />
-    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.23.1440.813@0.23.1440.813" timestamp="1600073884062" />
+    <state x="135" y="39" width="1240" height="700" key="DiffContextDialog/0.23.1440.813@0.23.1440.813" timestamp="1600675376202" />
     <state x="135" y="40" width="1240" height="757" key="DiffContextDialog/0.23.1440.877/-247.-1057.1920.993@0.23.1440.877" timestamp="1600259271599" />
+    <state x="374" y="269" key="FileChooserDialogImpl" timestamp="1600675558739">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="374" y="269" key="FileChooserDialogImpl/0.0.1440.900@0.0.1440.900" timestamp="1600675558739" />
     <state width="699" height="245" key="GridCell.Tab.0.bottom" timestamp="1599233140333">
       <screen x="0" y="23" width="1440" height="813" />
     </state>
@@ -458,18 +467,18 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1599137838153" />
-    <state x="97" y="233" width="978" height="548" key="find.popup" timestamp="1600339162927">
+    <state x="97" y="233" width="978" height="548" key="find.popup" timestamp="1600680344243">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="97" y="233" width="978" height="548" key="find.popup/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1600339162927" />
-    <state x="97" y="233" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1600273920885" />
+    <state x="97" y="233" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1600680344243" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1598546940722" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1592814945417" />
     <state x="97" y="250" width="978" height="534" key="find.popup/0.23.1440.877/-247.-1057.1920.993@0.23.1440.877" timestamp="1600260330451" />
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1600273689336">
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1600681254319">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1600273689336" />
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1600681254319" />
     <state x="385" y="205" width="670" height="559" key="search.everywhere.popup/0.23.1440.813/-247.-1057.1920.1057@0.23.1440.813" timestamp="1600255436878" />
     <state x="385" y="219" width="670" height="604" key="search.everywhere.popup/0.23.1440.877/-247.-1057.1920.993@0.23.1440.877" timestamp="1600260547008" />
   </component>

@@ -13,7 +13,7 @@ class Post extends Model implements GenerableInterface
 {
     use UuidTrait, HasAttachment, GenerableTrait;
 
-    protected $fillable = ['title', 'subtitle', 'is_active', 'slug', 'body', 'user_id', 'all_showed_count'];
+    protected $fillable = ['title', 'subtitle', 'is_active', 'slug', 'body', 'user_id'];
 
     private $generable = true;
 

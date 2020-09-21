@@ -54,7 +54,7 @@
 @section('body')
     <div class="wrapper" id="app">
 
-        <admin-notifications-component></admin-notifications-component>
+        <admin-notifications-component :id="{{\Illuminate\Support\Facades\Auth::id()}}"></admin-notifications-component>
 
         @if(config('adminlte.layout_topnav') || View::getSection('layout_topnav'))
             <nav

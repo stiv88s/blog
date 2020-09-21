@@ -24,7 +24,7 @@ Broadcast::channel('weeklyposts', function ($admin) {
 
 Broadcast::channel('post_updated.{id}', function ($admin,$id) {
 
-    return ['user' =>$admin,'id'=>$id];
+//    return ['user' =>$admin,'id'=>$id];
 
     if(!$admin->isAdmin()){
         return false;

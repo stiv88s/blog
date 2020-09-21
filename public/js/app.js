@@ -1912,6 +1912,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['id'],
   mounted: function mounted() {
     var _this = this;
 
@@ -1919,6 +1920,12 @@ __webpack_require__.r(__webpack_exports__);
       _this.$toaster.success(e.message);
 
       console.log(e);
+    });
+    Echo["private"]("post_updated.".concat(this.id)).listen('AdminPostUpdatedEvent', function (e) {
+      console.log('OOOOOOOK');
+      console.log(e);
+
+      _this.$toaster.success("your post: ".concat(e.post.title, " has been modified by ").concat(e.adminPost));
     });
   },
   methods: {}

@@ -59,10 +59,5 @@ class PostShowListener
             }
         }
 
-
-        $post->all_showed_count++;
-        $post->save();
-
-
     }
 }

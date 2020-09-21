@@ -85,7 +85,7 @@ class PostController extends Controller
     public function update(UpdatePostRequest $request, Post $post)
     {
         $this->authorize('update', $post);
-
+        $user = Auth::user();
         $active = $request->input('is_active', 0);
         $post->fill([
             'title' => $request->input('title'),
@@ -94,6 +94,7 @@ class PostController extends Controller
             'title' => $request->input('title'),
             'subtitle' => $request->input('subtitle'),
             'body' => $request->input('body'),
+            'user_id' => $user->id
         ]);
 
         if ($request->hasFile('header_image')) {
