@@ -60,7 +60,8 @@ class PostRepository extends Repository
 
     public function getTopPosts($n, $startDate, $endDate)
     {
-
+        $startD = $startDate->format('Y-m-d');
+        $endDate = $endDate->format('Y-m-d');
         $topPosts = DB::SELECT("SELECT
         COUNT(*) AS post_uniq,
         SUM(post_analytic.showed_count) as not_unique,
@@ -68,14 +69,14 @@ class PostRepository extends Repository
         posts.title
         FROM post_analytic
         INNER JOIN posts ON posts.id = post_analytic.post_id
-        WHERE post_analytic.updated_at >= :startedAt
-        AND post_analytic.updated_at <= :finishAt
+        WHERE post_analytic.date >= :startedAt
+        AND post_analytic.date <= :finishAt
         AND posts.is_active = 1
         GROUP BY post_analytic.post_id
-        ORDER BY COUNT(*) DESC
+        ORDER BY post_uniq DESC,post_analytic.post_id DESC
         LIMIT :n
         ", [
-            'startedAt' => $startDate,
+            'startedAt' => $startD,
             'finishAt' => $endDate,
             'n' => $n
 
@@ -87,7 +88,8 @@ class PostRepository extends Repository
 
     public function postAnalytic($startDate, $endDate)
     {
-
+        $startD = $startDate->format('Y-m-d');
+        $endDate = $endDate->format('Y-m-d');
         $postAnalytic = DB::SELECT("SELECT
         SUM(post_analytic.showed_count) as not_unique,
         post_analytic.post_id,
@@ -96,14 +98,14 @@ class PostRepository extends Repository
         posts.title
         FROM post_analytic
         INNER JOIN posts ON posts.id = post_analytic.post_id
-        WHERE post_analytic.updated_at >= :startedAt
-        AND post_analytic.updated_at <= :finishAt
+        WHERE post_analytic.date >= :startedAt
+        AND post_analytic.date <= :finishAt
         AND posts.is_active = 1
         GROUP BY post_analytic.post_id,post_analytic.date,post_analytic.updated_at,post_analytic.user_id
         ORDER BY post_analytic.date ASC, post_analytic.updated_at ASC
         ", [
-            'startedAt' => $startDate,
-            'finishAt' => $endDate,
+            'startedAt' => $startD,
+            'finishAt' =>  $endDate,
 
         ]);
 

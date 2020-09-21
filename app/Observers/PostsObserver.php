@@ -35,7 +35,7 @@ class PostsObserver
 //        if(Auth::guard('admin')->check()){
 //
 //        }
-        dd('yes');
+//        dd('yes');
 
     }
 

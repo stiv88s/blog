@@ -1992,16 +1992,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['analyticdatarange', 'startdateformat', 'enddateformat', 'applocale', 'posturl', 'topposts', 'postsanalytic'],
   data: function data() {
     return {
       analyticFor: 'all',
       start: '',
+      other: '',
       startDate: '',
       endDate: '',
       range: '',
       componentKey: 0,
+      checkboxkey: 0,
       postsanalyticCopy: [],
       toppostsCopy: [],
       unq: 0,
@@ -2038,13 +2057,13 @@ __webpack_require__.r(__webpack_exports__);
       }).backgroundColor;
     },
     calculateData: function calculateData() {
-      var _this = this;
+      var _this2 = this;
 
       this.resetDatasets();
 
       for (var i in this.postsanalyticCopy) {
         var searched = this.datasets.find(function (e) {
-          return e.id == _this.postsanalyticCopy[i].post_id;
+          return e.id == _this2.postsanalyticCopy[i].post_id;
         });
 
         if (!searched) {
@@ -2059,9 +2078,8 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       for (var i in this.range.data) {
-        // this.datasets[0].data.push(0)
-        for (var b in this.datasets) {
-          this.datasets[b].data.push(0);
+        for (var c in this.datasets) {
+          this.datasets[c].data.push(0);
         }
       }
 
@@ -2075,8 +2093,8 @@ __webpack_require__.r(__webpack_exports__);
 
         this.datasets[0].data[index] += parseInt(this.postsanalyticCopy[b].not_unique);
         this.datasets.find(function (e) {
-          if (_this.postsanalyticCopy[b].post_id == e.id) {
-            e.data[index] += parseInt(_this.postsanalyticCopy[b].not_unique);
+          if (_this2.postsanalyticCopy[b].post_id == e.id) {
+            e.data[index] += parseInt(_this2.postsanalyticCopy[b].not_unique);
           }
         });
       } // this.forceRerender()
@@ -2085,7 +2103,7 @@ __webpack_require__.r(__webpack_exports__);
       this.calculateViewsCount();
     },
     calculateViewsCount: function calculateViewsCount() {
-      var _this2 = this;
+      var _this3 = this;
 
       var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
       var dataset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
@@ -2101,7 +2119,7 @@ __webpack_require__.r(__webpack_exports__);
           return o;
         }));
         this.postsanalyticCopy.forEach(function (p) {
-          _this2.tot += parseInt(p.not_unique);
+          _this3.tot += parseInt(p.not_unique);
           postIdSet.add(p.user_id);
         });
       } else {
@@ -2110,19 +2128,18 @@ __webpack_require__.r(__webpack_exports__);
         var label;
         var selectedCountViews = this.datasets.forEach(function (d) {
           if (d.show == true) {
-            console.log(d);
             count++;
             selectedArray = selectedArray.concat(d.data);
             label = d.label;
 
-            _this2.postsanalyticCopy.find(function (p) {
+            _this3.postsanalyticCopy.find(function (p) {
               if (d.id == p.post_id) {
                 postIdSet.add(p.user_id);
-                _this2.tot += parseInt(p.not_unique);
+                _this3.tot += parseInt(p.not_unique);
               }
             });
 
-            _this2.maxViewCount = Math.max.apply(Math, selectedArray.map(function (o) {
+            _this3.maxViewCount = Math.max.apply(Math, selectedArray.map(function (o) {
               return o;
             }));
           }
@@ -2138,24 +2155,40 @@ __webpack_require__.r(__webpack_exports__);
       this.unq = postIdSet.size;
     },
     selectType: function selectType(type) {
-      var _this3 = this;
+      var _this4 = this;
 
       var id = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      var index = arguments.length > 2 ? arguments[2] : undefined;
       this.analyticFor = 'all';
 
-      if (type == 0) {
-        this.datasets[type].show = !this.datasets[type].show;
+      if (type == 'all') {
+        this.datasets[0].show = !this.datasets[0].show;
+        this.calculateViewsCount(type);
+      } else if (type == 'other') {
+        for (var i in this.datasets) {
+          if (this.datasets[i].id == 0) {
+            continue;
+          }
+
+          var el = this.toppostsCopy.filter(function (e) {
+            return e.post_id == _this4.datasets[i].id;
+          });
+
+          if (el.length == 0) {
+            this.datasets[i].show = !this.datasets[i].show;
+          }
+        }
+
         this.calculateViewsCount(type);
       } else {
         this.datasets.find(function (d) {
           if (d.id == id) {
             d.show = !d.show;
 
-            _this3.calculateViewsCount(type, d);
+            _this4.calculateViewsCount(type, d);
           }
         });
-      } // this.datasets[type].show = !this.datasets[type].show
-
+      }
 
       this.forceRerender();
     },
@@ -2168,46 +2201,147 @@ __webpack_require__.r(__webpack_exports__);
       return randomColor;
     },
     resetDatasets: function resetDatasets() {
-      this.datasets.forEach(function (e) {
-        e.data = [];
-      }); // this.datasets[0].data = [];
+      this.datasets = [];
+      this.datasets.push({
+        backgroundColor: 'rgba(255, 84, 76, 0.4)',
+        label: 'all',
+        id: 0,
+        data: [],
+        show: true
+      });
+      this.other = false; // this.datasets.forEach((e) => {
+      //     e.data = []
+      // })
+      // this.datasets[0].data = [];
 
       this.unq = 0;
       this.tot = 0;
     },
     loadPostData: function loadPostData() {
-      var _this4 = this;
+      var _this5 = this;
 
       if (this.startDate.length == 10 && this.endDate.length == 10) {
         axios.get(this.posturl + "/?startDate=" + this.startDate + "&endDate=" + this.endDate).then(function (response) {
-          _this4.range = response.data.datarange;
-          _this4.postsanalyticCopy = response.data.postAnalytic;
-          _this4.toppostsCopy = response.data.topPosts;
+          _this5.range = response.data.datarange;
+          _this5.postsanalyticCopy = response.data.postAnalytic;
 
-          _this4.fillColor();
+          _this5.fillColor(); // this.toppostsCopy = response.data.topPosts
 
-          console.log(response);
 
-          _this4.calculateData();
+          _this5.calculateData();
+
+          _this5.createToppost(response.data.topPosts);
         });
       }
+    },
+    createToppost: function createToppost() {
+      var posts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      this.toppostsCopy = [];
+      var topposts = posts == null ? this.topposts : posts;
+
+      for (var i in topposts) {
+        var dElem = this.datasets.find(function (d) {
+          if (d.id == topposts[i].post_id) {
+            return d;
+          } // else{
+          //     if( !d.id == 0){
+          //
+          //         d.show = false
+          //     }
+          // }
+
+        });
+
+        if (dElem) {
+          topposts[i].show = dElem.show;
+          this.$set(this.toppostsCopy, i, topposts[i]); // this.toppostsCopy.push(topposts[i])
+        } //function to find element not equal datasets and toppos and make them show false
+
+      }
+
+      var _this = this;
+
+      var results = this.datasets.filter(function (o1) {
+        return !_this.toppostsCopy.some(function (o2) {
+          return o2.post_id == o1.id; // assumes unique id
+        });
+      }); // var results = this.datasets.filter(o1=> {
+      //
+      //     return this.toppostsCopy.some(o2=> {
+      //
+      //         return o2.post_id == o1.id;          // assumes unique id
+      //     });
+      // } )
+      // var countingShow = 0;
+
+      for (var e in results) {
+        if (results[e].id == 0) {
+          continue;
+        } // countingShow ++
+
+
+        results[e].show = false;
+      } // if(countingShow>0){
+      //     this.x = false
+      // }
+      // var f = this.toppostsCopy.some(e=>{
+      //     return e.post_id>1;
+      // })
+      // console.log(f)
+      // var result = this.datasets.filter(function(x){
+      //     return this.toppostsCopy.some(function(y){
+      //         return x.id==y.post_id
+      //     })
+      // })
+      // console.log(result)
+      //     // console.log(arr[f])
+      //     var el = this.toppostsCopy.find(e => {
+      //
+      //         console.log(e.post_id != arr[f])
+      //       //   console.log(103!=108)
+      //       // if( e.post_id != arr[f]){
+      //       //     console.log( e.post_id != arr[f])
+      //       //     console.log(e.post_id)
+      //       // }
+      //
+      //     })
+      //
+      //
+      //     // if(el.length!=0){
+      //     //     arr2.push(el)
+      //     // }
+      //
+      //
+      //
+      // }
+      // console.log(arr2)
+      // console.log(this.toppostsCopy)
+      // console.log(topposts)
+      // var t = this.datasets.filter(d=>{
+      //     for(var b in topposts){
+      //         return d.id != topposts[b].post_id
+      //     }
+      // })
+      //
+      // console.log(t);
+
     }
   },
   mounted: function mounted() {
-    var _this5 = this;
+    var _this6 = this;
 
     this.range = this.analyticdatarange;
     this.startDate = this.startdateformat;
     this.endDate = this.enddateformat;
     this.analyticData = this.analyticdatarange;
-    this.postsanalyticCopy = this.postsanalytic;
-    this.toppostsCopy = this.topposts;
+    this.postsanalyticCopy = this.postsanalytic; // this.toppostsCopy = this.topposts
+
     this.fillColor();
     this.calculateData();
-    this.calculateViewsCount('all'); // this.analyticData.labels = this.analyticdatarange
-
+    this.calculateViewsCount('all');
+    this.createToppost();
     $(function () {
-      var self = _this5;
+      var self = _this6;
       $('#date_timepicker_start').datetimepicker({
         format: 'Y/m/d',
         timepicker: false
@@ -46943,7 +47077,7 @@ var render = function() {
             attrs: { type: "checkbox", checked: "true" },
             on: {
               change: function($event) {
-                return _vm.selectType(0)
+                return _vm.selectType("all", 0, 0)
               }
             }
           }),
@@ -46954,12 +47088,53 @@ var render = function() {
         _vm._l(_vm.toppostsCopy, function(post, index) {
           return _c("div", { key: index + 1, staticClass: "form-check" }, [
             _c("input", {
-              staticClass: "form-check-input",
-              attrs: { type: "checkbox", value: "", id: "index" },
-              on: {
-                change: function($event) {
-                  return _vm.selectType(index + 1, post.post_id)
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.toppostsCopy[index].show,
+                  expression: "toppostsCopy[index].show"
                 }
+              ],
+              staticClass: "form-check-input",
+              attrs: { type: "checkbox", id: "index" },
+              domProps: {
+                checked: Array.isArray(_vm.toppostsCopy[index].show)
+                  ? _vm._i(_vm.toppostsCopy[index].show, null) > -1
+                  : _vm.toppostsCopy[index].show
+              },
+              on: {
+                change: [
+                  function($event) {
+                    var $$a = _vm.toppostsCopy[index].show,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = null,
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 &&
+                          _vm.$set(
+                            _vm.toppostsCopy[index],
+                            "show",
+                            $$a.concat([$$v])
+                          )
+                      } else {
+                        $$i > -1 &&
+                          _vm.$set(
+                            _vm.toppostsCopy[index],
+                            "show",
+                            $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                          )
+                      }
+                    } else {
+                      _vm.$set(_vm.toppostsCopy[index], "show", $$c)
+                    }
+                  },
+                  function($event) {
+                    return _vm.selectType(index + 1, post.post_id, index + 1)
+                  }
+                ]
               }
             }),
             _vm._v(" "),
@@ -46968,9 +47143,9 @@ var render = function() {
               { staticClass: "form-check-label", attrs: { for: "index" } },
               [
                 _vm._v(
-                  "\n                " +
+                  "\n                    " +
                     _vm._s(post.title) +
-                    "\n                "
+                    "\n                    "
                 ),
                 _vm.datasets[1]
                   ? _c("div", {
@@ -46985,7 +47160,55 @@ var render = function() {
               ]
             )
           ])
-        })
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-check" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.other,
+                expression: "other"
+              }
+            ],
+            staticClass: "form-check-input",
+            attrs: { type: "checkbox" },
+            domProps: {
+              checked: Array.isArray(_vm.other)
+                ? _vm._i(_vm.other, null) > -1
+                : _vm.other
+            },
+            on: {
+              change: [
+                function($event) {
+                  var $$a = _vm.other,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = null,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.other = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.other = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.other = $$c
+                  }
+                },
+                function($event) {
+                  return _vm.selectType("other")
+                }
+              ]
+            }
+          }),
+          _vm._v(" "),
+          _vm._m(1)
+        ])
       ],
       2
     )
@@ -47007,6 +47230,26 @@ var staticRenderFns = [
             width: "10px",
             height: "10px",
             "background-color": "#f87979"
+          }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "form-check-label", attrs: { for: "index" } },
+      [
+        _vm._v("\n                Other\n                "),
+        _c("div", {
+          staticStyle: {
+            display: "inline-block",
+            width: "10px",
+            height: "10px",
+            "background-color": "#7d34f4"
           }
         })
       ]
