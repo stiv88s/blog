@@ -73,6 +73,70 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "https://api.admin-blog.test/register",
+    "title": "Register User",
+    "header": {
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n  \"Accept\": \"application/json\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "group": "Auth",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>User name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>User email</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>User password</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n \"name\" => \"testname\",\n \"email\" => \"some@email.com\",\n\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "  HTTP/1.1 422 UNPROCESSABLE\n    {\n\"message\": \"The given data was invalid.\",\n     \"errors\": {\n         \"name\": [\n         \"The name field is required.\"\n         ],\n         \"email\": [\n         \"The email field is required.\"\n         ],\n         \"password\": [\n         \"The password field is required.\"\n         ]\n     }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/Http/Controllers/Api/AuthController.php",
+    "groupTitle": "Auth",
+    "name": "PostHttpsApiAdminBlogTestRegister"
+  },
+  {
+    "type": "post",
     "url": "https://api.admin-blog.test/oauth/token",
     "title": "Refresh Auth Token",
     "name": "Refresh_User_auth_token",

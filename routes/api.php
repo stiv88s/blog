@@ -17,9 +17,15 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-Route::get('/post','PostController@index');
-Route::get('/post/{post}','PostController@show');
-Route::post('/like/{model_id}','LikeController@like');
-Route::post('/dislike/{model_id}','DislikeController@dislike');
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::get('/posts', 'PostController@index');
+    Route::get('/posts/{post}', 'PostController@show');
+    Route::post('/like/{model_id}', 'LikeController@like');
+    Route::post('/dislike/{model_id}', 'DislikeController@dislike');
+
+});
+
+Route::post('/register', 'AuthController@register')->middleware('guest');
+
 
 

@@ -113,7 +113,7 @@ class RouteServiceProvider extends ServiceProvider
 //    }
     protected function mapApiRoutes(){
         Route::prefix('api/v1')
-            ->middleware(['api','auth:api'])
+            ->middleware(['api'])
             ->domain('api.' . env('APP_HOST'))
             ->as('api1.')
             ->namespace($this->namespace . '\Api')

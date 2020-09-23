@@ -20,28 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/adminBlod.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/adminBlod.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/ziggy.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/ziggy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/BlockUserComponent.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/CommentComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CommentComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/CommentsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CommentsComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/categorys/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categorys/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/categories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/categories/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/posts/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/widgets/categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/widgets/categories.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/api/doc/api_data.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/api/doc/api_data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/api/doc/api_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/api/doc/api_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/api/doc/api_project.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/api/doc/api_project.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/api/doc/api_project.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/api/doc/api_project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,19 +189,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Http/Resources/Api" />
-      <recent name="$PROJECT_DIR$/resources/views/layouts/admin" />
-      <recent name="$PROJECT_DIR$/resources/views/layouts" />
-      <recent name="$PROJECT_DIR$/resources/views/admin" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/User" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/js/components" />
       <recent name="$PROJECT_DIR$/public/admin" />
       <recent name="$PROJECT_DIR$/resources/views/admin/permissions" />
       <recent name="$PROJECT_DIR$/resources/lang/ru" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Resources/Api" />
+      <recent name="$PROJECT_DIR$/resources/views/layouts/admin" />
+      <recent name="$PROJECT_DIR$/resources/views/layouts" />
+      <recent name="$PROJECT_DIR$/resources/views/admin" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/User" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.phpunit.xml">
@@ -469,10 +454,10 @@
     </state>
     <state width="699" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1599232016754" />
     <state width="699" height="245" key="GridCell.Tab.0.right/0.23.1440.813@0.23.1440.813" timestamp="1599233140333" />
-    <state x="461" y="273" key="NewPhpClassDialog" timestamp="1600156279310">
+    <state x="461" y="273" key="NewPhpClassDialog" timestamp="1600856565201">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="461" y="273" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1600156279310" />
+    <state x="461" y="273" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1600856565201" />
     <state x="541" y="370" key="NewPhpFileDialog" timestamp="1600075207174">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -481,18 +466,18 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1599137838153" />
-    <state x="97" y="233" width="978" height="548" key="find.popup" timestamp="1600851009246">
+    <state x="97" y="233" width="978" height="548" key="find.popup" timestamp="1600857268959">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="97" y="233" width="978" height="548" key="find.popup/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1600339162927" />
-    <state x="97" y="233" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1600851009246" />
+    <state x="97" y="233" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1600857268959" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1598546940722" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1592814945417" />
     <state x="97" y="250" width="978" height="534" key="find.popup/0.23.1440.877/-247.-1057.1920.993@0.23.1440.877" timestamp="1600260330451" />
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1600852334884">
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1600858699626">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1600852334884" />
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1600858699626" />
     <state x="385" y="205" width="670" height="559" key="search.everywhere.popup/0.23.1440.813/-247.-1057.1920.1057@0.23.1440.813" timestamp="1600255436878" />
     <state x="385" y="219" width="670" height="604" key="search.everywhere.popup/0.23.1440.877/-247.-1057.1920.993@0.23.1440.877" timestamp="1600260547008" />
   </component>
