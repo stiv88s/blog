@@ -43,10 +43,8 @@
                 imageDislikeStatus: '/siteImages/dislike1.png',
                 likeImage: '/siteImages/like1.png',
                 likedImage: '/siteImages/like2.png',
-                likeCount: 0,
                 dislikeImage: '/siteImages/dislike1.png',
                 dislikedImage: '/siteImages/dislike2.png',
-                dislikeCount: 0
             }
         },
         methods: {
@@ -69,12 +67,11 @@
                 axios.post(route("dislike.post", [this.$parent.applocale,this.postid,this.comment.id]).url(), {
                     'type': this.$parent.comment
                 }).then((response) => {
-                        // console.log(response.data)
                         this.likeCount = response.data.likecount
                         this.dislikeCount = response.data.dislikecount
                         response.data.like == false ? this.imageLikeStatus = this.likeImage : this.imageLikeStatus = this.likedImage
                         response.data.dislike == false ? this.imageDislikeStatus = this.dislikeImage : this.imageDislikeStatus = this.dislikedImage
-                        // console.log(this.imageDisLikeStatus)
+
                     }
                 )
 
@@ -82,9 +79,6 @@
         },
         mounted() {
 
-            console.log(this.comment.id)
-
-            // console.log(this.$parent.applocale)
             this.isliked = this.comment.is_liked
             this.isdisliked = this.comment.is_disliked
             this.likeCount = this.comment.likes_count

@@ -10,7 +10,7 @@
 
             @foreach($postCollection->posts as $post)
                 <div>
-                    <a href="{{route('showing.post',[app()->getLocale(),$post->id,$post->slug])}}">{{$post->title}}</a>
+                    <a href="{{route('showing.post',[app()->getLocale(),$post->categorys->first()->slug,$post,$post->slug])}}">{{$post->title}}</a>
 
                 </div>
                 <br>

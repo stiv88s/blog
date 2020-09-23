@@ -38,8 +38,8 @@ Route::group([
 
 //Route::get('set-locale','HomeController@setLocale')->middleware(['web'])->name('setLocale');
 
-        Route::get('/post/{post}-{slug}', 'PostController@show')->name('showing.post');
-        Route::get('/category/{category}-{slug}/post', 'CategoryController@showCategoryPosts')->name('show.categories.posts');
+        Route::get('/{category}/post/{post}-{slug}', 'PostController@show')->name('showing.post');
+        Route::get('category/{category}/posts', 'CategoryController@showCategoryPosts')->name('show.categories.posts');
         Route::get('tag/{tag}-{slug}/posts', 'TagController@showTagPosts')->name('show.tags.posts');
         Route::group(['middleware' => ['web', 'auth']], function () {
 //

@@ -36,7 +36,7 @@
     import CommentComponent from '../components/CommentComponent.vue';
 
     export default {
-        props: ['comments', 'postid', 'postslug','applocale','auth','comment'],
+        props: ['comments', 'postid', 'postslug','applocale','auth','comment','categoryslug'],
 
         data() {
             return {
@@ -62,11 +62,15 @@
                 })
             },
             getResults(page = 1) {
-                axios.get("/"+this.applocale+"/post/" + this.postid + "-" + this.postslug + "?page=" + page)
+                axios.get("/"+this.applocale+"/"+this.categoryslug+"/post/" + this.postid + "-" + this.postslug + "?page=" + page)
                     .then(response => {
                         this.commentsData = response.data
-                        // this.laravelData = response.data;
                     });
+                // axios.get("/"+this.applocale+"/"+this.category.id+"/post/" + this.postid + "-" + this.postslug + "?page=" + page)
+                //     .then(response => {
+                //         this.commentsData = response.data
+                //         // this.laravelData = response.data;
+                //     });
             }
 
         },

@@ -15,8 +15,9 @@ use Wheather;
 
 class PostController extends Controller
 {
-    public function show(Request $request, Post $post)
+    public function show(Request $request, $categoryslug,Post $post)
     {
+        $category = Category::whereSlug($categoryslug)->firstOrFail();
 //        if ($request->city) {
 //
 //            $wheather = Wheather::load($request->city);
@@ -32,7 +33,7 @@ class PostController extends Controller
         if ($request->wantsJson()) {
             return $comments;
         }
-        return view('user.posts.show', compact('post', 'comments', 'categories', 'wheather'));
+        return view('user.posts.show', compact('post', 'comments', 'categories', 'wheather','category'));
     }
 
 

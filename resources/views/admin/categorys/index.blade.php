@@ -20,7 +20,7 @@
             <tr>
                 <td>Id</td>
                 <td>Name</td>
-                <td>Tag</td>
+                <td>Slug</td>
                 <td>Actions</td>
             </tr>
             </thead>
@@ -29,14 +29,14 @@
                 <tr>
                     <td>{{$cat->id}}</td>
                     <td>{{$cat->name}}</td>
-                    <td>{{$cat->tag}}</td>
+                    <td>{{$cat->slug}}</td>
                     @can('update',$cat)
-                    <td class="float-left"><a href="{{route('category.edit',[app()->getLocale(),$cat->id])}}" class="btn btn-info">Edit</a></td>
+                    <td class="float-left"><a href="{{route('category.edit',[app()->getLocale(),$cat])}}" class="btn btn-info">Edit</a></td>
                     @endcan
                     @can('delete',$cat)
 
                     <td class="float-left">
-                        <a href="{{route('category.destroy',[app()->getLocale(),$cat->id])}}" class="btn btn-danger removeCat">Delete</a>
+                        <a href="{{route('category.destroy',[app()->getLocale(),$cat])}}" class="btn btn-danger removeCat">Delete</a>
                     </td>
                     @endcan
                 </tr>

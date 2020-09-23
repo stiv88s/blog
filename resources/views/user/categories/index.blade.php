@@ -12,6 +12,8 @@
                 <img class="img-fluid rounded" src="{{asset('img/childs.jpg')}}" alt="">
 
                 <hr>
+                {{ Breadcrumbs::render('category',  $category) }}
+                <hr>
 
                 <h1 class="pt-5"> Read Our Posts:</h1>
 
@@ -63,7 +65,7 @@
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                         @foreach($posts as $post)
                             <div class="post-preview">
-                                <a href="{{route('showing.post',[app()->getLocale(),$post,$post->slug])}}">
+                                <a href="{{route('showing.post',[app()->getLocale(),$category,$post,$post->slug])}}">
                                     <h2 class="post-title">
                                         {{$post->title}}
                                     </h2>

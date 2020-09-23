@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use App\Model\Category;
 use App\Model\Post;
 use App\ModelRepository\CategoryRepository;
@@ -44,7 +46,7 @@ class CategoryController extends Controller
         return view('admin.categorys.edit', compact('category'));
     }
 
-    public function update(Request $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
         $this->authorize('update', $category);
 
@@ -63,7 +65,7 @@ class CategoryController extends Controller
         return view('admin.categorys.create');
     }
 
-    public function store(Request $request, $locale = null)
+    public function store(CreateCategoryRequest $request, $locale = null)
     {
         $this->authorize('create', Category::class);
         Category::create($request->all());

@@ -26,6 +26,8 @@
                     <img class="img-fluid rounded" src="{{asset($post->header_image)}}" alt="images">
 
                 @endif
+                <hr>
+                {{ Breadcrumbs::render('post',  $post,$category) }}
 
                 <hr>
 
@@ -111,6 +113,7 @@
 {{--                    @auth--}}
                         <comments-component
                             :comments="{{json_encode($comments)}}"
+                            categoryslug="{{$category->slug}}"
                             comment="{{\App\Model\Comment::class}}"
                             postid="{{$post->id}}"
                             applocale="{{app()->getLocale()}}"
@@ -192,7 +195,7 @@
             <!-- Side Widget -->
                 <div class="card my-4">
                     <h5 class="card-header">Wheater</h5>
-                    <form action="{{route('showing.post',[app()->getLocale(),$post,$post->slug])}}" method="get">
+                    <form action="{{route('showing.post',[app()->getLocale(),$category,$post,$post->slug])}}" method="get">
                         <div class="input-group">
                             <input type="text" class="form-control" name="city" placeholder="Search by city" aria-label="Search by city" aria-describedby="basic-addon2">
                             <div class="input-group-append">

@@ -31,6 +31,11 @@ class Category extends Model implements GenerableInterface
 //
 //    }
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function post()
     {
         return $this->belongsToMany(Post::class, 'category_posts', 'category_id', 'posts_id')->withTimestamps();
