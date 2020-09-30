@@ -14,7 +14,6 @@ class CreateAdmin extends Command
      * @var string
      */
     protected $signature = 'admin:create';
-
     protected $name;
     protected $email;
     protected $password;
@@ -43,36 +42,33 @@ class CreateAdmin extends Command
      */
     public function handle()
     {
-        if ($this->asking() == true) {
-
+        if ($this->asking()) {
             $role = Role::where('rolename', 'superadmin')->first();
 
             if (!$role) {
                 $role = Role::create([
                     'rolename' => 'superadmin'
                 ]);
-            } else {
-                $admin = Admin::where('email', $this->email)->first();
-
-                if (!$admin) {
-                    $admin = Admin::create([
-                        'name' => $this->name,
-                        'email' => $this->email,
-                        'password' => bcrypt($this->password),
-                        'status' => 1
-
-                    ]);
-                } else {
-                    $this->info("Email Exist, please Create new admin");
-                    $this->asking();
-                }
-                $admin->roles()->sync([$role->id]);
             }
 
+            $admin = Admin::where('email', $this->email)->first();
 
-        } else {
-            $this->asking();
-        }
+            if (!$admin) {
+                $admin = Admin::create([
+                    'name' => $this->name,
+                    'email' => $this->email,
+                    'password' => bcrypt($this->password),
+                    'status' => 1
+
+                ]);
+
+                $admin->roles()->sync([$role->id]);
+            } else {
+                $this->info("Email Exist, please Create new admin");
+                $this->handle();
+            }
+        };
+
 
     }
 
@@ -97,4 +93,5 @@ class CreateAdmin extends Command
         }
 
     }
+
 }

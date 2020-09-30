@@ -20,13 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_9_23_20,_12_31_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_9_23_20__12_31__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/api/doc/api_data.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/api/doc/api_data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/api/doc/api_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/api/doc/api_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/api/doc/api_project.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/api/doc/api_project.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/api/doc/api_project.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/api/doc/api_project.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/CreateAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/CreateAdmin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -355,6 +352,9 @@
       <workItem from="1600446831332" duration="467000" />
       <workItem from="1600670657761" duration="8926000" />
       <workItem from="1600841605804" duration="9593000" />
+      <workItem from="1601401338008" duration="139000" />
+      <workItem from="1601403873322" duration="103000" />
+      <workItem from="1601465278899" duration="566000" />
     </task>
     <servers />
   </component>
@@ -418,10 +418,6 @@
     </state>
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1600249739267" />
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1600273200357" />
-    <state x="378" y="111" key="#phpunit.xml" timestamp="1592480166261">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="378" y="111" key="#phpunit.xml/0.0.1440.900@0.0.1440.900" timestamp="1592480166261" />
     <state x="135" y="39" width="1240" height="700" key="DiffContextDialog" timestamp="1600852390813">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -466,11 +462,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1599137838153" />
-    <state x="97" y="233" width="978" height="548" key="find.popup" timestamp="1600857268959">
+    <state x="97" y="233" width="978" height="548" key="find.popup" timestamp="1601403902891">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="97" y="233" width="978" height="548" key="find.popup/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1600339162927" />
-    <state x="97" y="233" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1600857268959" />
+    <state x="97" y="233" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1601403902891" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1598546940722" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1592814945417" />
     <state x="97" y="250" width="978" height="534" key="find.popup/0.23.1440.877/-247.-1057.1920.993@0.23.1440.877" timestamp="1600260330451" />
