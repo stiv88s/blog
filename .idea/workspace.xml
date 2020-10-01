@@ -20,10 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="844f5868-1019-4443-b204-77b8f1b20b8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_9_23_20,_12_31_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_9_23_20__12_31__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/CreateAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/CreateAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/posts/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/html/postcreated.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/postcreated.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/html/weeklyposts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/weeklyposts.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -355,6 +355,7 @@
       <workItem from="1601401338008" duration="139000" />
       <workItem from="1601403873322" duration="103000" />
       <workItem from="1601465278899" duration="566000" />
+      <workItem from="1601539325540" duration="531000" />
     </task>
     <servers />
   </component>
@@ -468,12 +469,11 @@
     <state x="97" y="233" width="978" height="548" key="find.popup/0.0.1440.900/-247.-1080.1920.1080@0.0.1440.900" timestamp="1600339162927" />
     <state x="97" y="233" width="978" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1601403902891" />
     <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1598546940722" />
-    <state x="97" y="231" width="978" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1592814945417" />
     <state x="97" y="250" width="978" height="534" key="find.popup/0.23.1440.877/-247.-1057.1920.993@0.23.1440.877" timestamp="1600260330451" />
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1600858699626">
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup" timestamp="1601540372419">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1600858699626" />
+    <state x="385" y="202" width="670" height="618" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1601540372419" />
     <state x="385" y="205" width="670" height="559" key="search.everywhere.popup/0.23.1440.813/-247.-1057.1920.1057@0.23.1440.813" timestamp="1600255436878" />
     <state x="385" y="219" width="670" height="604" key="search.everywhere.popup/0.23.1440.877/-247.-1057.1920.993@0.23.1440.877" timestamp="1600260547008" />
   </component>

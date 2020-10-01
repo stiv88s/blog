@@ -34,7 +34,6 @@
                 {!!$post->body!!}
 
             <!-- Post Content -->
-                {!!$post->body!!}
                 <hr>
                 <h2 class="text-center mb-2">
                     What do you think?
